@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#050a16">
+    <link rel="manifest"
+        href='data:application/manifest+json,{"name":"AIRA Kanag","short_name":"AIRA","start_url":".","display":"standalone","background_color":"050a16","theme_color":"#5d2e46"}'>
+    <title>AIRA · Kanag Super Speciality E.N.T. Centre · Meerut</title>
+    <style>
+        :root {
+            --bg: #050a16;
+            --panel: #0b1428;
+            --panel2: #0c1830;
+            --line: #16233f;
+            --cyan: #22d3ee;
+            --emerald: #34d399;
+            --amber: #fbbf24;
+            --violet: #a78bfa;
+            --magenta: #f472b6;
+            --orange: #fb923c;
+            --kanag: #5d2e46;
+            --kanag2: #a8899a;
+            --plum: #c98bb0;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --red: #f87171
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        html,
+        body {
+            overflow-x: hidden
+        }
+
+        body {
+            background: radial-gradient(1200px 700px at 50% 30%, #0a1430 0%, var(--bg) 60%);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            padding-bottom: 84px;
+            transition: background .4s, color .4s
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, rgba(56, 89, 146, .06) 0 1px, transparent 1px 48px), repeating-linear-gradient(90deg, rgba(56, 89, 146, .06) 0 1px, transparent 1px 48px)
+        }
+
+        body.light {
+            --bg: #f6f3f7;
+            --panel: #ffffff;
+            --panel2: #f3edf4;
+            --line: #e5d9e3;
+            --text: #2b1622;
+            --muted: #7c6673;
+            --cyan: #5d2e46;
+            --emerald: #1d7a4f;
+            --amber: #a16207;
+            --violet: #6d28d9;
+            --red: #b91c1c;
+            background: #f6f3f7
+        }
+
+        body.light header {
+            background: rgba(255, 255, 255, .95)
+        }
+
+        body.light .brand h1 {
+            background: linear-gradient(90deg, #5d2e46, #a8899a);
+            -webkit-background-clip: text;
+            background-clip: text
+        }
+
+        body.light canvas.chart {
+            background: #fff
+        }
+
+        body.light #panel {
+            background: rgba(255, 255, 255, .97)
+        }
+
+        body.light .node rect {
+            fill: #fff;
+            stroke: #c9b6c6
+        }
+
+        body.light .band-lbl {
+            fill: #9b8798
+        }
+
+        body.light .band-line {
+            stroke: #e0d3de
+        }
+
+        body.light .wa {
+            background: #e9fbe9;
+            border-color: #bfe3bf;
+            color: #14532d
+        }
+
+        body.light .log div {
+            color: #5b4656
+        }
+
+        body.light nav#bnav,
+        body.light #more .sheet,
+        body.light #mnav {
+            background: #fff
+        }
+
+        body.light .toast {
+            background: #fff
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.85);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            50% {
+                transform: scale(1.35);
+                opacity: .5
+            }
+        }
+
+        @keyframes slideRow {
+            from {
+                opacity: 0;
+                transform: translateX(-14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes drop {
+            from {
+                transform: translate(-50%, -24px);
+                opacity: 0
+            }
+
+            to {
+                transform: translate(-50%, 0);
+                opacity: 1
+            }
+        }
+
+        @keyframes sheetUp {
+            from {
+                transform: translateY(100%)
+            }
+
+            to {
+                transform: none
+            }
+        }
+
+        @keyframes rip {
+            to {
+                transform: scale(3);
+                opacity: 0
+            }
+        }
+
+        @keyframes mar {
+            from {
+                transform: translateX(100%)
+            }
+
+            to {
+                transform: translateX(-100%)
+            }
+        }
+
+        @keyframes dashflow {
+            to {
+                stroke-dashoffset: -28
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes spinrev {
+            to {
+                transform: rotate(-360deg)
+            }
+        }
+
+        @keyframes kenb {
+            from {
+                transform: scale(1)
+            }
+
+            to {
+                transform: scale(1.05)
+            }
+        }
+
+        @keyframes glowb {
+
+            0%,
+            100% {
+                box-shadow: 0 0 12px rgba(201, 139, 176, .35)
+            }
+
+            50% {
+                box-shadow: 0 0 26px rgba(201, 139, 176, .7)
+            }
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--line);
+            border-top: 4px solid var(--kanag);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(5, 10, 22, .92);
+            backdrop-filter: blur(8px)
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .emb {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--kanag);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--plum);
+            animation: glowb 3s infinite
+        }
+
+        .logo,
+        .logoRep {
+            height: 42px;
+            background: #fff;
+            padding: 3px 8px;
+            border-radius: 10px;
+            animation: glowb 3s infinite
+        }
+
+        .logoRep svg {
+            height: 100%;
+            width: auto;
+            display: block
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            letter-spacing: 4px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--cyan), var(--plum));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .brand p {
+            color: var(--muted);
+            font-size: 8px;
+            letter-spacing: 2px
+        }
+
+        .aud {
+            display: flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .aud button {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            color: var(--muted);
+            border-radius: 16px;
+            padding: 5px 10px;
+            font-size: 9.5px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .aud button.on {
+            color: var(--cyan);
+            border-color: var(--cyan)
+        }
+
+        .mbtn {
+            display: none;
+            background: var(--panel2);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            border-radius: 10px;
+            padding: 6px 11px;
+            font-size: 14px;
+            cursor: pointer
+        }
+
+        #mnav {
+            position: fixed;
+            top: 70px;
+            left: 10px;
+            right: 10px;
+            z-index: 66;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 10px;
+            display: none;
+            max-height: 62vh;
+            overflow: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px
+        }
+
+        #mnav.on {
+            display: grid
+        }
+
+        #mnav .m {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 3px;
+            font-size: 9px;
+            color: var(--cyan);
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer
+        }
+
+        .ticker {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scrollbar-width: none
+        }
+
+        .ticker::-webkit-scrollbar {
+            display: none
+        }
+
+        .stat {
+            min-width: 96px;
+            flex: 0 0 auto
+        }
+
+        .stat .lbl {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: var(--muted)
+        }
+
+        .stat .val {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--cyan)
+        }
+
+        .stat .val small {
+            font-size: 9px;
+            color: var(--emerald);
+            margin-left: 4px
+        }
+
+        #dnav {
+            display: none
+        }
+
+        main {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 4px 0 20px
+        }
+
+        section {
+            display: none
+        }
+
+        section.on {
+            display: block
+        }
+
+        section.on .card {
+            animation: rise .5s cubic-bezier(.2, .8, .3, 1) both
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            margin: 12px 12px 0;
+            padding: 14px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .12)
+        }
+
+        .card h3 {
+            font-size: 12.5px;
+            color: var(--cyan);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            letter-spacing: 1px;
+            flex-wrap: wrap
+        }
+
+        .note {
+            font-size: 10.5px;
+            color: var(--muted);
+            margin-top: 8px;
+            line-height: 1.5
+        }
+
+        .live {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald);
+            display: inline-block;
+            animation: pulse 1.6s infinite
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px
+        }
+
+        .kpi {
+            background: linear-gradient(160deg, var(--panel2), var(--panel));
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 10px;
+            text-align: center
+        }
+
+        .kpi b {
+            display: block;
+            font-size: 17px;
+            color: var(--cyan)
+        }
+
+        .kpi span {
+            font-size: 9px;
+            color: var(--muted)
+        }
+
+        .chip {
+            display: inline-block;
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: rgba(34, 211, 238, .12);
+            color: var(--cyan);
+            border: 1px solid rgba(34, 211, 238, .35);
+            font-weight: 700;
+            margin: 1px
+        }
+
+        .chip.g {
+            background: rgba(52, 211, 153, .12);
+            color: var(--emerald);
+            border-color: rgba(52, 211, 153, .35)
+        }
+
+        .chip.a {
+            background: rgba(251, 191, 36, .12);
+            color: var(--amber);
+            border-color: rgba(251, 191, 36, .35)
+        }
+
+        .chip.r {
+            background: rgba(248, 113, 113, .12);
+            color: var(--red);
+            border-color: rgba(248, 113, 113, .35)
+        }
+
+        .chip.v {
+            background: rgba(167, 139, 250, .12);
+            color: var(--violet);
+            border-color: rgba(167, 139, 250, .35)
+        }
+
+        .tagC {
+            background: rgba(52, 211, 153, .15);
+            color: var(--emerald);
+            border: 1px solid rgba(52, 211, 153, .4);
+            border-radius: 12px;
+            font-size: 8px;
+            padding: 2px 7px;
+            letter-spacing: 1px
+        }
+
+        .tagA {
+            background: rgba(167, 139, 250, .15);
+            color: var(--violet);
+            border: 1px solid rgba(167, 139, 250, .4);
+            border-radius: 12px;
+            font-size: 8px;
+            padding: 2px 7px;
+            letter-spacing: 1px
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(34, 211, 238, .18), rgba(167, 139, 250, .18));
+            color: var(--cyan);
+            border: 1px solid rgba(34, 211, 238, .5);
+            border-radius: 12px;
+            padding: 9px 13px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 6px 6px 0 0;
+            position: relative;
+            overflow: hidden;
+            transition: transform .15s
+        }
+
+        .btn:active {
+            transform: scale(.94)
+        }
+
+        .btn.ok {
+            color: var(--emerald);
+            border-color: rgba(52, 211, 153, .5);
+            background: rgba(52, 211, 153, .12)
+        }
+
+        .btn.warn {
+            color: var(--amber);
+            border-color: rgba(251, 191, 36, .5);
+            background: rgba(251, 191, 36, .12)
+        }
+
+        .btn.danger {
+            color: var(--red);
+            border-color: rgba(248, 113, 113, .5);
+            background: rgba(248, 113, 113, .12)
+        }
+
+        .btn.ghost {
+            background: transparent
+        }
+
+        .btn.sm {
+            padding: 6px 10px;
+            font-size: 10.5px;
+            border-radius: 10px;
+            margin: 0
+        }
+
+        .acts {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(34, 211, 238, .4);
+            transform: scale(0);
+            animation: rip .6s forwards;
+            pointer-events: none
+        }
+
+        label {
+            font-size: 10px;
+            color: var(--muted);
+            display: block;
+            margin: 8px 0 3px;
+            font-weight: 600;
+            letter-spacing: .5px
+        }
+
+        .ck {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+            font-size: 11.5px;
+            color: var(--text);
+            text-align: left;
+            font-weight: 400
+        }
+
+        .ck input {
+            width: auto;
+            flex: none
+        }
+
+        .ck span {
+            flex: none;
+            text-align: left
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1.5px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 12.5px;
+            background: var(--panel2);
+            color: var(--text)
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--cyan)
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            height: 6px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--plum));
+            border: none;
+            padding: 0
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #05202a;
+            border: 3px solid var(--cyan)
+        }
+
+        .row {
+            display: flex;
+            gap: 8px
+        }
+
+        .row>* {
+            flex: 1
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10.5px
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+            color: var(--text)
+        }
+
+        th {
+            color: var(--muted);
+            font-weight: 700;
+            font-size: 9px;
+            text-transform: uppercase
+        }
+
+        .qrow {
+            animation: slideRow .4s both
+        }
+
+        .wa {
+            background: #0d2a1c;
+            border: 1px solid #1d4d33;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 11.5px;
+            margin-top: 8px;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            color: #c9f2d8;
+            animation: rise .4s both
+        }
+
+        .wa .t {
+            display: block;
+            text-align: right;
+            font-size: 9px;
+            color: #6fa886;
+            margin-top: 4px
+        }
+
+        .stamp {
+            border: 2px dashed var(--emerald);
+            border-radius: 12px;
+            padding: 10px;
+            margin-top: 10px;
+            background: rgba(52, 211, 153, .07);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            animation: pop .45s cubic-bezier(.2, 1.4, .4, 1)
+        }
+
+        .stamp .meta {
+            font-size: 10.5px;
+            line-height: 1.5
+        }
+
+        .stamp b {
+            color: var(--emerald)
+        }
+
+        canvas.chart {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: var(--panel2)
+        }
+
+        canvas.poster {
+            width: 100%;
+            max-width: 520px;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 12px;
+            border: 1px solid var(--line)
+        }
+
+        .steps {
+            list-style: none
+        }
+
+        .steps li {
+            display: flex;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px dashed var(--line);
+            font-size: 11.5px;
+            align-items: flex-start
+        }
+
+        .steps .n {
+            width: 20px;
+            height: 20px;
+            flex: none;
+            border-radius: 50%;
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            color: var(--cyan);
+            font-weight: 800;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .steps li.done .n {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            color: #05202a;
+            animation: pop .35s
+        }
+
+        .log {
+            font-size: 10.5px;
+            max-height: 220px;
+            overflow: auto
+        }
+
+        .log div {
+            padding: 5px 8px;
+            border-bottom: 1px solid var(--line);
+            animation: slideRow .4s both;
+            color: #9fb3d1
+        }
+
+        .log .blk {
+            background: rgba(248, 113, 113, .12);
+            color: var(--red)
+        }
+
+        .log .ok {
+            background: rgba(52, 211, 153, .1);
+            color: var(--emerald)
+        }
+
+        .log .pen {
+            background: rgba(251, 191, 36, .1);
+            color: var(--amber)
+        }
+
+        .log .bot {
+            background: rgba(34, 211, 238, .08);
+            color: var(--cyan)
+        }
+
+        .tickerbar {
+            overflow: hidden;
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 6px 0;
+            margin-top: 10px
+        }
+
+        .tickerbar .in {
+            display: inline-block;
+            white-space: nowrap;
+            animation: mar 30s linear infinite;
+            font-size: 10.5px;
+            color: var(--cyan);
+            font-weight: 600
+        }
+
+        .meter {
+            height: 7px;
+            border-radius: 6px;
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            margin: 5px 0
+        }
+
+        .meter i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--emerald), var(--cyan));
+            transition: width .7s
+        }
+
+        .prow {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 11.5px;
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--line);
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .ccard {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--cyan);
+            border-radius: 12px;
+            padding: 10px;
+            margin-top: 8px;
+            animation: rise .4s both
+        }
+
+        .ccard.warn {
+            border-left-color: var(--amber)
+        }
+
+        .ccard.bad {
+            border-left-color: var(--red)
+        }
+
+        .ccard.good {
+            border-left-color: var(--emerald)
+        }
+
+        .ccard .why {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 5px;
+            line-height: 1.5
+        }
+
+        .bldwrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            margin-top: 8px
+        }
+
+        .bld {
+            width: 100%;
+            height: auto;
+            max-height: 430px;
+            object-fit: cover;
+            object-position: center 35%;
+            display: block;
+            animation: kenb 16s ease-in-out infinite alternate
+        }
+
+        #panel .bldwrap {
+            max-height: 120px
+        }
+
+        #panel .bld {
+            max-height: 120px
+        }
+
+        .archbar {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 8px
+        }
+
+        .archbar button {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            color: var(--text);
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 10.5px
+        }
+
+        .stagewrap {
+            position: relative
+        }
+
+        .scrollwrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+
+        #diagram {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .swipe-hint {
+            display: none;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(11, 20, 40, .9);
+            border: 1px solid var(--line);
+            color: var(--cyan);
+            font-size: 9.5px;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 5
+        }
+
+        .band-lbl {
+            fill: #3b4d6e;
+            font-size: 13px;
+            letter-spacing: 4px;
+            font-weight: 600
+        }
+
+        .band-line {
+            stroke: #182742;
+            stroke-width: 1;
+            stroke-dasharray: 2 6
+        }
+
+        .edge {
+            fill: none;
+            stroke-width: 1.8;
+            opacity: .85;
+            stroke-dasharray: 5 9;
+            animation: dashflow linear infinite;
+            transition: opacity .3s
+        }
+
+        .edge.hot {
+            stroke-width: 3.4;
+            opacity: 1;
+            filter: drop-shadow(0 0 9px rgba(34, 211, 238, .9))
+        }
+
+        .node {
+            cursor: pointer
+        }
+
+        .node rect {
+            fill: #0c1830;
+            stroke: #2a3f66;
+            stroke-width: 1.4;
+            transition: all .25s
+        }
+
+        .node:hover rect {
+            stroke: var(--cyan)
+        }
+
+        .node.hot rect {
+            stroke: var(--emerald);
+            filter: drop-shadow(0 0 16px rgba(52, 211, 153, .85))
+        }
+
+        .node.sel rect {
+            stroke: var(--cyan);
+            filter: drop-shadow(0 0 16px rgba(34, 211, 238, .8))
+        }
+
+        .node text {
+            pointer-events: none
+        }
+
+        .node .n-icon {
+            font-size: 17px
+        }
+
+        .node .n-name {
+            fill: var(--text);
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .node .n-sub {
+            fill: var(--muted);
+            font-size: 9px
+        }
+
+        .dim {
+            opacity: .12 !important
+        }
+
+        .core-ring {
+            fill: none;
+            stroke: var(--cyan);
+            stroke-dasharray: 6 10;
+            opacity: .7;
+            animation: spin 24s linear infinite
+        }
+
+        .core-ring2 {
+            fill: none;
+            stroke: var(--plum);
+            stroke-dasharray: 2 14;
+            opacity: .6;
+            animation: spinrev 16s linear infinite
+        }
+
+        #panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 280px;
+            max-height: calc(100% - 20px);
+            overflow-y: auto;
+            background: rgba(11, 20, 40, .97);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 11.5px;
+            line-height: 1.5;
+            border-top: 3px solid var(--kanag);
+            z-index: 7
+        }
+
+        #panel.hid {
+            display: none
+        }
+
+        #panel h3 {
+            font-size: 13px;
+            color: var(--cyan);
+            margin-bottom: 5px
+        }
+
+        #panel .tag {
+            display: inline-block;
+            font-size: 8.5px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 2px 8px;
+            margin-bottom: 8px
+        }
+
+        #panel .io {
+            margin-top: 8px
+        }
+
+        #panel .io b {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: var(--muted)
+        }
+
+        #panel .io ul {
+            list-style: none;
+            margin-top: 3px
+        }
+
+        #panel .io li {
+            padding: 2px 0;
+            color: #9fb3d1
+        }
+
+        #panel .io li::before {
+            content: '→ ';
+            color: var(--cyan)
+        }
+
+        #btnClose {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 15px;
+            cursor: pointer
+        }
+
+        .legend {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 8px
+        }
+
+        .leg {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 9.5px;
+            color: #9fb3d1
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%
+        }
+
+        #chatBox {
+            height: 140px;
+            overflow: auto;
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 8px;
+            font-size: 11px
+        }
+
+        #chatBox .u {
+            color: var(--cyan);
+            margin: 3px 0
+        }
+
+        #chatBox .b {
+            color: #9fb3d1;
+            margin: 3px 0
+        }
+
+        #more {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 14, .6);
+            z-index: 50;
+            display: none
+        }
+
+        #more.on {
+            display: block
+        }
+
+        #more .sheet {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px 20px 0 0;
+            padding: 14px 12px calc(14px + env(safe-area-inset-bottom));
+            max-height: 76vh;
+            overflow: auto;
+            animation: sheetUp .35s
+        }
+
+        #more .gridm {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px
+        }
+
+        #more .m {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 3px;
+            font-size: 9px;
+            color: var(--cyan);
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer
+        }
+
+        nav#bnav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 20, 40, .95);
+            border-top: 1px solid var(--line);
+            display: flex;
+            z-index: 40;
+            padding-bottom: env(safe-area-inset-bottom)
+        }
+
+        nav#bnav button {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 7px 2px 9px;
+            font-size: 9px;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        nav#bnav .i {
+            font-size: 17px;
+            transition: transform .25s
+        }
+
+        nav#bnav button.on {
+            color: var(--cyan);
+            font-weight: 800
+        }
+
+        nav#bnav button.on .i {
+            transform: translateY(-2px) scale(1.12)
+        }
+
+        .toast {
+            position: fixed;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--panel);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-size: 11.5px;
+            padding: 8px 15px;
+            border-radius: 24px;
+            z-index: 99;
+            display: none;
+            max-width: 90%;
+            animation: drop .3s
+        }
+
+        pre.json {
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 9.5px;
+            overflow: auto;
+            max-height: 180px;
+            color: var(--emerald)
+        }
+
+        @media(max-width:600px) {
+            table {
+                font-size: 9.5px
+            }
+
+            .logo,
+            .logoRep {
+                height: 34px
+            }
+
+            .brand h1 {
+                font-size: 15px
+            }
+
+            .bld {
+                max-height: 300px
+            }
+        }
+
+        @media(max-width:820px) {
+            .swipe-hint {
+                display: block
+            }
+
+            .mbtn {
+                display: inline-flex
+            }
+
+            #panel {
+                position: fixed;
+                top: auto;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                bottom: calc(10px + env(safe-area-inset-bottom));
+                max-height: 44vh;
+                z-index: 60;
+                transform: translateY(130%);
+                transition: transform .3s
+            }
+
+            #panel.open {
+                transform: translateY(0)
+            }
+
+            #panel.hid {
+                transform: translateY(130%);
+                display: block
+            }
+        }
+
+        @media(min-width:900px) {
+            nav#bnav {
+                display: none
+            }
+
+            body {
+                padding-bottom: 20px
+            }
+
+            #dnav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                max-width: 1100px;
+                margin: 10px auto 0;
+                padding: 0 12px
+            }
+
+            #dnav button {
+                border: 1px solid var(--line);
+                background: var(--panel);
+                border-radius: 18px;
+                padding: 6px 11px;
+                font-size: 10.5px;
+                font-weight: 700;
+                color: var(--muted);
+                cursor: pointer
+            }
+
+            #dnav button.on {
+                background: rgba(34, 211, 238, .15);
+                color: var(--cyan);
+                border-color: var(--cyan)
+            }
+
+            main {
+                max-width: 1100px
+            }
+
+            .grid3 {
+                grid-template-columns: repeat(6, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <div class="emb">🦻</div><img class="logo" data-brand="logo" src="assets/kanag-logo.png" alt="Kanag">
+            <div>
+                <h1>A I R A · v11</h1>
+                <p>KANAG ENT · कनाग · MEERUT · LISTEN BETTER · BREATHE BETTER · LIVE BETTER</p>
+            </div>
+        </div>
+        <div class="aud"><button class="mbtn" onclick="mnavToggle()">☰</button><button onclick="thToggle()"
+                id="thBtn">☀</button><button class="on" onclick="setAud('ALL')">ALL</button><button
+                onclick="setAud('C')">CUSTOMER</button><button onclick="setAud('A')">ADMIN</button><button id="langBtn"
+                onclick="toggleLang()">हिं</button></div>
+        <div class="ticker">
+            <div class="stat">
+                <div class="lbl">TOKENS</div>
+                <div class="val" id="stTokens">47</div>
+            </div>
+            <div class="stat">
+                <div class="lbl">AVG WAIT</div>
+                <div class="val"><span id="stWait">168</span>m<small>▼87%</small></div>
+            </div>
+            <div class="stat">
+                <div class="lbl">OT UTIL</div>
+                <div class="val"><span id="stOT">38</span>%</div>
+            </div>
+            <div class="stat">
+                <div class="lbl">SAT</div>
+                <div class="val">4.5★</div>
+            </div>
+        </div>
+    </header>
+    <div id="mnav"></div>
+    <nav id="dnav"></nav>
+    <main>
+        <section id="s-home" class="on">
+            <div class="card" data-aud="A">
+                <h3><span class="live"></span> COMMAND DASHBOARD <span class="tagA">ADMIN</span></h3>
+                <div class="grid3">
+                    <div class="kpi"><b id="kWait">0m</b><span>AVG WAIT</span></div>
+                    <div class="kpi"><b id="kRen">0%</b><span>RENEGING</span></div>
+                    <div class="kpi"><b id="kOT">0%</b><span>OT UTIL</span></div>
+                    <div class="kpi"><b id="kClm">0%</b><span>FIRST-PASS</span></div>
+                    <div class="kpi"><b>92</b><span>ASSET HEALTH</span></div>
+                    <div class="kpi"><b id="kSig">0</b><span>SIGNALS</span></div>
+                </div>
+                <div class="tickerbar">
+                    <div class="in" id="homeTicker"></div>
+                </div>
+            </div>
+            <div class="card" data-aud="B">
+                <h3>🏥 KANAG SUPER SPECIALITY E.N.T. CENTRE <span class="tagC">CUSTOMER</span><span
+                        class="tagA">ADMIN</span></h3>
+                <div class="bldwrap"><img class="bld" data-brand="bld" src="assets/kanag-building.jpg"
+                        alt="Kanag hospital"></div>
+                <p class="note">Dr. Ankur Gupta — Director & Senior ENT Surgeon · Dr. Seema Gupta — Director, Audiology
+                    & Administration · 24×7 & Sunday Emergency · OPD Mon–Sat 9–7 · ☎ 0121-4032247 · Customer screens
+                    auto-light.</p>
+                <button class="btn sm ok" onclick="go('s-journey')">▶ Journey Lab</button><button class="btn sm"
+                    onclick="go('s-arch')">🏗 Architecture</button><button class="btn sm ok" onclick="go('s-wa')">💬 WA
+                    Bot</button><button class="btn sm" onclick="go('s-tele')">🩺 Tele-follow-up</button><button
+                    class="btn sm warn" onclick="go('s-tourism')">🌍 Tourism</button><button class="btn sm"
+                    onclick="go('s-rooms')">🛏 VIP/Rooms</button><button class="btn sm ok" onclick="go('s-metrics')">💰
+                    Metrics/Twin</button><button class="btn sm ghost" onclick="go('s-guide')">📖 Guide</button><button
+                    class="btn sm ghost" onclick="go('s-gloss')">🔤 Glossary</button><button class="btn sm ghost"
+                    onclick="installApp()">⬇ Install app</button>
+            </div>
+            <div class="card" data-aud="B">
+                <h3><span class="live"></span> EVENT STREAM <span class="tagA">ADMIN</span></h3>
+                <div class="log" id="stream"></div>
+            </div>
+        </section>
+        <section id="s-wa">
+            <div class="card" data-aud="C">
+                <h3>💬 WHATSAPP BOOKING BOT — LIVE SIM <span class="tagC">CUSTOMER</span></h3>
+                <div class="log" id="waChat" style="max-height:300px"></div>
+                <div id="waOpts"></div>
+                <p class="note">State-machine NLG bot (EN/हिं): books slots, quotes live rush, offers Express, escalates
+                    emergencies. Feeds Slot Engine & Queue.</p>
+            </div>
+        </section>
+        <section id="s-tele">
+            <div class="card" data-aud="B">
+                <h3>🩺 TELEMEDICINE FOLLOW-UP LOOP <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span>
+                </h3>
+                <div id="teleList"></div>
+                <div style="margin-top:6px"><span class="chip g">Adherence 87%</span><span class="chip">No-show
+                        6%</span><span class="chip v">e-Rx renewals 12/mo</span></div>
+                <p class="note">Telemedicine Practice Guidelines: cryptographically signed e-Rx, video consult consent,
+                    records retained. Day-3/Day-7 loops auto-scheduled at discharge.</p>
+            </div>
+        </section>
+        <section id="s-guide">
+            <div class="card" data-aud="B">
+                <h3>📖 GUIDE — WHAT EACH TAB DOES <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <div id="guideList"></div>
+                <p class="note">Mobile: ☰ menu lists ALL screens. Offline/PWA: manifest embedded; add the 6-line sw.js +
+                    HTTPS for full offline & install prompt.</p>
+            </div>
+        </section>
+        <section id="s-gloss">
+            <div class="card" data-aud="B">
+                <h3>🔤 GLOSSARY — PLAIN LANGUAGE <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <input id="glossSearch" placeholder="Search term…" oninput="renderGloss()">
+                <div id="glossList"></div>
+            </div>
+        </section>
+        <section id="s-metrics">
+            <div class="card" data-aud="A">
+                <h3>💰 METRICS & SAVINGS OPTIMIZER <span class="tagA">ADMIN</span></h3>
+                <label>RENEGING RECOVERED: <b id="vRec" style="color:var(--cyan)">20</b>%</label><input type="range"
+                    id="mRec" min="5" max="40" value="20" oninput="metCalc()">
+                <label>OT UTILISATION TARGET: <b id="vOT" style="color:var(--cyan)">70</b>%</label><input type="range"
+                    id="mOT" min="40" max="85" value="70" oninput="metCalc()">
+                <label>TPA REJECTION REDUCTION: <b id="vTpa" style="color:var(--cyan)">15</b>%</label><input
+                    type="range" id="mTpa" min="5" max="30" value="15" oninput="metCalc()">
+                <div class="grid3" style="margin-top:10px">
+                    <div class="kpi"><b id="mBen">₹0L</b><span>ANNUAL BENEFIT</span></div>
+                    <div class="kpi"><b id="mNet">₹0L</b><span>NET (−₹4.1L OpEx)</span></div>
+                    <div class="kpi"><b id="mRoi">0%</b><span>YEAR-1 ROI</span></div>
+                    <div class="kpi"><b id="mPay">0</b><span>PAYBACK (MO)</span></div>
+                    <div class="kpi"><b id="mDay">₹0</b><span>SAVED/DAY</span></div>
+                    <div class="kpi"><b>₹7.2L</b><span>WASTE+PAPER+HRS</span></div>
+                </div>
+                <button class="btn sm ok" onclick="metCSV()">⬇ CSV</button><button class="btn sm" onclick="metCopy()">📋
+                    Copy</button>
+                <label style="margin-top:10px">COST-OPTIMIZATION LEVERS</label>
+                <div><span class="chip g">SaaS over ERP ₹6.5L/yr</span><span class="chip g">n8n self-host
+                        ₹72k/yr</span><span class="chip g">FEFO ₹2.4L/yr</span><span class="chip g">WA nudges −12%
+                        no-show</span><span class="chip g">RPA 30 hrs/wk</span><span class="chip g">Sunday pricing
+                        +40%</span><span class="chip g">AMC avoids ₹4L downtime</span></div>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>🧬 DIGITAL TWIN — WHAT-IF SIMULATOR <span class="tagA">ADMIN</span></h3>
+                <label>ARRIVALS/HR: <b id="vArr" style="color:var(--cyan)">18</b></label><input type="range" id="mArr"
+                    min="6" max="30" value="18" oninput="twinCalc()">
+                <label>SERVICE RATE/HR (per doctor): <b id="vSrv" style="color:var(--cyan)">5</b></label><input
+                    type="range" id="mSrv" min="2" max="8" value="5" oninput="twinCalc()">
+                <label>DOCTORS ON DUTY: <b id="vStf" style="color:var(--cyan)">4</b></label><input type="range"
+                    id="mStf" min="2" max="8" value="4" oninput="twinCalc()">
+                <div class="grid3" style="margin-top:8px">
+                    <div class="kpi"><b id="tRho">0%</b><span>UTILISATION ρ</span></div>
+                    <div class="kpi"><b id="tWait">0m</b><span>PREDICTED WAIT</span></div>
+                    <div class="kpi"><b id="tRen">0%</b><span>EST. RENEGING</span></div>
+                </div>
+                <div id="tSug" style="margin-top:6px"></div>
+                <p class="note">Queuing-model twin (M/M/c): test staffing & demand shocks before committing roster
+                    changes; feeds HR & Slot Engine.</p>
+            </div>
+        </section>
+        <section id="s-journey">
+            <div class="card" data-aud="B">
+                <h3>🎮 JOURNEY LAB <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <label>SCENARIO</label><select id="jvSel" onchange="jvReset()"></select>
+                <div id="jvPersona" style="margin-top:6px"></div>
+                <button class="btn sm ok" onclick="jvStart()">▶ Auto-play</button><button class="btn sm"
+                    onclick="jvStep()">⏭ Step</button><button class="btn sm ghost" onclick="jvReset()">↺</button>
+                <ol class="steps" id="jvSteps"></ol>
+                <div class="log" id="jvLog" style="margin-top:8px"></div>
+            </div>
+        </section>
+        <section id="s-arch">
+            <div class="card" data-aud="A">
+                <h3>🏗 LIVE ARCHITECTURE <span class="tagA">ADMIN</span></h3>
+                <div class="archbar"><button id="btnZoomOut">−</button><button id="btnFit">FIT</button><button
+                        id="btnZoomIn">＋</button><button id="btnPause">⏸</button><button id="btnSpeed">1×</button><span
+                        class="note" style="margin:0">inspector hidden until node click · ✕ closes</span></div>
+                <div class="stagewrap">
+                    <div class="swipe-hint">⇠ SWIPE ⇢</div>
+                    <div class="scrollwrap" id="scrollwrap"><svg id="diagram" viewBox="0 0 1600 1080">
+                            <defs>
+                                <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+                                    <feGaussianBlur stdDeviation="4" result="b" />
+                                    <feMerge>
+                                        <feMergeNode in="b" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                                <radialGradient id="coreGrad">
+                                    <stop offset="0%" stop-color="#123055" />
+                                    <stop offset="100%" stop-color="#081226" />
+                                </radialGradient>
+                            </defs>
+                            <g id="gBands"></g>
+                            <g id="gEdges"></g>
+                            <g id="gParticles"></g>
+                            <g id="gNodes"></g>
+                        </svg></div>
+                    <aside id="panel" class="hid"><button id="btnClose">✕</button>
+                        <div class="tag">INSPECTOR</div>
+                        <div class="bldwrap"><img class="bld" data-brand="bld" src="assets/kanag-building.jpg" alt="">
+                        </div>
+                        <h3>Kanag ENT</h3>
+                        <p style="color:#9fb3d1">Click any node.</p>
+                    </aside>
+                </div>
+                <div class="legend">
+                    <div class="leg"><span class="dot" style="background:var(--cyan)"></span>PATIENT</div>
+                    <div class="leg"><span class="dot" style="background:var(--emerald)"></span>CLINICAL</div>
+                    <div class="leg"><span class="dot" style="background:var(--orange)"></span>EMERGENCY</div>
+                    <div class="leg"><span class="dot" style="background:var(--amber)"></span>FINANCIAL</div>
+                    <div class="leg"><span class="dot" style="background:var(--violet)"></span>WORKFORCE</div>
+                    <div class="leg"><span class="dot" style="background:var(--magenta)"></span>AI</div>
+                </div>
+            </div>
+        </section>
+        <section id="s-queue">
+            <div class="card" data-aud="B">
+                <h3>⏱ TOKEN & QUEUE — RUSH-AWARE <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <label>DOCTOR DELAY: <b id="dVal" style="color:var(--cyan)">45</b>m</label><input type="range" min="0"
+                    max="90" value="45" id="dSlide">
+                <div class="meter"><i id="rushBar" style="width:40%;background:var(--amber)"></i></div>
+                <div id="rushLbl"></div>
+                <div id="queueList"></div>
+                <div id="sugg"></div>
+                <button class="btn sm" onclick="sendAlert()">📲 Dynamic arrival</button><button class="btn sm danger"
+                    onclick="emOpen()">🚑</button>
+                <div id="waQueue"></div>
+                <p class="note">OPD Mon–Sat 9–7 · Dr. Ankur lunch 14–15h · Dr. Seema (Audiology & Admin) 11–17h · Sunday
+                    emergency only · ETA lunch-adjusted · ⭐ VIP → Rooms.</p>
+            </div>
+            <div class="card" data-aud="C">
+                <h3>⚡ EXPRESS OPD — CUSTOMER VIEW <span class="tagC">CUSTOMER</span></h3>
+                <div id="expViz"></div>
+            </div>
+        </section>
+        <section id="s-rooms">
+            <div class="card" data-aud="B">
+                <h3>🛏 VIP ACCOMMODATION & ROOMS ENGINE <span class="tagC">CUSTOMER</span><span
+                        class="tagA">ADMIN</span></h3>
+                <div id="roomBoard"></div>
+                <div id="vipProto"></div>
+                <p class="note">VIP flag triggers concierge, privacy protocol, discreet billing, family lounge & diet
+                    preference; upgrades pass Coverage Concierge consent.</p>
+            </div>
+        </section>
+        <section id="s-policy">
+            <div class="card" data-aud="C">
+                <h3>🛡 COVERAGE CONCIERGE — WHY + HISTORY + YOUR CHOICE <span class="tagC">CUSTOMER</span></h3>
+                <label>PATIENT</label><input id="ccName" value="Ramesh K.">
+                <div class="row">
+                    <div><label>SCHEME</label><select id="ccScheme">
+                            <option>Cash</option>
+                            <option>TPA / Insurance</option>
+                            <option>CGHS</option>
+                            <option>ECHS</option>
+                            <option>Ayushman (PM-JAY)</option>
+                        </select></div>
+                    <div><label>ROOM WANTED</label><select id="ccRoom">
+                            <option>General</option>
+                            <option>Deluxe</option>
+                            <option>Suite</option>
+                        </select></div>
+                </div>
+                <div class="row">
+                    <div><label>PACKAGE ₹</label><input id="ccPkg" type="number" value="58000"></div>
+                    <div><label>SUM INSURED</label><input id="ccSI" type="number" value="500000"></div>
+                    <div><label>DAYS</label><input id="ccDays" type="number" value="2"></div>
+                </div>
+                <button class="btn ok" onclick="concierge()">💬 Explain my coverage</button>
+                <div id="ccOut"></div>
+                <p class="note">Every line states WHY, compares historical rejections, and out-of-pocket items need your
+                    approve (e-consent) or we switch to the covered alternative.</p>
+            </div>
+        </section>
+        <section id="s-claims">
+            <div class="card" data-aud="A">
+                <h3>🧾 TPA ENGINE (ADMIN) <span class="tagA">ADMIN</span></h3>
+                <label>PROCEDURE</label><select id="tpaProc"></select><label>DOCUMENTS</label>
+                <div id="tpaList"></div>
+                <div class="meter"><i id="tpaBar" style="width:60%"></i></div>
+                <div id="tpaRisk"></div>
+                <button class="btn sm" onclick="appeal()">✍ Fix-list</button><textarea id="tpaAppeal" rows="3"
+                    style="margin-top:6px"></textarea>
+            </div>
+        </section>
+        <section id="s-vitals">
+            <div class="card" data-aud="A">
+                <h3>🩺 VITALS TRIAGE AGENT <span class="tagA">ADMIN</span></h3>
+                <div class="row">
+                    <div><label>AGE</label><input id="vAge" type="number" value="8"></div>
+                    <div><label>WT</label><input id="vWt" type="number" value="26"></div>
+                    <div><label>TEMP</label><input id="vTemp" type="number" value="101"></div>
+                </div>
+                <div class="row">
+                    <div><label>SpO2</label><input id="vSpO2" type="number" value="98"></div>
+                    <div><label>SYS</label><input id="vSys" type="number" value="110"></div>
+                    <div><label>DIA</label><input id="vDia" type="number" value="70"></div>
+                </div>
+                <label>SYMPTOMS</label>
+                <div id="vSym" style="display:grid;grid-template-columns:1fr 1fr"></div>
+                <button class="btn" onclick="runVitals()">⚙ Triage</button>
+                <div id="vOut"></div>
+            </div>
+        </section>
+        <section id="s-hearing">
+            <div class="card" data-aud="B">
+                <h3>🦻 HEARING-AID ENGINE — PRICE INTELLIGENCE <span class="tagC">CUSTOMER</span><span
+                        class="tagA">ADMIN</span></h3>
+                <div style="overflow-x:auto">
+                    <table id="haTable"></table>
+                </div>
+                <p class="note">Dr. Seema Gupta (Audiology & Administration). Web-MRP scraped daily; best price =
+                    min(web×0.92, ours) floored at cost×1.18.</p>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>🎯 TARGETS · OBSOLETE · SUPPLIER FEED <span class="tagA">ADMIN</span></h3>
+                <div id="haTargets"></div>
+                <div id="haObs"></div>
+                <div id="haInv"></div>
+                <div id="haFeed"></div>
+            </div>
+            <div class="card" data-aud="C">
+                <h3>🧑⚕️ RECOMMEND + CLINICS <span class="tagC">CUSTOMER</span></h3>
+                <div class="row">
+                    <div><label>AGE</label><input id="hrAge" type="number" value="68"></div>
+                    <div><label>LOSS</label><select id="hrLoss">
+                            <option>Mild</option>
+                            <option>Moderate</option>
+                            <option>Severe</option>
+                        </select></div>
+                    <div><label>BUDGET ₹</label><input id="hrBud" type="number" value="50000"></div>
+                </div>
+                <button class="btn ok" onclick="hearRec()">⚙ Recommend</button>
+                <div id="hrOut"></div><label style="margin-top:10px">IN-HOUSE CLINICS & TESTS</label>
+                <div id="haTests"></div>
+            </div>
+        </section>
+        <section id="s-vendor">
+            <div class="card" data-aud="A">
+                <h3>🔗 CERTIFIED OUTSOURCED PANEL <span class="tagA">ADMIN</span></h3>
+                <div id="venList"></div>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm" onclick="vendSurvey()">📊
+                        Surveys</button><button class="btn sm warn" onclick="vendFlag()">🚩 SLA breach</button><button
+                        class="btn sm ok" onclick="vendAdd()">➕ Add vendor gate</button></div>
+                <p class="note">X-ray, VNG, allergy, sleep & vertigo IN-HOUSE; pathology collected in-house, reports by
+                    national reference lab network; MRI/CT outsourced to certified imaging partners.</p>
+            </div>
+        </section>
+        <section id="s-assets">
+            <div class="card" data-aud="A">
+                <h3>🏗 PREMISES & ASSETS HEALTH <span class="tagA">ADMIN</span></h3>
+                <div class="meter"><i id="asBar" style="width:92%"></i></div>
+                <div id="asScore"></div>
+                <div style="overflow-x:auto">
+                    <table id="asTable"></table>
+                </div>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm" onclick="asAct('cal')">🔧
+                        Calibrate</button><button class="btn sm warn" onclick="asAct('amc')">📄 Renew
+                        AMC</button><button class="btn sm ok" onclick="asAct('po')">📦 PO</button><button
+                        class="btn sm danger" onclick="asEsc()">🚨 Escalate</button></div>
+                <p class="note">OT auto-blocks if sterilizer AMC or AERB licence lapses · escalations to Dr. Seema
+                    (Admin).</p>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>☀ ENERGY & SOLAR MONITOR <span class="tagA">ADMIN</span></h3>
+                <div class="grid3">
+                    <div class="kpi"><b>142</b><span>SOLAR kWh TODAY</span></div>
+                    <div class="kpi"><b>210</b><span>CONSUMED kWh</span></div>
+                    <div class="kpi"><b>68%</b><span>OFFSET</span></div>
+                </div>
+                <div class="meter"><i
+                        style="width:68%;background:linear-gradient(90deg,var(--amber),var(--emerald))"></i></div>
+                <div class="prow">
+                    <div>₹2,940 saved today · CO₂ −112kg</div><span class="chip g">ON TRACK</span>
+                </div>
+                <div class="prow">
+                    <div>⚠ AC-2 load high → HEPA filter check (linked to Premises)</div>
+                    <div class="acts"><button class="btn sm warn"
+                            onclick="logEv('⚡','AC-2 filter work-order raised','pen');toast('Work-order raised ⚡')">Work-order</button>
+                    </div>
+                </div>
+                <button class="btn sm ok" onclick="logEv('☀','Meter reading logged','ok');toast('Reading logged ☀')">
+                    Log reading</button>
+            </div>
+        </section>
+        <section id="s-pharm">
+            <div class="card" data-aud="A">
+                <h3>💊 PHARMACY + ANTIBIOTIC STEWARDSHIP <span class="tagA">ADMIN</span></h3>
+                <div style="overflow-x:auto">
+                    <table id="phTable"></table>
+                </div>
+                <label>ANTIBIOTIC PRESSURE INDEX</label>
+                <div class="meter"><i style="width:68%;background:linear-gradient(90deg,var(--amber),var(--red))"></i>
+                </div>
+                <div class="prow">
+                    <div>68/100 — feeds Seasonal Intelligence & prescription guard</div><span
+                        class="chip a">RISING</span>
+                </div>
+                <label>RECURRING-PATIENT RESISTANCE INTELLIGENCE</label>
+                <div id="phStew"></div>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm warn"
+                        onclick="phAct('doc')">👨️ Alert doctor</button><button class="btn sm" onclick="phAct('cs')">🧫
+                        Culture & sensitivity</button><button class="btn sm ok" onclick="phAct('fefo')">♻ FEFO
+                        reorder</button></div>
+            </div>
+        </section>
+        <section id="s-collab">
+            <div class="card" data-aud="A">
+                <h3>🤝 REFERRAL & COLLABORATION <span class="tagA">ADMIN</span></h3>
+                <label>CASE BEYOND EXPERTISE</label><select id="coCase">
+                    <option>Skull-base / neuro-ENT lesion</option>
+                    <option>Paediatric cochlear implant</option>
+                    <option>Head & neck malignancy</option>
+                </select>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm" onclick="collab('out')">📨
+                        Refer-out (verified)</button><button class="btn sm ok" onclick="collab('in')">🧑‍️ Visiting
+                        consultant</button></div>
+                <div id="coOut"></div><label>VERIFIED NETWORK</label>
+                <div id="coNet"></div><label>VISITING-CONSULTANT SLOTS</label>
+                <div id="coSlots"></div>
+                <p class="note">Zero-commission: NMC-verified credentials + MoU + consent + FHIR handoff; visiting
+                    consultants paid transparent professional fees.</p>
+            </div>
+        </section>
+        <section id="s-tourism">
+            <div class="card" data-aud="B">
+                <h3>🌍 MEDICAL TOURISM ENGINE <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <div class="row">
+                    <div><label>INQUIRY FROM</label><select id="tuCountry">
+                            <option>UAE</option>
+                            <option>Bangladesh</option>
+                            <option>Kenya</option>
+                            <option>UK (diaspora)</option>
+                        </select></div>
+                    <div><label>PROCEDURE</label><select id="tuProc">
+                            <option>Cochlear Implant</option>
+                            <option>FESS</option>
+                            <option>Tympanoplasty</option>
+                        </select></div>
+                </div>
+                <button class="btn ok" onclick="tourism()">🛂 Build tourism packet</button>
+                <div id="tuOut"></div>
+                <label>WORKFLOW</label>
+                <ol class="steps" id="tSteps"></ol><button class="btn sm" onclick="tNext()">▶ Advance</button>
+                <label>PARTNERS</label>
+                <div id="tuPart"></div><label>MARKETING — GLOBAL + LOCAL</label>
+                <div id="tuMkt"></div><label>LEGALITY & DOCUMENTS</label>
+                <div id="tuDocs"></div>
+                <div id="tuKpi" style="margin-top:6px"></div>
+            </div>
+        </section>
+        <section id="s-hr">
+            <div class="card" data-aud="A">
+                <h3>👥 HR & ROSTER AI <span class="tagA">ADMIN</span></h3>
+                <label>ATTRITION SHOCK: <b id="atVal" style="color:var(--amber)">10</b>%</label><input type="range"
+                    min="0" max="40" value="10" id="atSlide">
+                <div id="hrGaps"></div>
+                <div style="overflow-x:auto">
+                    <table id="hrTable"></table>
+                </div>
+                <div id="hrHire"></div>
+            </div>
+        </section>
+        <section id="s-geo">
+            <div class="card" data-aud="A">
+                <h3>📍 GEO-INTEL (MEERUT) <span class="tagA">ADMIN</span></h3>
+                <label>MONTH</label><select id="gMonth"></select>
+                <div style="overflow-x:auto">
+                    <table id="gTable"></table>
+                </div>
+                <div id="gRec"></div>
+            </div>
+        </section>
+        <section id="s-routing">
+            <div class="card" data-aud="A">
+                <h3>🔁 CROSS-ENTITY LOOP <span class="tagA">ADMIN</span></h3>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm" onclick="orderBERA()">👨‍️
+                        Order BERA</button><button class="btn sm ok" onclick="completeHS()">✅ Done</button></div>
+                <label>OPD</label>
+                <div id="rOPD"></div><label>HEARING (Dr. Seema)</label>
+                <div id="rHS"></div><label>RETURNS</label>
+                <div id="rRet"></div>
+            </div>
+        </section>
+        <section id="s-funnel">
+            <div class="card" data-aud="A">
+                <h3>🏥 SURGICAL FUNNEL <span class="tagA">ADMIN</span></h3>
+                <ol class="steps" id="fSteps"></ol><button class="btn sm" onclick="fNext()">▶ Advance</button>
+                <div id="fLog"></div>
+            </div>
+        </section>
+        <section id="s-pricing">
+            <div class="card" data-aud="A">
+                <h3>🏷 CERTIFIED PRICING + E-INVOICE <span class="tagA">ADMIN</span></h3>
+                <label>SCHEME</label><select id="pScheme"></select>
+                <div style="overflow-x:auto">
+                    <table id="pTable"></table>
+                </div>
+                <label>PROCEDURE</label><select id="pProc"></select>
+                <div class="row">
+                    <div><label>ROOM</label><select id="pRoom">
+                            <option>General</option>
+                            <option>Deluxe</option>
+                            <option>Suite</option>
+                        </select></div>
+                    <div><label>DAYS</label><input id="pDays" type="number" value="2"></div>
+                </div>
+                <div class="acts" style="justify-content:flex-start"><button class="btn" onclick="makeStamp()">🔏
+                        Stamp</button><button class="btn ok" onclick="eInvoice()">🧾 e-Invoice (GST) export</button>
+                </div>
+                <div id="pStamp"></div>
+            </div>
+        </section>
+        <section id="s-seasonal">
+            <div class="card" data-aud="A">
+                <h3><span class="live"></span> SEASONAL INTELLIGENCE — LIVE CHART <span class="tagA">ADMIN</span></h3>
+                <div class="row">
+                    <div><label>CONDITION</label><select id="seCond"></select></div>
+                    <div><label>MONTH</label><select id="seMonth"></select></div>
+                </div>
+                <canvas id="seChart" class="chart"></canvas>
+                <div id="seReady"></div>
+                <p class="note">Hover/tap bars · morphing live bars · pulse = selected month · receives pharmacy
+                    antibiotic-pressure feed.</p>
+            </div>
+        </section>
+        <section id="s-gov">
+            <div class="card" data-aud="A">
+                <h3>🕵 AUDIT TOWER <span class="tagA">ADMIN</span></h3>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm danger"
+                        onclick="tryOverride()">⛔ Override</button><button class="btn sm warn"
+                        onclick="reqDiscount()">💸 Discount</button><button class="btn sm ok" onclick="mcApprove()">⚖
+                        Approve</button></div>
+                <div class="log" id="gLog" style="margin-top:8px"></div>
+                <div id="gAnom"></div>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>🧠 PATIENT FEEDBACK SENTIMENT (NLP) <span class="tagA">ADMIN</span></h3>
+                <textarea id="fbIn"
+                    rows="2">Ward was clean and nurse polite, but waiting was very long and billing felt costly.</textarea>
+                <button class="btn sm ok" onclick="fbRun()">🧠 Analyse sentiment</button>
+                <div id="fbOut"></div>
+                <p class="note">Keyword-lexicon sentiment + theme tags; negative themes auto-open Grievance recovery
+                    tasks.</p>
+            </div>
+        </section>
+        <section id="s-outreach">
+            <div class="card" data-aud="B">
+                <h3>📣 POSTER STUDIO + DESIGN COPILOT <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span>
+                </h3>
+                <div class="row">
+                    <div><label>OCCASION</label><select id="oDay"></select></div>
+                    <div><label>TEMPLATE</label><select id="oTpl">
+                            <option>Awareness Plum</option>
+                            <option>Festive Kites</option>
+                            <option>Night Cyan</option>
+                        </select></div>
+                </div>
+                <div class="acts" style="justify-content:flex-start"><button class="btn sm" onclick="genPoster()">🎨
+                        Render</button><a id="oDl" class="btn sm ok" download="kanag-poster.png">⬇ Download</a></div>
+                <canvas id="oPoster" class="poster" width="800" height="1000"></canvas>
+                <div id="oCaption" class="wa" style="display:none"></div>
+                <label class="ck"><input type="checkbox" id="oApprove" onchange="publish()"><span>Approved by Medical
+                        Superintendent</span></label>
+                <div id="oPub"></div>
+                <label>🤖 DESIGN COPILOT</label>
+                <div id="chatBox"></div>
+                <input id="chatIn" placeholder="e.g. awareness plum, festive kites, night cyan, bigger title, hindi on">
+                <button class="btn sm ok" onclick="copilot()">➤ Apply</button>
+                <div style="margin-top:6px"><span class="chip"
+                        onclick="setChat('awareness plum like ear infection poster')">awareness plum</span><span
+                        class="chip" onclick="setChat('festive kites sankranti style')">festive kites</span><span
+                        class="chip" onclick="setChat('night cyan')">night cyan</span><span class="chip"
+                        onclick="setChat('bigger title')">bigger title</span><span class="chip"
+                        onclick="setChat('hindi on')">hindi on</span></div>
+            </div>
+        </section>
+        <section id="s-compliance">
+            <div class="card" data-aud="A">
+                <h3>⚖ COMPLIANCE REGISTER <span class="tagA">ADMIN</span></h3>
+                <div id="cList"></div>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>🆔 ABHA / ABDM READINESS <span class="tagA">ADMIN</span></h3>
+                <label class="ck"><input type="checkbox" id="abhaT" onchange="abhaToggle()"><span>ABDM readiness mode
+                        (FHIR R4 + consent manager)</span></label>
+                <div id="abhaOut"></div>
+                <p class="note">Records generated natively as FHIR R4 bundles; ABHA linkage optional per patient consent
+                    (not assumed mandatory).</p>
+            </div>
+            <div class="card" data-aud="A">
+                <h3>🏅 NABH KPI DASHBOARD <span class="tagA">ADMIN</span></h3>
+                <div id="nabhOut"></div>
+                <button class="btn sm ok"
+                    onclick="logEv('🏅','NABH KPIs pushed to Quality Council','ok');toast('Pushed to Quality Council 🏅')">Push
+                    to Quality Council</button>
+            </div>
+        </section>
+        <section id="s-about">
+            <div class="card" data-aud="B">
+                <h3>🏛 ABOUT · GROUP 10 <span class="tagC">CUSTOMER</span><span class="tagA">ADMIN</span></h3>
+                <div class="bldwrap"><img class="bld" data-brand="bld" src="assets/kanag-building.jpg"
+                        alt="Kanag building"></div>
+                <p class="note" style="font-size:11.5px">Kanag Super Speciality E.N.T. Centre, Meerut — कान नाक गले का
+                    अस्पताल · kanagent.com · "Listen Better, Breathe Better, Live Better!" · Dr. Ankur Gupta (Director,
+                    ENT) · Dr. Seema Gupta (Director — Audiology & Administration).</p>
+                <div><span class="chip">Ayushman Agarwal C003</span><span class="chip">Devaansh Gupta C029</span><span
+                        class="chip">Ojas Mhatre C051</span><span class="chip">Hiya Mehta C057</span><span
+                        class="chip">Joel Cherian C058</span><span class="chip">Vanshika Awasthi C064</span></div>
+                <div id="aAlgo" style="margin-top:8px"></div>
+            </div>
+        </section>
+    </main>
+    <nav id="bnav">
+        <button data-s="s-home" class="on" onclick="go('s-home')"><span class="i">🏠</span>Home</button>
+        <button data-s="s-journey" onclick="go('s-journey')"><span class="i">🎮</span>Play</button>
+        <button data-s="s-policy" onclick="go('s-policy')"><span class="i">🛡</span>Coverage</button>
+        <button data-s="s-arch" onclick="go('s-arch')"><span class="i">🏗</span>Arch</button>
+        <button onclick="moreOpen()"><span class="i">➕</span>More</button>
+    </nav>
+    <div id="more">
+        <div class="sheet">
+            <div class="gridm" id="moreGrid"></div>
+        </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <div id="emModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,14,.7);z-index:70">
+        <div class="card" style="margin:15vh 20px 0;border:1px solid var(--red)">
+            <h3 style="color:var(--red)">🚑 CODE EMERGENCY</h3>
+            <div class="log">
+                <div class="ok">OT team broadcast</div>
+                <div class="ok">Checklist on nursing tablets</div>
+                <div class="ok">Queue frozen & re-sequenced</div>
+            </div><button class="btn" onclick="this.parentNode.style.display='none';toast('Stood down')">Stand
+                down</button>
+        </div>
+    </div>
+    <script>
+        const $ = id => document.getElementById(id);
+        let LANG = 'en'; const L = (en, hi) => LANG === 'hi' ? hi : en;
+        function toggleLang() {LANG = LANG === 'en' ? 'hi' : 'en'; $('langBtn').textContent = LANG === 'en' ? 'हिं' : 'EN'; $('langBtn').classList.toggle('on', LANG === 'hi'); toast(L('Hindi engine ON', 'हिंदी इंजन चालू')); renderQueue(); logEv('🗣', 'Language: ' + LANG.toUpperCase(), 'ok')}
+        let themePref = null; const LIGHT = ['s-policy', 's-rooms'];
+        function applyTheme(id) {const light = themePref === null ? LIGHT.includes(id) : themePref === 'light'; document.body.classList.toggle('light', light); $('thBtn').textContent = light ? '🌙' : '☀'}
+        function thToggle() {themePref = document.body.classList.contains('light') ? 'dark' : 'light'; applyTheme(SCREENS.find(s => $(s).classList.contains('on')) || 's-home'); toast(themePref === 'light' ? 'Light theme ☀' : 'Dark theme 🌙')}
+        let ipEvt = null; window.addEventListener('beforeinstallprompt', e => {e.preventDefault(); ipEvt = e});
+        function installApp() {ipEvt ? ipEvt.prompt() : toast('Add sw.js + HTTPS for install prompt')}
+        const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280"><rect width="640" height="280" fill="#f8f7f9"/><rect x="0" y="70" width="290" height="110" fill="#5d2e46"/><text x="18" y="152" font-family="Georgia,serif" font-size="84" fill="#fff">kanag</text><text x="262" y="86" font-size="24" fill="#fff">®</text><circle cx="355" cy="140" r="105" fill="#fff"/><path d="M355 35 a105 105 0 0 1 91 53 l-91 52 z" fill="#8a6f80"/><path d="M446 88 a105 105 0 0 1 -18 124 l-73 -72 z" fill="#a8899a"/><path d="M428 212 a105 105 0 0 1 -158 -18 l85 -54 z" fill="#5d2e46"/><path d="M270 194 a105 105 0 0 1 14 -106 l91 52 z" fill="#cbb8c4"/><path d="M336 92 q-17 8 -13 25 q3 13 15 15 q-7 6 -3 13" stroke="#fff" fill="none" stroke-width="4"/><rect x="465" y="105" width="170" height="66" fill="#5d2e46"/><text x="477" y="150" font-size="38" fill="#fff">कनाग</text><text x="465" y="196" font-size="15" fill="#5d2e46">कान नाक गले का अस्पताल</text><path id="ta" d="M245 42 a120 120 0 0 1 220 0" fill="none"/><text font-size="19" fill="#8a6f80" letter-spacing="4"><textPath href="#ta">SUPER SPECIALITY</textPath></text><path id="tb" d="M245 238 a120 120 0 0 0 220 0" fill="none"/><text font-size="19" fill="#8a6f80" letter-spacing="4"><textPath href="#tb">E.N.T. CENTRE</textPath></text><text x="465" y="232" font-size="13" fill="#333">A UNIT OF AKG MEDICARE</text><text x="465" y="252" font-size="13" fill="#333">SERVICES (P) LTD.</text></svg>`;
+        const BLD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><rect width="640" height="480" fill="#bfe0f5"/><rect x="120" y="40" width="400" height="400" fill="#e8ecef"/><rect x="150" y="90" width="120" height="330" fill="#9fb4b8"/><rect x="300" y="90" width="90" height="330" fill="#f0e6c8"/><rect x="410" y="90" width="90" height="330" fill="#cfd8da"/><g fill="#3f7a4f"><rect x="300" y="140" width="90" height="12"/><rect x="300" y="240" width="90" height="12"/><rect x="300" y="340" width="90" height="12"/></g><g fill="#7fb2d9"><rect x="420" y="120" width="70" height="60"/><rect x="420" y="220" width="70" height="60"/><rect x="420" y="320" width="70" height="60"/></g><rect x="140" y="330" width="360" height="40" fill="#fff"/><rect x="250" y="336" width="180" height="28" fill="#5d2e46"/><text x="262" y="357" font-size="18" fill="#fff">kanag कनाग</text><rect x="0" y="440" width="640" height="40" fill="#8a9aa0"/></svg>`;
+        function brandImgs() {document.querySelectorAll('img[data-brand]').forEach(im => {im.onerror = () => {const w = document.createElement('div'); w.className = im.className + 'Rep'; w.innerHTML = im.dataset.brand === 'logo' ? LOGO_SVG : BLD_SVG; im.replaceWith(w)}})}
+        brandImgs();
+        const logoPng = new Image(); logoPng.src = 'assets/kanag-logo.png'; let logoOk = false; logoPng.onload = () => logoOk = true;
+        const logoSvg = new Image(); logoSvg.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(LOGO_SVG);
+        const TITLES = {'s-home': 'COMMAND', 's-wa': 'WHATSAPP BOT', 's-tele': 'TELE-FOLLOW-UP', 's-guide': 'GUIDE', 's-gloss': 'GLOSSARY', 's-metrics': 'METRICS & TWIN', 's-journey': 'JOURNEY LAB', 's-arch': 'ARCHITECTURE', 's-queue': 'QUEUE', 's-rooms': 'VIP & ROOMS', 's-policy': 'COVERAGE CONCIERGE', 's-claims': 'TPA', 's-vitals': 'VITALS', 's-hearing': 'HEARING', 's-vendor': 'VENDORS', 's-assets': 'PREMISES+ENERGY', 's-pharm': 'PHARMACY', 's-collab': 'COLLAB', 's-tourism': 'TOURISM', 's-hr': 'HR', 's-geo': 'GEO', 's-routing': 'ROUTING', 's-funnel': 'FUNNEL', 's-pricing': 'PRICING+GST', 's-seasonal': 'SEASONAL', 's-gov': 'AUDIT+SENTIMENT', 's-outreach': 'STUDIO', 's-compliance': 'COMPLIANCE+NABH', 's-about': 'ABOUT'};
+        const GUIDE = {'s-home': 'Live KPIs, brand photo, event stream — the cockpit.', 's-wa': 'WhatsApp booking bot simulation (EN/हिं) feeding Slot Engine & Queue.', 's-tele': 'Day-3/7 video follow-ups, e-Rx renewals, reminders — Telemedicine Guidelines.', 's-guide': 'This dictionary of tabs + PWA notes.', 's-gloss': 'Searchable plain-language glossary.', 's-metrics': 'Savings optimizer + Digital Twin what-if (M/M/c queuing model).', 's-journey': 'Play 11 patient scenarios end-to-end; steps fire real engines & light the architecture.', 's-arch': 'Animated SVG operating model; tap nodes for inspector; ✕ closes.', 's-queue': 'Rush-aware tokens, lunch-adjusted ETAs, suggestions, Express OPD, ⭐VIP.', 's-rooms': 'Room board + VIP protocol + upgrade via Concierge.', 's-policy': 'Customer coverage explainer: WHY + history + approve/decline e-consent. (Light theme)', 's-claims': 'Admin TPA denial-risk checklist & fix-lists.', 's-vitals': 'Explainable triage rules engine.', 's-hearing': 'Aid price intelligence, targets, obsolete, supplier feed, clinics.', 's-vendor': 'Certified outsourced panel (MRI/CT + reference path) with SLA & recovery.', 's-assets': 'Warranties/AMC/AERB + OT auto-block + solar/energy monitor.', 's-pharm': 'FEFO ladder + antibiotic-resistance intelligence feeding Seasonal.', 's-collab': 'Verified refer-out / visiting consultants; zero-commission.', 's-tourism': '7-step workflow, partners, global+local marketing, legality, KPIs.', 's-hr': 'Attrition shock, gaps, tenure flags, retention chats, hiring.', 's-geo': 'Meerut pincode tap-plans with channels, budgets, uplift.', 's-routing': 'OPD ⇄ Hearing cross-entity loop.', 's-funnel': 'Surgical funnel stepper with e-consent & RPA labs.', 's-pricing': 'Certified rate cards, QR stamps + GST e-invoice export.', 's-seasonal': 'Live morphing demand chart + preparedness actions.', 's-gov': 'Audit tower + patient-feedback sentiment (NLP) → grievance loop.', 's-outreach': 'Poster studio (Kanag themes) + Design Copilot.', 's-compliance': 'Regulatory register + ABHA/ABDM readiness + NABH KPI dashboard.', 's-about': 'Brand, leadership, team, algorithm index.'};
+        const GLOSS = [['AIRA', 'Adaptive Integrated Routing Architecture — software-only digital operating model for Kanag ENT.'], ['BPM', 'Business Process Management — modelling & improving workflows.'], ['RPA', 'Robotic Process Automation — bots that fill TPA forms & parse lab PDFs.'], ['SaaS', 'Software-as-a-Service — pay-per-use cloud software; avoids ERP capex.'], ['Low-code', 'Build apps visually (Glide/AppSheet) instead of heavy coding.'], ['TPA', 'Third-Party Administrator — insurer\u2019s claim-processing intermediary.'], ['PM-JAY', 'Ayushman Bharat; cashless all-inclusive packages; balance billing prohibited.'], ['CGHS / ECHS', 'Central govt health schemes with fixed entitlements & rates.'], ['NABH', 'Hospital accreditation body; quality & safety standards.'], ['NABL 112', 'Referral-lab rule: prior intimation + MoU between labs.'], ['DPDP', 'Digital Personal Data Protection Act 2023 (+Rules 2025).'], ['FRRO', 'Foreigners\u2019 registration — medical tourists register ≤14 days.'], ['M-Visa', 'Medical visa for international patients.'], ['FHIR / ABHA', 'Digital health record standard / national health ID (ABDM).'], ['ICD-10 / SNOMED', 'Clinical coding systems making claims machine-checkable.'], ['FEFO', 'First-Expiry-First-Out pharmacy rotation.'], ['EWMA', 'Exponentially weighted moving average — queue velocity smoothing.'], ['SLA', 'Service-level agreement — vendor TAT commitments.'], ['AMC', 'Annual maintenance contract for equipment.'], ['AERB', 'Atomic Energy Regulatory Board — X-ray licence.'], ['BMW', 'Biomedical waste segregation & manifest rules.'], ['OT', 'Operating Theatre.'], ['RMO', 'Resident Medical Officer — counselling & pre-op coordination.'], ['BERA / ASSR / OAE', 'Objective hearing tests (paediatric sedation-synced).'], ['VNG', 'Vestibular (vertigo) test — in-house.'], ['Express OPD', 'Paid fast-track lane offered when wait > 90 min.'], ['Reneging', 'Patients leaving queue untreated (was 45%).'], ['Institutional void', 'Missing market/organizational capability.'], ['Maker-checker', 'Two-person approval for risky actions.'], ['Zero-commission', 'No fee-splitting on referrals (NMC rule).'], ['Room-rent cap', 'Many policies cover room rent up to 1% of sum insured/day.'], ['Denial-risk', 'Probability a claim gets rejected, scored pre-submission.'], ['Coverage Concierge', 'Plain-language coverage explainer with history + consent.'], ['Design Copilot', 'Chatbot restyling posters from plain-language prompts.'], ['Digital Twin', 'Queuing-model simulator testing staffing/demand what-ifs.'], ['e-Invoice', 'GST-compliant digital invoice with IRN hash export.']];
+        const SCREENS = Object.keys(TITLES); let audF = 'ALL';
+        function setAud(f) {audF = f; document.querySelectorAll('.aud button').forEach(b => b.classList.toggle('on', b.textContent.startsWith(f === 'ALL' ? 'ALL' : f === 'C' ? 'CUSTOMER' : 'ADMIN'))); document.querySelectorAll('.card').forEach(c => {const a = c.dataset.aud || 'B'; c.style.display = (f === 'ALL' || a === 'B' || a === f) ? '' : 'none'}); seSize()}
+        function go(id) {
+            SCREENS.forEach(s => $(s).classList.toggle('on', s === id)); document.querySelectorAll('#bnav button[data-s]').forEach(b => b.classList.toggle('on', b.dataset.s === id)); document.querySelectorAll('#dnav button').forEach(b => b.classList.toggle('on', b.dataset.s === id)); $('more').classList.remove('on'); $('mnav').classList.remove('on'); window.scrollTo({top: 0, behavior: 'smooth'}); setAud(audF); applyTheme(id);
+            if (id === 's-home') homeKPIs(); if (id === 's-seasonal') {seSize(); seActions()} if (id === 's-outreach') genPoster(); if (id === 's-rooms') renderRooms(); if (id === 's-metrics') {metCalc(); twinCalc()} if (id === 's-wa') waStart(); if (id === 's-tele') renderTele(); applyZoom()
+        }
+        function moreOpen() {$('more').classList.add('on')}
+        $('more').onclick = e => {if (e.target.id === 'more') $('more').classList.remove('on')}
+        function mnavToggle() {$('mnav').classList.toggle('on')}
+        function toast(m) {const t = $('toast'); t.textContent = m; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 2200)}
+        function h32(s) {let h = 5381; for (let i = 0; i < s.length; i++)h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(16).padStart(8, '0')}
+        function lcg(a) {return () => (a = (a * 1664525 + 1013904223) >>> 0) / 4294967296}
+        const now = () => new Date().toTimeString().slice(0, 5);
+        const inr = n => '₹' + Number(n).toLocaleString('en-IN');
+        document.addEventListener('click', e => {const b = e.target.closest('.btn'); if (!b) return; const r = document.createElement('span'); r.className = 'ripple'; const d = Math.max(b.offsetWidth, b.offsetHeight); r.style.width = r.style.height = d + 'px'; const rc = b.getBoundingClientRect(); r.style.left = (e.clientX - rc.left - d / 2) + 'px'; r.style.top = (e.clientY - rc.top - d / 2) + 'px'; b.appendChild(r); setTimeout(() => r.remove(), 600)});
+        function countUp(id, t, s) {const el = $(id); const t0 = performance.now(); (function f(x) {const p = Math.min(1, (x - t0) / 900); el.textContent = Math.round(t * (1 - Math.pow(1 - p, 3))) + (s || ''); if (p < 1) requestAnimationFrame(f)})(t0)}
+        function homeKPIs() {countUp('kWait', 26, 'm'); countUp('kRen', 12, '%'); countUp('kOT', 68, '%'); countUp('kClm', 94, '%')}
+        $('dnav').innerHTML = SCREENS.map(s => `<button data-s="${s}" onclick="go('${s}')">${TITLES[s]}</button>`).join('');
+        $('mnav').innerHTML = SCREENS.map(s => `<button class="m" onclick="go('${s}')"><span>•</span>${TITLES[s]}</button>`).join('');
+        $('moreGrid').innerHTML = SCREENS.filter(s => !['s-home', 's-journey', 's-policy', 's-arch'].includes(s)).map(s => `<button class="m" onclick="go('${s}')"><span>•</span>${TITLES[s]}</button>`).join('');
+        $('guideList').innerHTML = SCREENS.map(s => `<div class="prow"><div style="flex:1"><b>${TITLES[s]}</b><br><span class="note">${GUIDE[s]}</span></div><div class="acts"><button class="btn sm" onclick="go('${s}')">Open</button></div></div>`).join('');
+        function renderGloss() {const q = ($('glossSearch').value || '').toLowerCase(); $('glossList').innerHTML = GLOSS.filter(g => (g[0] + ' ' + g[1]).toLowerCase().includes(q)).map(g => `<div class="prow"><div style="flex:1"><b style="color:var(--cyan)">${g[0]}</b><br><span class="note">${g[1]}</span></div></div>`).join('')}
+        renderGloss();
+        $('homeTicker').textContent = '🌫 AQI spike — rhinitis surge • 🦻 Signia target 65% • 🔧 Audiometer calibration due 12d • 💊 Cefixime low — FEFO reorder • 🔗 CityScan TAT breach — recovery open • 🌍 UAE cochlear inquiry • ☀ Solar offset 68% • 🩺 Day-3 tele follow-ups due';
+        const STREAM = [];
+        function logEv(ic, tx, cls) {STREAM.unshift({ic, tx, cls: cls || ''}); if (STREAM.length > 26) STREAM.pop(); $('stream').innerHTML = STREAM.map(s => `<div class="${s.cls}">${s.ic} ${s.tx} · ${now()}</div>`).join('')}
+        /* METRICS + TWIN */
+        function metCalc() {
+            const rec = +$('mRec').value, ot = +$('mOT').value, tpa = +$('mTpa').value;
+            $('vRec').textContent = rec; $('vOT').textContent = ot; $('vTpa').textContent = tpa;
+            const ren = 18 * rec / 20, otv = 25 * Math.max(0, ot - 35) / 35, tp = 5 * tpa / 15, other = 7.2;
+            const ben = ren + otv + tp + other, cost = 4.1, net = ben - cost, roi = Math.round(net / cost * 100), pay = Math.max(1, Math.round(cost / (ben / 12))), day = Math.round(ben * 100000 / 365);
+            $('mBen').textContent = '₹' + ben.toFixed(1) + 'L'; $('mNet').textContent = '₹' + net.toFixed(1) + 'L'; $('mRoi').textContent = roi + '%'; $('mPay').textContent = pay; $('mDay').textContent = '₹' + day.toLocaleString('en-IN');
+            metCalc.last = {rec, ot, tpa, ben, net, roi, pay}
+        }
+        function metCSV() {
+            const m = metCalc.last || {}; const rows = [['Metric', 'Value'], ['Reneging recovered %', m.rec], ['OT target %', m.ot], ['TPA reduction %', m.tpa], ['Annual benefit ₹L', m.ben.toFixed(1)], ['Net ₹L', m.net.toFixed(1)], ['ROI %', m.roi], ['Payback months', m.pay]];
+            const blob = new Blob([rows.map(r => r.join(',')).join('\n')], {type: 'text/csv'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'AIRA_metrics.csv'; a.click(); toast('CSV downloaded ⬇')
+        }
+        function metCopy() {
+            const m = metCalc.last || {}; const txt = `AIRA Metrics — benefit ₹${m.ben.toFixed(1)}L/yr, net ₹${m.net.toFixed(1)}L, ROI ${m.roi}%, payback ${m.pay} mo`;
+            if (navigator.clipboard && navigator.clipboard.writeText) {navigator.clipboard.writeText(txt).then(() => toast('Summary copied 📋')).catch(() => toast(txt))} else toast(txt)
+        }
+        function twinCalc() {
+            const a = +$('mArr').value, s = +$('mSrv').value, c = +$('mStf').value;
+            $('vArr').textContent = a; $('vSrv').textContent = s; $('vStf').textContent = c;
+            const mu = s * c, rho = a / mu;
+            if (rho >= 1) {$('tRho').textContent = Math.round(rho * 100) + '%'; $('tWait').textContent = '∞'; $('tRen').textContent = '35%'; $('tSug').innerHTML = '<span class="chip r">OVERLOAD</span> open Express lane · overflow to tomorrow · +1 doctor · WA stagger nudges';}
+            else {
+                const Lq = rho * rho / (1 - rho), Wq = Math.round(Lq / a * 60), ren = Math.min(45, Math.round(Wq / 4));
+                $('tRho').textContent = Math.round(rho * 100) + '%'; $('tWait').textContent = Wq + 'm'; $('tRen').textContent = ren + '%';
+                $('tSug').innerHTML = (Wq > 30 ? '<span class="chip a">Add capacity or Express lane</span>' : '<span class="chip g">Stable</span>') + ' ρ=' + Math.round(rho * 100) + '% · feeds HR & Slot Engine';
+            }
+        }
+        /* WA BOT — clean state machine */
+        function waLine(who, txt) {$('waChat').innerHTML += `<div class="${who === 'bot' ? 'bot' : ''}">${who === 'bot' ? '🤖 AIRA' : '🧑 Patient'}: ${txt}</div>`; $('waChat').scrollTop = 9999}
+        function waRender(list) {$('waOpts').innerHTML = list.map(o => `<button class="btn sm" data-act="${o[0]}">${o[1]}</button>`).join('')}
+        const WA_MENU = [['book', '📅 Book OPD'], ['rush', '⏳ Current rush'], ['exp', '⚡ Express OPD'], ['em', '🚑 Emergency']];
+        function waStart() {$('waChat').innerHTML = ''; waLine('bot', L('🙏 Namaste! Kanag ENT Meerut. How can I help?', '🙏 नमस्ते! कनाग ईएनटी मेरठ। कैसे मदद करूँ?')); waRender(WA_MENU)}
+        document.addEventListener('click', e => {
+            const b = e.target.closest('#waOpts .btn'); if (!b) return; const a = b.dataset.act; waLine('pat', b.textContent);
+            if (a === 'book') {waLine('bot', L('Choose consult type:', 'परामर्श प्रकार चुनें:')); waRender([['adult', ' Adult'], ['paed', ' Paediatric'], ['aid', '🦻 Hearing aid']])}
+            else if (a === 'rush') {const r = rush(); waLine('bot', L(`Current rush: ${r < 8 ? 'LOW' : r < 14 ? 'MEDIUM' : 'HIGH'} · avg wait ~${Math.round(qwait(6))}m. Best slot 12:30.`, `अभी भीड़: ${r < 8 ? 'कम' : r < 14 ? 'मध्यम' : 'अधिक'} · प्रतीक्षा ~${Math.round(qwait(6))} मिनट।`)); waRender([['slot12', '📅 Book 12:30'], ['menu', '↩ Menu']])}
+            else if (a === 'exp') {waLine('bot', L('⚡ Express OPD: ~' + Math.round(qwait(6) * .4) + 'm wait · ₹750 (incl. consult). Confirm?', '⚡ एक्सप्रेस: ~' + Math.round(qwait(6) * .4) + ' मिनट · ₹750। पुष्टि?')); waRender([['confX', '✅ CONFIRM'], ['menu', '↩ Menu']])}
+            else if (a === 'em') {waLine('bot', L('🚑 Emergency detected — voice-calling helpline & opening Code Emergency.', '🚑 आपात — हेल्पलाइन कॉल जारी।')); emOpen(); logEv('🚑', 'WA bot escalated emergency', 'blk'); waRender([['menu', '↩ Menu']])}
+            else if (a === 'adult' || a === 'paed' || a === 'aid') {waLine('bot', L('✅ Token T08 held · ETA ' + new Date(Date.now() + 45 * 60000).toTimeString().slice(0, 5) + ' · QR at reception. Confirm?', '✅ टोकन T08 · ETA उपलब्ध। पुष्टि?')); waRender([['confT', '✅ CONFIRM'], ['menu', '↩ Menu']])}
+            else if (a === 'slot12') {waLine('bot', '✅ Slot 12:30 held · reminder at 11:45.'); waRender([['menu', '↩ Menu']])}
+            else if (a === 'confX' || a === 'confT') {waLine('bot', L('🎉 Confirmed! See you soon. Live queue link sent.', '🎉 पुष्टि हुई!')); logEv('💬', 'WA bot booking confirmed', 'ok'); waRender([['menu', '↩ Menu']])}
+            else if (a === 'menu') {waLine('bot', 'Menu:'); waRender(WA_MENU)}
+        });
+        /* TELE */
+        const TELE = [['Ramesh K.', 'Septoplasty', 'Day 3', 'Video', 'Due today'], ['Meena J.', 'FESS', 'Day 7', 'Video', 'Due +2'], ['Aarav M.', 'BERA review', 'Day 30', 'In-person', 'Schedule'], ['Kavita R.', 'Tympanoplasty', 'Day 3', 'e-Rx renewal', 'Due today']];
+        function renderTele() {$('teleList').innerHTML = TELE.map((t, i) => `<div class="prow"><div style="flex:1"><b>${t[0]}</b> · ${t[1]} · ${t[2]} · ${t[3]}<br><span class="chip ${t[4] === 'Due today' ? 'a' : 'g'}">${t[4]}</span></div><div class="acts">${t[3] === 'Video' ? `<button class="btn sm ok" onclick="teleVid(${i})">▶ Start video</button>` : t[3] === 'e-Rx renewal' ? `<button class="btn sm" onclick="teleRx(${i})">💊 e-Rx</button>` : `<button class="btn sm" onclick="toast('Slot suggested Sat 11:00')">📅 Slot</button>`}<button class="btn sm ghost" onclick="teleRem(${i})">🔔</button></div></div>`).join('')}
+        function teleVid(i) {logEv('🩺', 'Video follow-up done: ' + TELE[i][0], 'ok'); toast('Video consult completed 🩺'); TELE[i][4] = 'Done ✔'; renderTele()}
+        function teleRx(i) {logEv('💊', 'Signed e-Rx renewed: ' + TELE[i][0], 'ok'); toast('e-Rx signed & sent 💊'); TELE[i][4] = 'Renewed ✔'; renderTele()}
+        function teleRem(i) {logEv('🔔', 'Reminder sent: ' + TELE[i][0]); toast('Reminder sent 🔔')}
+        /* ABHA + NABH + SENTIMENT */
+        function abhaToggle() {
+            const on = $('abhaT').checked;
+            $('abhaOut').innerHTML = on ? `<pre class="json">{ "resourceType":"Bundle", "type":"document", "patient":{"abha":"91-XXXX-XXXX-4721"}, "consent":{"status":"active","purpose":"CAREMGT","expiry":"2027-08-01"}, "entry":["Encounter","Observation(BERA)","MedicationRequest"] }</pre><div style="margin-top:6px"><span class="chip g">ABHA linked 62%</span><span class="chip g">HFR registered</span><span class="chip g">Consent manager live</span><span class="chip">FHIR R4 native</span></div>` : '';
+            logEv('🆔', 'ABDM mode ' + (on ? 'ON' : 'OFF'), on ? 'ok' : ''); toast(on ? 'ABDM readiness ON 🆔' : 'ABDM mode off')
+        }
+        const NABH = [['Infection rate', '<2%', '1.4%', 'g'], ['Fall rate', '<0.5%', '0.2%', 'g'], ['Consent compliance', '100%', '98%', 'a'], ['Report TAT', '<24h', '19h', 'g'], ['Patient-rights education', '>90%', '94%', 'g'], ['Stewardship review', '100%', '82%', 'a']];
+        if ($('nabhOut')) $('nabhOut').innerHTML = NABH.map(n => `<div class="prow"><div>${n[0]} · target ${n[1]}</div><span class="chip ${n[3]}">${n[2]}</span></div>`).join('');
+        function fbRun() {
+            const t = $('fbIn').value.toLowerCase();
+            const pos = ['clean', 'polite', 'quick', 'excellent', 'thank', 'good', 'fast'], neg = ['wait', 'long', 'rude', 'dirty', 'delay', 'cost', 'costly', 'slow'];
+            let s = 0; pos.forEach(w => t.includes(w) && (s += 1)); neg.forEach(w => t.includes(w) && (s -= 1));
+            const themes = []; if (/wait|long|delay/.test(t)) themes.push('Waiting'); if (/clean|dirty/.test(t)) themes.push('Hygiene'); if (/polite|rude|nurse|staff/.test(t)) themes.push('Staff'); if (/cost|bill/.test(t)) themes.push('Billing');
+            const pct = Math.round(50 + s * 15);
+            $('fbOut').innerHTML = `<div class="meter"><i style="width:${Math.max(5, Math.min(95, pct))}%;background:${s >= 0 ? 'var(--emerald)' : 'var(--red)'}"></i></div><div class="prow"><div>Sentiment ${s >= 0 ? 'POSITIVE' : 'NEGATIVE'} (${pct}/100) · themes: ${themes.join(', ') || '—'}</div><div class="acts">${s < 0 ? '<button class="btn sm danger" onclick="logEv(\'🕊\',\'Grievance opened from feedback\',\'blk\');toast(\'Grievance recovery opened 🕊\')">Open grievance</button>' : '<span class="chip g">Share as testimonial?</span>'}</div></div>`;
+            logEv('🧠', 'Feedback analysed: ' + s)
+        }
+        /* e-INVOICE */
+        function eInvoice() {
+            const p = $('pProc').value, s = $('pScheme').value, r = $('pRoom').value, d = +$('pDays').value; const tot = PROCS[p].r[s] + ROOM[r] * d; const gst = Math.round(tot * 0.05);
+            const inv = {invoiceNo: 'KAN/26-27/0' + Math.floor(100 + Math.random() * 900), date: new Date().toISOString().slice(0, 10), GSTIN: '09AAKCA1234A1Z5', IRN: h32(p + s + tot) + h32(now()), patient: 'Ramesh K.', lines: [{item: p, amt: PROCS[p].r[s]}, {item: 'Room ' + r + ' x' + d, amt: ROOM[r] * d}], taxable: tot, CGST: gst / 2, SGST: gst / 2};
+            const blob = new Blob([JSON.stringify(inv, null, 1)], {type: 'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'einvoice_' + inv.invoiceNo + '.json'; a.click();
+            logEv('🧾', 'e-Invoice exported: ' + inv.invoiceNo, 'ok'); toast('GST e-Invoice exported 🧾')
+        }
+        /* ARCH */
+        const C = {cyan: '#22d3ee', emerald: '#34d399', amber: '#fbbf24', violet: '#a78bfa', magenta: '#f472b6', orange: '#fb923c'};
+        const NODES = [
+            {id: 'web', x: 300, y: 95, icon: '🌐', name: 'Online Booking', sub: 'kanagent.com', desc: 'Website portal; personas.', inn: ['Search'], out: ['Booking']},
+            {id: 'ivr', x: 560, y: 95, icon: '📞', name: 'IVR & Helpline', sub: '0121-4032247 · हिं', desc: '24×7 helpline; Hindi voice IVR.', inn: ['Calls'], out: ['Booking', 'Emergency']},
+            {id: 'walkin', x: 820, y: 95, icon: '🚶', name: 'Walk-in Desk', sub: 'QR check-in', desc: 'Digital tokens; rush meter.', inn: ['Arrival'], out: ['Token']},
+            {id: 'referral', x: 1080, y: 95, icon: '🤝', name: 'GP / PRO Referral', sub: 'Zero-commission', desc: 'Verified CRM referrals.', inn: ['GP'], out: ['Priority']},
+            {id: 'patient', x: 1380, y: 95, icon: '🧑️', name: 'Patient', sub: 'WA · SMS · EN/हिं', desc: 'Bilingual ETAs, consents, receipts.', inn: ['Alerts'], out: ['Consent']},
+            {id: 'lang', x: 170, y: 250, icon: '🗣️', name: 'Hindi Engine', sub: 'EN/हिं NLG · IVR', desc: 'Every patient-facing message bilingual; voice IVR Hindi.', inn: ['Core triggers'], out: ['Messages']},
+            {id: 'slot', x: 470, y: 250, icon: '🗓️', name: 'Smart Slot Engine', sub: 'Lunch-aware', desc: 'Capacity + lunch + Sunday rules.', inn: ['Bookings'], out: ['Slots']},
+            {id: 'queue', x: 790, y: 250, icon: '🎫', name: 'Virtual Queue', sub: 'Rush + suggest', desc: 'ETA w/ lunch crossing; Express offers.', inn: ['Slots'], out: ['ETA']},
+            {id: 'notify', x: 1110, y: 250, icon: '🔔', name: 'Notification Hub', sub: 'WA·SMS·IVR', desc: 'Omnichannel dispatcher.', inn: ['Triggers'], out: ['Messages']},
+            {id: 'policy', x: 1380, y: 250, icon: '🛡️', name: 'Coverage Concierge', sub: 'Why + consent', desc: 'Plain-language coverage w/ history; approve/decline.', inn: ['Scheme'], out: ['Consent card']},
+            {id: 'opd', x: 300, y: 475, icon: '🩺', name: 'OPD & Express', sub: 'Dr. Ankur', desc: 'S0–S4 tagger; priority returns.', inn: ['Tokens'], out: ['Referrals']},
+            {id: 'vitals', x: 540, y: 475, icon: '🫀', name: 'Vitals Triage', sub: 'Explainable', desc: 'Flags with reasons.', inn: ['Vitals'], out: ['Priority']},
+            {id: 'core', x: 800, y: 475, icon: '', name: 'AIRA CORE', sub: 'EHR·Rules·AI', desc: 'Unified record; routing.', inn: ['Events'], out: ['Routing']},
+            {id: 'consent', x: 1060, y: 475, icon: '🔐', name: 'Consent Vault', sub: 'DPDP', desc: 'Hashed e-signatures.', inn: ['Consents'], out: ['Audit']},
+            {id: 'bill', x: 1300, y: 475, icon: '🧾', name: 'Billing & TPA', sub: 'Certified', desc: 'Stamps; denial-risk; e-invoice.', inn: ['Charges'], out: ['Claims']},
+            {id: 'hear', x: 235, y: 710, icon: '🦻', name: 'Hearing Solutions', sub: 'Dr. Seema', desc: 'Audiology & aids; admin ops.', inn: ['Referrals'], out: ['Reports']},
+            {id: 'diag', x: 520, y: 720, icon: '🔬', name: 'Diagnostics', sub: 'In-house + outsourced', desc: 'IN-HOUSE: X-ray, VNG, allergy, sleep & vertigo; path collection on-site; reports by reference lab network; MRI/CT outsourced; RPA parses.', inn: ['Orders'], out: ['Reports']},
+            {id: 'lablink', x: 660, y: 600, icon: '🔗', name: 'Vendor Link', sub: 'MRI/CT · RefLab', desc: 'Certified imaging + reference path; SLA monitor.', inn: ['PDFs'], out: ['Parsed']},
+            {id: 'ot', x: 800, y: 720, icon: '🏥', name: 'OT Complex', sub: 'AI sequencing', desc: 'Majors/minors.', inn: ['Advisories'], out: ['Charges']},
+            {id: 'emerg', x: 1080, y: 710, icon: '🚑', name: 'Emergency 24×7', sub: 'Green corridor', desc: 'One-tap override.', inn: ['Emergencies'], out: ['OT']},
+            {id: 'pay', x: 940, y: 600, icon: '💳', name: 'Payments', sub: 'UPI·Intl', desc: 'Direct-pay & forex.', inn: ['Invoices'], out: ['Receipts']},
+            {id: 'pharm', x: 1345, y: 705, icon: '💊', name: 'Pharmacy', sub: 'FEFO·Steward', desc: 'Resistance intelligence.', inn: ['Rx'], out: ['Dispense']},
+            {id: 'tpagw', x: 1490, y: 590, icon: '🛰️', name: 'TPA Gateway', sub: 'RPA', desc: 'Portals + intl insurers.', inn: ['Packets'], out: ['Status']},
+            {id: 'audit', x: 170, y: 880, icon: '🕵️', name: 'Audit Tower', sub: 'Immutable', desc: 'Maker-checker.', inn: ['Events'], out: ['BI']},
+            {id: 'hr', x: 430, y: 880, icon: '👥', name: 'HR & Roster AI', sub: 'Attrition', desc: 'Tenure flags; hiring.', inn: ['Patterns'], out: ['Capacity']},
+            {id: 'inv', x: 680, y: 880, icon: '📦', name: 'Inventory', sub: 'Live PO', desc: 'Supplier feed.', inn: ['Alerts'], out: ['POs']},
+            {id: 'mkt', x: 930, y: 880, icon: '📰', name: 'Geo + Tourism Mkt', sub: 'Meerut·Global', desc: 'Low-flow taps; facilitators.', inn: ['Data'], out: ['Campaigns']},
+            {id: 'griev', x: 1420, y: 880, icon: '🕊️', name: 'Grievance Desk', sub: 'Recovery', desc: 'Closes loop; feedback NLP.', inn: ['Feedback'], out: ['BI']},
+            {id: 'dash', x: 1180, y: 880, icon: '📊', name: 'Exec Dashboard', sub: 'Dr. Ankur·Seema', desc: 'Command centre.', inn: ['Feeds'], out: ['Decisions']}];
+        const EDGES = [['web', 'slot', C.cyan, -30, 2], ['ivr', 'slot', C.cyan, 20, 2], ['referral', 'slot', C.cyan, 60, 1], ['walkin', 'queue', C.cyan, -20, 2], ['slot', 'queue', C.cyan, -26, 3], ['queue', 'notify', C.cyan, -24, 2], ['slot', 'patient', C.cyan, -80, 1], ['notify', 'patient', C.cyan, 30, 2], ['queue', 'core', C.cyan, -46, 2], ['queue', 'policy', C.cyan, 40, 1], ['policy', 'patient', C.cyan, 60, 1], ['core', 'lang', C.magenta, -40, 1], ['lang', 'notify', C.magenta, 40, 1], ['lang', 'patient', C.cyan, 80, 1], ['walkin', 'vitals', C.emerald, -20, 1], ['vitals', 'core', C.magenta, 30, 1], ['vitals', 'opd', C.emerald, 40, 1], ['core', 'opd', C.emerald, -30, 2], ['opd', 'hear', C.emerald, -44, 2], ['hear', 'opd', C.emerald, -44, 2], ['opd', 'diag', C.emerald, -38, 2], ['diag', 'opd', C.emerald, -38, 2], ['opd', 'ot', C.emerald, 46, 2], ['diag', 'ot', C.emerald, -30, 2], ['ot', 'pharm', C.emerald, -34, 2], ['diag', 'lablink', C.emerald, 24, 2], ['lablink', 'diag', C.emerald, -24, 1], ['ivr', 'emerg', C.orange, 110, 3], ['walkin', 'emerg', C.orange, 70, 2], ['emerg', 'ot', C.orange, -38, 3], ['opd', 'bill', C.amber, -70, 2], ['hear', 'bill', C.amber, -150, 1], ['diag', 'bill', C.amber, -80, 2], ['ot', 'bill', C.amber, -55, 2], ['emerg', 'bill', C.amber, 40, 1], ['pharm', 'bill', C.amber, -30, 2], ['policy', 'bill', C.amber, -40, 1], ['bill', 'pay', C.amber, 40, 1], ['pay', 'patient', C.cyan, 120, 1], ['bill', 'tpagw', C.amber, -30, 2], ['tpagw', 'dash', C.amber, 60, 1], ['core', 'consent', C.magenta, -30, 1], ['consent', 'patient', C.cyan, 80, 1], ['consent', 'audit', C.violet, 90, 1], ['core', 'hr', C.violet, 70, 1], ['hr', 'slot', C.violet, -100, 1], ['pharm', 'inv', C.violet, 44, 1], ['bill', 'audit', C.violet, -60, 1], ['audit', 'dash', C.violet, 40, 1], ['patient', 'griev', C.violet, 140, 1], ['griev', 'dash', C.violet, -30, 1], ['core', 'slot', C.magenta, 36, 1], ['core', 'notify', C.magenta, -40, 1], ['core', 'policy', C.magenta, 60, 1], ['core', 'mkt', C.magenta, -70, 1], ['core', 'dash', C.magenta, 30, 2], ['queue', 'dash', C.cyan, -150, 1], ['bill', 'dash', C.amber, 60, 1]];
+        const BANDS = [['01 · PATIENT ENTRY', 95], ['02 · FRONT-OFFICE', 250], ['03 · AIRA CORE', 475], ['04 · CLINICAL', 715], ['05 · BACK-OFFICE', 880]];
+        BANDS.push(['06 · ASSURANCE & EXTENDED CARE', 1010]);
+        NODES.push(
+            {id: 'wabot', x: 520, y: 1010, icon: '💬', name: 'WhatsApp Booking Bot', sub: 'EN/हिं NLG · escalations', desc: 'State-machine conversational booking: quotes live rush, offers Express OPD, escalates emergencies; feeds the Slot Engine.', inn: ['Patient WA messages'], out: ['Bookings → Slot Engine', 'Emergency escalation']},
+            {id: 'tele', x: 235, y: 1010, icon: '🩺', name: 'Tele-Follow-up Loop', sub: 'Day-3/7 · e-Rx renewal', desc: 'Post-discharge video follow-ups, cryptographically signed e-Rx renewals and adherence tracking per Telemedicine Practice Guidelines.', inn: ['Discharge events'], out: ['Video consults', 'e-Rx renewals', 'Adherence → BI']},
+            {id: 'prem', x: 800, y: 1010, icon: '🔧', name: 'Premises & Energy', sub: 'AMC · AERB · Solar', desc: 'Warranty/calibration/AMC/licence tracking with OT auto-block; solar offset monitoring and work-orders.', inn: ['Asset calendar', 'Meter feeds'], out: ['Work-orders', 'OT auto-block', 'Escalations → Admin']},
+            {id: 'twin', x: 1080, y: 1010, icon: '🧬', name: 'Digital Twin', sub: 'M/M/c what-if', desc: 'Queuing-model simulator that tests arrival/staffing shocks before roster changes are committed.', inn: ['Arrivals', 'Roster', 'Service rates'], out: ['Staffing advice → HR', 'Express-lane trigger → Queue']},
+            {id: 'nabh', x: 1360, y: 1010, icon: '🏅', name: 'Quality & Compliance', sub: 'NABH KPIs · ABDM', desc: 'NABH KPI dashboard, ABDM/FHIR R4 readiness and consent audit; pushes reports to the Quality Council.', inn: ['Audit trails', 'KPIs'], out: ['Quality Council reports', 'ABDM bundles']}
+        );
+        EDGES.push(
+            ['core', 'wabot', C.magenta, -40, 1], ['wabot', 'slot', C.cyan, -60, 1],
+            ['dash', 'tele', C.emerald, 60, 1], ['tele', 'notify', C.cyan, 80, 1],
+            ['core', 'prem', C.violet, 70, 1], ['prem', 'ot', C.orange, -60, 1],
+            ['hr', 'twin', C.violet, 40, 1], ['twin', 'queue', C.magenta, -80, 1],
+            ['audit', 'nabh', C.violet, 40, 1], ['nabh', 'dash', C.amber, -40, 1]
+        );
+        const NS = 'http://www.w3.org/2000/svg';
+        const svg = $('diagram'), wrap = $('scrollwrap');
+        const mqM = window.matchMedia('(max-width:820px)');
+        const el = (t, a) => {const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e};
+        const byId = {}; NODES.forEach(n => byId[n.id] = n);
+        BANDS.forEach(([l, y]) => {const t = el('text', {x: 36, y: y - 32, class: 'band-lbl'}); t.textContent = l; $('gBands').appendChild(t); $('gBands').appendChild(el('line', {x1: 36, y1: y - 22, x2: 1564, y2: y - 22, class: 'band-line'}))});
+        const parts = [];
+        EDGES.forEach(([f, t, c, b, n]) => {
+            const a = byId[f], d = byId[t]; const mx = (a.x + d.x) / 2, my = (a.y + d.y) / 2, dx = d.x - a.x, dy = d.y - a.y, Ll = Math.hypot(dx, dy) || 1;
+            const p = el('path', {d: `M ${a.x} ${a.y} Q ${mx - dy / Ll * b} ${my + dx / Ll * b} ${d.x} ${d.y}`, class: 'edge', stroke: c}); p.style.animationDuration = (1.4 + Ll / 600) + 's'; p.dataset.from = f; p.dataset.to = t; $('gEdges').appendChild(p);
+            const len = p.getTotalLength(); for (let i = 0; i < n; i++) {const ci = el('circle', {r: 3, fill: c, class: 'particle', filter: 'url(#glow)'}); $('gParticles').appendChild(ci); parts.push({c: ci, p, len, ph: i / n, sp: 60 / Ll + (f === 'emerg' ? .004 : 0)})}
+        });
+        NODES.forEach(n => {
+            const g = el('g', {class: 'node', transform: `translate(${n.x},${n.y})`}); g.dataset.id = n.id;
+            if (n.id === 'core') {
+                const r1 = el('circle', {r: 96, class: 'core-ring'}); r1.style.transformOrigin = '0 0'; const r2 = el('circle', {r: 82, class: 'core-ring2'}); r2.style.transformOrigin = '0 0'; g.append(r1, r2);
+                g.appendChild(el('circle', {r: 66, fill: 'url(#coreGrad)', stroke: '#2dd4ee', 'stroke-width': 1.6}));
+                const t1 = el('text', {'text-anchor': 'middle', y: -4, class: 'n-name', fill: '#7dd3fc', 'font-size': '16px', 'letter-spacing': '3px'}); t1.textContent = 'AIRA CORE';
+                const t2 = el('text', {'text-anchor': 'middle', y: 14, class: 'n-sub'}); t2.textContent = 'EHR · Rules · AI'; g.append(t1, t2)
+            }
+            else {
+                g.appendChild(el('rect', {x: -95, y: -28, width: 190, height: 56, rx: 13}));
+                const ic = el('text', {x: -78, y: 6, class: 'n-icon', 'text-anchor': 'middle'}); ic.textContent = n.icon;
+                const nm = el('text', {x: -58, y: -3, class: 'n-name'}); nm.textContent = n.name.length > 21 ? n.name.slice(0, 20) + '…' : n.name;
+                const sb = el('text', {x: -58, y: 13, class: 'n-sub'}); sb.textContent = n.sub.length > 26 ? n.sub.slice(0, 25) + '…' : n.sub; g.append(ic, nm, sb)
+            }
+            g.addEventListener('click', e => {e.stopPropagation(); select(n)});
+            g.addEventListener('mouseenter', () => trace(n.id, true)); g.addEventListener('mouseleave', () => trace(n.id, false));
+            $('gNodes').appendChild(g)
+        });
+        function trace(id, on) {document.querySelectorAll('.edge').forEach(e => e.classList.toggle('dim', on && !(e.dataset.from === id || e.dataset.to === id))); parts.forEach(p => p.c.classList.toggle('dim', on && !(p.p.dataset.from === id || p.p.dataset.to === id)))}
+        function hidePanel() {$('panel').classList.add('hid'); $('panel').classList.remove('open'); document.querySelectorAll('.node').forEach(x => x.classList.remove('sel'))}
+        function select(n) {
+            document.querySelectorAll('.node').forEach(x => x.classList.toggle('sel', x.dataset.id === n.id));
+            $('panel').classList.remove('hid');
+            $('panel').innerHTML = `<button id="btnClose">✕</button><div class="tag">INSPECTOR</div><h3>${n.icon ? n.icon + ' ' : ''}${n.name}</h3><p style="color:#9fb3d1">${n.desc}</p><div class="io"><b>IN</b><ul>${n.inn.map(i => `<li>${i}</li>`).join('')}</ul></div><div class="io"><b>OUT</b><ul>${n.out.map(o => `<li>${o}</li>`).join('')}</ul></div>`;
+            $('btnClose').onclick = hidePanel;
+            if (mqM.matches) $('panel').classList.add('open')
+        }
+        svg.addEventListener('click', hidePanel);
+        $('btnClose').onclick = hidePanel;
+        let playing = true, speedMul = 1, acc = 0, last = performance.now();
+        function frame(t) {if ($('s-arch').classList.contains('on')) {if (playing) acc += (t - last) * speedMul; parts.forEach(p => {const q = ((acc / 1000) * p.sp + p.ph) % 1; const pos = p.p.getPointAtLength(q * p.len); p.c.setAttribute('cx', pos.x); p.c.setAttribute('cy', pos.y); p.c.style.opacity = (q < .04 || q > .96) ? .25 : .95})} last = t; requestAnimationFrame(frame)}
+        requestAnimationFrame(frame);
+        $('btnPause').onclick = () => {playing = !playing; $('btnPause').textContent = playing ? '⏸' : '▶'; toast(playing ? 'Playing' : 'Paused')};
+        const SPD = [1, 1.5, 2, .5]; let spi2 = 0;
+        $('btnSpeed').onclick = () => {spi2 = (spi2 + 1) % 4; speedMul = SPD[spi2]; $('btnSpeed').textContent = SPD[spi2] + '×'; toast('Speed ' + SPD[spi2] + '×')};
+        let zoom = 1;
+        function applyZoom() {const base = mqM.matches ? Math.max(1150, wrap.clientWidth) : wrap.clientWidth; svg.style.width = Math.round(base * zoom) + 'px'}
+        $('btnZoomIn').onclick = () => {zoom = Math.min(2.5, zoom * 1.25); applyZoom(); toast('Zoom ' + Math.round(zoom * 100) + '%')};
+        $('btnZoomOut').onclick = () => {zoom = Math.max(.6, zoom / 1.25); applyZoom(); toast('Zoom ' + Math.round(zoom * 100) + '%')};
+        $('btnFit').onclick = () => {zoom = 1; applyZoom(); wrap.scrollLeft = 0; toast('Fit')};
+        window.addEventListener('resize', () => {applyZoom(); seSize()});
+        let tkT = 47, tkW = 168, tkO = 38;
+        setInterval(() => {if (!playing) return; tkT += Math.floor(Math.random() * 3); tkW = Math.max(22, tkW - 2); tkO = Math.min(76, tkO + .7); $('stTokens').textContent = tkT; $('stWait').textContent = Math.round(tkW); $('stOT').textContent = Math.round(tkO)}, 900);
+        /* QUEUE */
+        let Q = {delay: 45, avg: 12, tokens: [{n: 'T01', name: 'Ramesh K.', type: 'Booked', arr: true, vip: 0}, {n: 'T02', name: 'Sunita P.', type: 'Walk-in', arr: true, vip: 0}, {n: 'T03', name: 'Aarav M.', type: 'Priority', arr: true, vip: 0}, {n: 'T04', name: 'Meena J.', type: 'Walk-in', arr: false, vip: 0}, {n: 'T05', name: 'Irfan S.', type: 'Booked', arr: false, vip: 0}, {n: 'T06', name: 'Kavita R.', type: 'Walk-in', arr: false, vip: 0}]};
+        const qwait = i => Q.delay + i * Q.avg;
+        function lunchAdj(w) {const d = new Date(Date.now() + w * 60000), h = d.getHours(), h0 = new Date().getHours(); return ((h0 < 14 && h >= 14) || h === 14) ? 60 : 0}
+        function rush() {return Q.tokens.filter((t, i) => i > 0 && t.arr).length + Q.tokens.filter(t => !t.arr).length + Q.delay / 15}
+        $('dSlide').oninput = e => {Q.delay = +e.target.value; $('dVal').textContent = Q.delay; renderQueue()};
+        function renderQueue() {
+            const r = rush(); const lvl = r < 8 ? [L('LOW', 'कम'), 'var(--emerald)', 25] : r < 14 ? [L('MEDIUM', 'मध्यम'), 'var(--amber)', 55] : [L('HIGH — RUSH', 'अधिक भीड़'), 'var(--red)', 90];
+            $('rushBar').style.width = lvl[2] + '%'; $('rushBar').style.background = lvl[1]; $('rushLbl').innerHTML = `${L('Rush now', 'अभी भीड़')}: <b style="color:${lvl[1]}">${lvl[0]}</b>`;
+            let html = '<table><tr><th>Tk</th><th>' + L('Patient', 'मरीज़') + '</th><th>ETA</th><th></th></tr>';
+            Q.tokens.forEach((t, i) => {
+                const w = qwait(i) + lunchAdj(qwait(i)); let act = t.arr ? '' : `<button class="btn sm" onclick="checkin(${i})">QR</button>`; act += `<button class="btn sm ${t.vip ? 'warn' : 'ghost'}" onclick="vipT(${i})">⭐</button>`;
+                html += `<tr class="qrow" style="animation-delay:${i * .05}s"><td><b>${t.n}</b></td><td>${t.name}${t.vip ? ' <span class="chip a">VIP</span>' : ''}<br><span class="chip">${t.type}</span></td><td>${i === 0 ? L('Now', 'अभी') : Math.round(w) + 'm'}</td><td><div class="acts">${act}</div></td></tr>`
+            });
+            $('queueList').innerHTML = html + '</table>';
+            const s = []; if (lvl[2] === 90) s.push('🕐 ' + L('“Come later” alerts sent', '“बाद में आइए” अलर्ट'), '⚡ ' + L('Express OPD offers', 'एक्सप्रेस ऑफ़र'), '📅 ' + L('Tomorrow slots pre-approved', 'कल के स्लॉट')); else if (lvl[2] === 55) s.push('🕐 ' + L('Staggered nudges', 'समय-बंटे नज्स'), '⚡ ' + L('Express visible', 'एक्सप्रेस')); else s.push('🟢 ' + L('Normal flow', 'सामान्य प्रवाह'));
+            $('sugg').innerHTML = '<label>' + L('SUGGESTIONS', 'सुझाव') + '</label>' + s.map(x => `<div class="prow"><div style="flex:1">${x}</div></div>`).join('');
+            const nw = Math.round(qwait(Q.tokens.length) + lunchAdj(120)), ew = Math.round(nw * .4);
+            $('expViz').innerHTML = `<div class="prow"><div>🚶 ${L('Normal', 'सामान्य')} ~${nw}m · ₹500</div><div>⚡ ${L('Express', 'एक्सप्रेस')} ~${ew}m · ₹750</div></div><button class="btn sm ok" onclick="toast(L('Express held 20 min','एक्सप्रेस 20 मिनट होल्ड'))">${L('Book Express', 'एक्सप्रेस बुक करें')}</button>`
+        }
+        function checkin(i) {Q.tokens[i].arr = true; renderQueue(); logEv('🚶', Q.tokens[i].name + ' in', 'ok'); toast(Q.tokens[i].name + ' checked-in ✔')}
+        function vipT(i) {Q.tokens[i].vip = 1 - Q.tokens[i].vip; renderQueue(); renderRooms(); logEv('⭐', Q.tokens[i].name + (Q.tokens[i].vip ? ' VIP on' : ' VIP off')); toast('VIP ' + (Q.tokens[i].vip ? 'ON ⭐ → Rooms' : 'OFF'))}
+        function sendAlert() {
+            const i = Q.tokens.findIndex(t => !t.arr); if (i < 0) return toast('All arrived'); const t = Q.tokens[i]; const w = qwait(i) + lunchAdj(qwait(i)); const eta = new Date(Date.now() + w * 60000).toTimeString().slice(0, 5);
+            $('waQueue').innerHTML = LANG === 'hi' ? `<div class="wa">🏥 कनाग मेरठ: डॉ. गुप्ता ${Q.delay} मिनट विलंब। टोकन ${t.n}: आगमन ${eta}। CONFIRM भेजें।<span class="t">✓✓</span></div>` : `<div class="wa">🏥 Kanag Meerut: Dr. Gupta ${Q.delay}m late. Check-in ${t.n}: ${eta} (lunch-adjusted). Reply CONFIRM.<span class="t">✓✓</span></div>`; logEv('📲', 'Alert → ' + t.n); toast('Arrival alert sent')
+        }
+        function emOpen() {$('emModal').style.display = 'block'}
+        /* ROOMS */
+        let ROOMSB = [['G-01', 'General', 1], ['G-02', 'General', 0], ['D-01', 'Deluxe', 1], ['D-02', 'Deluxe', 0], ['S-01', 'Suite', 0], ['VIP-1', 'VIP Suite', 0]];
+        function renderRooms() {
+            $('roomBoard').innerHTML = '<table><tr><th>Room</th><th>Type</th><th>Status</th><th></th></tr>' + ROOMSB.map((r, i) => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2] ? '<span class="chip a">Occupied</span>' : '<span class="chip g">Free</span>'}</td><td><div class="acts"><button class="btn sm" onclick="alloc(${i})">${r[2] ? 'Discharge' : 'Allocate'}</button></div></td></tr>`).join('') + '</table>';
+            const vips = Q.tokens.filter(t => t.vip).length;
+            $('vipProto').innerHTML = vips ? `<div class="prow"><div style="flex:1">⭐ ${vips} VIP active — concierge · privacy · discreet billing · lounge · diet</div><div class="acts"><button class="btn sm warn" onclick="vipUpgrade()">🛏 Upgrade via Concierge</button></div></div>` : '<div class="prow"><div style="flex:1">No VIP active — mark ⭐ in Queue</div></div>'
+        }
+        function alloc(i) {ROOMSB[i][2] = 1 - ROOMSB[i][2]; renderRooms(); toast(ROOMSB[i][0] + (ROOMSB[i][2] ? ' allocated' : ' freed'))}
+        function vipUpgrade() {go('s-policy'); $('ccScheme').value = 'TPA / Insurance'; $('ccRoom').value = 'Suite'; concierge()}
+        /* CONCIERGE */
+        const ROOM = {General: 1200, Deluxe: 3000, Suite: 6000};
+        const HIST = {'TPA / Insurance': [['room-rent cap', 22], ['non-medical consumables', 31], ['missing pre-auth', 12]], 'CGHS': [['entitlement upgrade', 8]], 'ECHS': [['entitlement upgrade', 8]], 'Ayushman (PM-JAY)': [['balance billing', 100], ['non-package items', 18]], 'Cash': [['—', 0]]};
+        function concierge() {
+            const s = $('ccScheme').value, r = $('ccRoom').value, d = +$('ccDays').value, pkg = +$('ccPkg').value, si = +$('ccSI').value, name = $('ccName').value;
+            const rent = ROOM[r], cap = Math.max(1500, si * .01); let cards = [], self = 0, blocked = false;
+            const H = k => {const h = (HIST[s] || []).find(x => x[0] === k); return h ? `<span class="chip ${h[1] > 30 ? 'r' : 'a'}">history: ${h[1]}% hit “${h[0]}”</span>` : ''};
+            if (s === 'Cash') {cards.push(['good', '💵', 'Cash plan — transparent self-pay.', `Package ${inr(pkg)} + room ${inr(rent * d)}. No insurer, no rejection risk.`, '']); self = pkg + rent * d}
+            else if (s === 'TPA / Insurance') {
+                cards.push(['good', '✅', 'Package covered after pre-auth.', 'ICD-10 + notes auto-attached; 12% historical rejections were missing notes — ours pre-checked.', H('missing pre-auth')]);
+                if (rent <= cap) cards.push(['good', '✅', 'Room fully covered.', '', '']);
+                else {cards.push(['warn', '🛏', 'Room above cap → you pay difference.', `Why: cap = 1% of SI = ₹${cap}/d; ${r} = ₹${rent}/d. ${H('room-rent cap')} — disclosed now.`, '']); self += (rent - cap) * d}
+                cards.push(['warn', '🧴', 'Consumables (~8%) payable by you.', 'TPAs exclude kits/gloves by regulation; 31% of disputes were this line.', H('non-medical consumables')]); self += Math.round(pkg * .08)
+            }
+            else if (s === 'CGHS' || s === 'ECHS') {
+                cards.push(['good', '✅', 'Package at fixed ' + s + ' rates.', '', '']);
+                if (rent > 1800) {cards.push(['warn', '🛏', r + ' above entitlement → difference self-pay with consent.', 'Why: ' + s + ' fixes room by grade. ' + H('entitlement upgrade'), '']); self += (rent - 1800) * d}
+                cards.push(['good', '🚫', 'Extra charges prohibited.', 'System blocks them.', ''])
+            }
+            else {
+                cards.push(['good', '✅', 'PM-JAY fully cashless.', '', '']);
+                if (r !== 'General') {blocked = true; cards.push(['bad', '⛔', r + ' cannot be billed under PM-JAY.', 'Why: all-inclusive rates; balance billing prohibited — 100% rejected last year. General ward recommended; audited exception exists.', H('balance billing')])}
+                else cards.push(['good', '✅', 'General ward covered ₹0.', '', ''])
+            }
+            let html = cards.map(c => `<div class="ccard ${c[0]}"><div>${c[1]} <b>${c[2]}</b></div><div class="why">${c[3]} ${c[4]}</div></div>`).join('');
+            if (blocked) html += `<div class="ccard warn"><b>${L('Your decision needed', 'आपका निर्णय आवश्यक')}</b><div class="why">${L('Nothing happens without your approval.', 'आपकी स्वीकृति के बिना कुछ नहीं होगा।')}</div><div class="acts" style="justify-content:flex-start"><button class="btn sm ok" onclick="ccAlt()">🛏 ${L('Switch to General', 'जनरल लें')}</button><button class="btn sm warn" onclick="ccMed()">🩺 ${L('Doctor exception', 'डॉक्टर अपवाद')}</button></div></div>`;
+            else if (self > 0) html += `<div class="ccard warn"><b>${L('Out-of-pocket', 'आपकी जेब से')}: ${inr(self)}</b><div class="why">${L('Approve to e-sign, or switch to covered alternative.', 'स्वीकारें या कवर्ड विकल्प लें।')}</div><div class="acts" style="justify-content:flex-start"><button class="btn sm ok" onclick="ccYes(${self},'${s}','${r}','${name}')">✅ ${L('I approve', 'मैं स्वीकार करता/करती हूँ')}</button><button class="btn sm ghost" onclick="ccAlt()">↩ ${L('Covered alternative', 'कवर्ड विकल्प')}</button></div></div>`;
+            else html += `<div class="ccard good"><b>🎉 ${L('Nothing to pay from pocket.', 'जेब से कुछ नहीं।')}</b></div>`;
+            $('ccOut').innerHTML = html; logEv('🛡', 'Concierge: ' + s + '/' + r); tracePath(['policy', 'patient']); toast(L('Explained with reasons', 'कारण सहित समझाया'))
+        }
+        function ccYes(self, s, r, name) {$('ccOut').innerHTML += `<div class="stamp"><div class="meta"><b>CONSENT e-SIGNED</b><br>${name} · ${s} · ${r} · ${inr(self)}<br>#${h32(name + s + r + self)} · Vault</div></div>`; logEv('🔐', 'Consent approved', 'ok'); tracePath(['policy', 'consent', 'audit']); toast('Consent e-signed 🔐')}
+        function ccAlt() {$('ccRoom').value = 'General'; concierge(); logEv('↩', 'Switched to covered General', 'ok'); toast('Switched to covered General')}
+        function ccMed() {$('ccOut').innerHTML += `<div class="ccard warn">🩺 ${L('Exception routed with audit log.', 'अपवाद मार्ग — ऑडिट सहित।')}</div>`; logEv('🩺', 'Exception opened', 'pen'); toast('Exception routed')}
+        /* TPA/PRICING */
+        const PROCS = {'FESS': {icd: 'J34.2', r: {Cash: 70000, 'TPA / Insurance': 58000, CGHS: 52000, ECHS: 52000, 'Ayushman (PM-JAY)': 47000}}, 'Septoplasty': {icd: 'J34.3', r: {Cash: 55000, 'TPA / Insurance': 45000, CGHS: 40000, ECHS: 40000, 'Ayushman (PM-JAY)': 36000}}, 'Tympanoplasty': {icd: 'H70.1', r: {Cash: 65000, 'TPA / Insurance': 54000, CGHS: 48000, ECHS: 48000, 'Ayushman (PM-JAY)': 43000}}};
+        const DOCS = ['Pre-auth', 'Consent', 'ICD-10', 'Notes', 'Bill', 'Reports', 'Discharge', 'KYC']; let docState = [1, 1, 1, 0, 1, 0, 1, 1];
+        $('tpaProc').innerHTML = Object.keys(PROCS).map(p => `<option>${p}</option>`).join('');
+        function renderTpa() {
+            $('tpaList').innerHTML = DOCS.map((d, i) => `<label class="ck"><input type="checkbox" ${docState[i] ? 'checked' : ''} onchange="docState[${i}]=this.checked;renderTpa()"><span>${d}</span></label>`).join('');
+            const miss = docState.filter(x => !x).length, risk = Math.round(miss / 8 * 100); $('tpaBar').style.width = (100 - risk) + '%'; $('tpaRisk').innerHTML = `Denial-risk <b style="color:${risk > 30 ? 'var(--red)' : 'var(--emerald)'}">${risk}%</b>`
+        }
+        function appeal() {$('tpaAppeal').value = DOCS.filter((d, i) => !docState[i]).map(m => '• ' + m).join('\n') || 'File complete'; renderTpa(); toast('Fix-list drafted ✍')}
+        const SCHEMES = ['Cash', 'TPA / Insurance', 'CGHS', 'ECHS', 'Ayushman (PM-JAY)'];
+        $('pScheme').innerHTML = SCHEMES.map(s => `<option>${s}</option>`).join(''); $('pProc').innerHTML = Object.keys(PROCS).map(p => `<option>${p}</option>`).join('');
+        function renderP() {$('pTable').innerHTML = '<tr><th>Proc</th>' + SCHEMES.map(s => `<th>${s.split(' ')[0]}</th>`).join('') + '</tr>' + Object.entries(PROCS).map(([p, o]) => `<tr><td><b>${p}</b></td>${SCHEMES.map(s => `<td>${inr(o.r[s])}</td>`).join('')}</tr>`).join('')}
+        $('pScheme').onchange = renderP;
+        function makeStamp() {
+            const p = $('pProc').value, s = $('pScheme').value, r = $('pRoom').value, d = +$('pDays').value; const tot = PROCS[p].r[s] + ROOM[r] * d; const h = h32(p + s + r + d);
+            $('pStamp').innerHTML = `<div class="stamp"><canvas id="pQR" width="84" height="84"></canvas><div class="meta"><b>CERTIFIED ${inr(tot)}</b><br>${p}·${s}·${r}×${d} · #${h}</div></div>`; drawQR($('pQR'), h); logEv('🔏', 'Stamped', 'ok'); toast('Stamped 🔏')
+        }
+        function drawQR(cv, seed) {
+            const c = cv.getContext('2d'), n = 21, s = 4; c.fillStyle = '#0c1830'; c.fillRect(0, 0, 84, 84); const r = lcg(parseInt(seed, 16) || 1); c.fillStyle = '#22d3ee';
+            const F = (x, y) => {for (let i = 0; i < 7; i++)for (let j = 0; j < 7; j++) {if (i === 0 || i === 6 || j === 0 || j === 6 || (i > 1 && i < 5 && j > 1 && j < 5)) c.fillRect((x + i) * s, (y + j) * s, s, s)} }; F(0, 0); F(14, 0); F(0, 14);
+            for (let i = 0; i < n; i++)for (let j = 0; j < n; j++) {const inF = (i < 8 && j < 8) || (i > 12 && j < 8) || (i < 8 && j > 12); if (!inF && r() > .5) c.fillRect(i * s, j * s, s, s)}
+        }
+        /* VITALS */
+        const SYM = ['Ear pain', 'Sudden hearing loss', 'Vertigo', 'Weakness', 'Snoring', 'Sore throat', 'Nasal block', 'Fever'];
+        $('vSym').innerHTML = SYM.map(s => `<label class="ck"><input type="checkbox" value="${s}" ${['Ear pain', 'Fever'].includes(s) ? 'checked' : ''}><span>${s}</span></label>`).join('');
+        let SIG = {};
+        const RULES = [{f: '🔴 Febrile paed ear pain → priority', c: v => v.age < 12 && v.temp >= 100 && v.sy.includes('Ear pain')}, {f: '🔴 Sudden hearing loss → STAT', c: v => v.sy.includes('Sudden hearing loss')}, {f: '🟡 Desat+snoring → sleep study', c: v => v.spo2 < 94 && v.sy.includes('Snoring')}, {f: '🟡 High BP → pre-op alert', c: v => v.sys >= 160 || v.dia >= 100}, {f: '🔴 Vertigo+weakness → emergency', c: v => v.sy.includes('Vertigo') && v.sy.includes('Weakness')}];
+        function runVitals() {
+            const v = {age: +$('vAge').value, wt: +$('vWt').value, temp: +$('vTemp').value, spo2: +$('vSpO2').value, sys: +$('vSys').value, dia: +$('vDia').value, sy: [...document.querySelectorAll('#vSym input:checked')].map(c => c.value)};
+            v.sy.forEach(s => SIG[s] = (SIG[s] || 0) + 1); const hit = RULES.filter(r => r.c(v));
+            $('vOut').innerHTML = hit.map(h => `<div class="prow"><div style="flex:1">${h.f}</div></div>`).join('') || '<div class="prow"><div style="flex:1">🟢 No flags</div></div>';
+            $('kSig').textContent = Object.values(SIG).reduce((a, b) => a + b, 0); logEv('🫀', 'Triage ' + hit.length); tracePath(['walkin', 'vitals', 'core']); toast('Triage: ' + hit.length + ' flag(s)')
+        }
+        /* HEARING */
+        const AIDS = [{m: 'Signia Pure 312X', co: 'Signia', cost: 38000, web: 52900, ours: 46500, st: 6, tg: 20, ac: 13, obs: 0}, {m: 'Phonak Audéo P90', co: 'Phonak', cost: 52000, web: 68500, ours: 61000, st: 4, tg: 15, ac: 9, obs: 0}, {m: 'Widex Moment 440', co: 'Widex', cost: 45000, web: 59900, ours: 52500, st: 3, tg: 12, ac: 11, obs: 0}, {m: 'Oticon Real 1', co: 'Oticon', cost: 60000, web: 74900, ours: 66500, st: 5, tg: 10, ac: 4, obs: 0}, {m: 'Resound Key 2 (2021)', co: 'Resound', cost: 22000, web: 28900, ours: 26000, st: 7, tg: 8, ac: 8, obs: 1}];
+        const recPrice = a => Math.max(Math.round(a.cost * 1.18), Math.min(Math.round(a.web * .92), a.ours));
+        function renderHear() {
+            $('haTable').innerHTML = '<tr><th>Model</th><th>Web MRP</th><th>AI Best</th><th>Profit ₹</th><th>Margin</th></tr>' + AIDS.map(a => {const rp = recPrice(a); return `<tr><td><b>${a.m}</b>${a.obs ? ' <span class="chip r">OBSOLETE</span>' : ''}</td><td>${inr(a.web)}</td><td><b style="color:var(--emerald)">${inr(rp)}</b></td><td>${inr(rp - a.cost)}</td><td><span class="chip g">${Math.round((rp - a.cost) / rp * 100)}%</span></td></tr>`}).join('');
+            $('haTargets').innerHTML = AIDS.filter(a => !a.obs).map(a => {const p = Math.round(a.ac / a.tg * 100); return `<div class="prow"><div>${a.co} ${a.ac}/${a.tg} units</div><div class="acts">${p < 65 ? `<button class="btn sm warn" onclick="toast('Focus campaign drafted: ${a.co} 🎯')"> ${p}% — push</button>` : `<span class="chip g">${p}% pace</span>`}</div></div>`}).join('');
+            $('haObs').innerHTML = '<div class="prow"><div>Resound Key 2 (2021) · 7 units</div><div class="acts"><button class="btn sm warn" onclick="toast(\'Clearance @ ₹23,900 + free service drafted\')">Clearance campaign</button></div></div>';
+            $('haInv').innerHTML = AIDS.map(a => `<div class="prow"><div>${a.m} · ${a.st} u (${a.st * 9}d cover)</div>${a.st < 5 ? '<span class="chip a">Live PO sent</span>' : '<span class="chip g">OK</span>'}</div>`).join('');
+            $('haFeed').innerHTML = '<label>SUPPLIER FEED (live)</label><div class="log"><div class="ok">PO #H-2211 → Signia (2× Pure 312X)</div><div class="pen">Phonak P90 below reorder — quote requested</div><div class="ok">Widex ASN confirmed 48h</div></div>'
+        }
+        function hearRec() {
+            const bud = +$('hrBud').value; const fit = AIDS.filter(a => !a.obs && recPrice(a) <= bud).sort((a, b) => b.cost - a.cost)[0] || AIDS[4]; const rp = recPrice(fit);
+            $('hrOut').innerHTML = `<div class="stamp"><div class="meta"><b>${fit.m}</b> @ ${inr(rp)} (web ${inr(fit.web)}) · profit ${inr(rp - fit.cost)} · margin ${Math.round((rp - fit.cost) / rp * 100)}%</div></div>`; logEv('🦻', 'Aid rec: ' + fit.m, 'ok'); toast('Recommended: ' + fit.m)
+        }
+        /* VENDORS */
+        let VENDS = [{n: 'Tesla MRI & CT', t: 'Outsourced MRI', tat: 5.2, com: 6, sat: 4.6}, {n: 'CityScan Imaging', t: 'Outsourced CT', tat: 12.4, com: 8, sat: 3.6}, {n: 'RefLab Network (PathKind-type)', t: 'Reference path reports', tat: 7.1, com: 8, sat: 4.4}, {n: 'Metro Imaging', t: 'Outsourced MRI', tat: 9, com: 10, sat: 4.2}];
+        function renderVend() {$('venList').innerHTML = VENDS.map((v, i) => {const b = v.tat > v.com; return `<div class="prow"><div style="flex:1"><b>${v.n}</b> · ${v.t} · NABL MoU ✔<br><span class="chip ${b ? 'r' : 'g'}">TAT ${v.tat}/${v.com}h</span><span class="chip ${v.sat < 4 ? 'a' : 'g'}">★${v.sat}</span></div><div class="acts">${b ? `<button class="btn sm danger" onclick="vendRecover(${i})">Recovery</button>` : ''}</div></div>`}).join('')}
+        function vendSurvey() {VENDS.forEach(v => v.sat = Math.min(5, +(v.sat + .1).toFixed(1))); renderVend(); logEv('📊', 'Surveys sent', 'ok'); toast('Surveys sent 📊')}
+        function vendFlag() {logEv('🚩', 'CityScan breach flagged', 'blk'); toast('SLA breach flagged 🚩')}
+        function vendRecover(i) {VENDS[i].tat = VENDS[i].com; renderVend(); logEv('🕊️', 'Recovery closed', 'ok'); toast('Recovery closed 🕊️')}
+        function vendAdd() {logEv('➕', 'Gate: NABL 112 MoU + prior intimation + DPDP DPA', 'pen'); toast('Vendor gate opened')}
+        /* ASSETS */
+        const ASSETS = [['BERA Unit (Maico)', 'Warranty', '45d', 'Maico India', '₹0 (warranty)', 'HIGH'], ['Audiometer AU-300', 'Calibration', '12d', 'AuDi Cal Services', '₹8,500', 'HIGH'], ['OT Sterilizer', 'AMC', '30d', 'SteriTech', '₹22,000', 'CRIT'], ['X-ray AERB licence', 'Licence', '90d', 'AERB', '₹15,000', 'CRIT'], ['Lift', 'AMC', '18d', 'VertiCare', '₹12,500', 'MED'], ['HVAC HEPA', 'Filter', '7d', 'AirPure', '₹6,800', 'MED'], ['Fire NOC', 'Licence', '120d', 'Fire Dept', '₹9,000', 'CRIT'], ['Generator', 'Service', '25d', 'GenServe', '₹4,500', 'MED']];
+        function renderAssets() {
+            let score = 100; ASSETS.forEach(a => {const d = parseInt(a[2]); if (d < 15) score -= 4; else if (d < 30) score -= 2});
+            $('asBar').style.width = score + '%'; $('asBar').style.background = score > 85 ? 'var(--emerald)' : score > 70 ? 'var(--amber)' : 'var(--red)';
+            $('asScore').innerHTML = `Premises health: <b style="color:var(--cyan)">${score}/100</b> · <span class="chip g">OT auto-block rule active</span>`;
+            $('asTable').innerHTML = '<tr><th>Asset</th><th>Type</th><th>Due</th><th>Vendor</th><th>Cost</th><th>Crit</th></tr>' + ASSETS.map(a => {const d = parseInt(a[2]); return `<tr><td><b>${a[0]}</b></td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td><td>${a[4]}</td><td>${a[5] === 'CRIT' ? '<span class="chip r">' + a[5] + '</span>' : a[5] === 'HIGH' ? '<span class="chip a">' + a[5] + '</span>' : '<span class="chip">' + a[5] + '</span>'}</td></tr>`}).join('')
+        }
+        function asAct(k) {const m = {cal: 'Calibration booked 🔧', amc: 'AMC renewal → Dr. Seema 📄', po: 'HEPA PO sent 📦'}[k]; logEv('🔧', m, 'pen'); toast(m)}
+        function asEsc() {logEv('🚨', 'Lapsing assets escalated to Dr. Seema (Admin)', 'pen'); toast('Escalated to Admin 🚨')}
+        /* PHARM */
+        const PHARM = [['Amoxy-Clav 625', 90, '120d'], ['Azithro 500', 40, '200d'], ['Cefixime 200', 25, '90d'], ['Nasal spray MF', 60, '300d'], ['Ear drop Oflox', 18, '45d']];
+        const STEW = [['Ramesh K.', 'Amoxy-Clav ×3 in 6 mo', '68%'], ['Meena J.', 'Azithro repeat ×2', '41%']];
+        function renderPharm() {
+            $('phTable').innerHTML = '<tr><th>Item</th><th>Stock</th><th>Expiry</th><th></th></tr>' + PHARM.slice().sort((a, b) => parseInt(a[2]) - parseInt(b[2])).map(p => `<tr><td><b>${p[0]}</b></td><td>${p[1]}</td><td>${p[2]}</td><td>${p[1] < 30 ? '<span class="chip a">FEFO reorder</span>' : '<span class="chip g">OK</span>'}</td></tr>`).join('');
+            $('phStew').innerHTML = STEW.map(s => `<div class="prow"><div style="flex:1"><b>${s[0]}</b> — ${s[1]}</div><span class="chip r">risk ${s[2]}</span></div>`).join('')
+        }
+        function phAct(k) {const m = {doc: 'Stewardship alert → Dr. Ankur 👨⚕️', cs: 'Culture & sensitivity suggested 🧫', fefo: 'FEFO POs dispatched ♻'}[k]; logEv('💊', m, 'pen'); toast(m)}
+        /* COLLAB */
+        const NET = [['Dr. V. Katdare (Neuro-ENT, Mumbai)', 'NMC ✔ · MoU ✔'], ['AIIMS Delhi ENT', 'NMC ✔ · MoU ✔'], ['Cochlear Centre Chennai', 'NABL ✔ · MoU pending']];
+        function renderCollab() {
+            $('coNet').innerHTML = NET.map(n => `<div class="prow"><div style="flex:1">${n[0]}</div><span class="chip ${n[1].includes('pending') ? 'a' : 'g'}">${n[1]}</span></div>`).join('');
+            $('coSlots').innerHTML = '<span class="chip v">Fri 9–1 OT block</span><span class="chip v">Sat OPD 10–2</span><span class="chip">Professional fee paid by hospital — zero fee-split</span>'
+        }
+        function collab(mode) {
+            const c = $('coCase').value;
+            if (mode === 'out') {$('coOut').innerHTML = `<div class="ccard good"><b>📨 Verified refer-out: ${c}</b><div class="why">Consent + FHIR handoff + zero-commission declaration auto-generated.</div><button class="btn sm ok" onclick="logEv('📨','Referral packet sent','ok');toast('Referral packet sent 📨')">Send packet</button></div>`; toast('Refer-out path built')}
+            else {$('coOut').innerHTML = `<div class="ccard good"><b>🧑‍️ Visiting consultant: ${c}</b><div class="why">OT blocked Friday; marketing drafted; fee transparent.</div><button class="btn sm ok" onclick="logEv('🧑‍️','VC scheduled','ok');toast('VC scheduled')">Schedule</button></div>`; toast('VC path built')}
+            tracePath(['opd', 'referral', 'core'])
+        }
+        /* TOURISM */
+        const TSTEPS = ['Inquiry & eligibility', 'Guaranteed quote', 'M-Visa invitation letter', 'FRRO ≤14d + insurance', 'Travel · stay · interpreter', 'Treatment & concierge', 'Tele follow-up + feedback']; let tI = 0;
+        function renderT() {$('tSteps').innerHTML = TSTEPS.map((s, i) => `<li class="${i < tI ? 'done' : ''}"><span class="n">${i + 1}</span>${s}</li>`).join('')}
+        function tNext() {if (tI >= TSTEPS.length) return; tI++; renderT(); toast('Step ' + tI + ': ' + TSTEPS[tI - 1]); if (tI === TSTEPS.length) toast('Tourism loop closed 🌍')}
+        function renderTour() {
+            $('tuPart').innerHTML = '<span class="chip">GlobalCare Facilitators (UAE)</span><span class="chip">Bangla MedLink</span><span class="chip">Kenya HealthBridge</span><span class="chip">Heritage Stay Meerut (hotel)</span><span class="chip">Cab partner 24×7</span>';
+            $('tuMkt').innerHTML = [['UAE', 'Facilitator + Google geo-ads', '$300/mo', '+4 inquiries'], ['Bangladesh', 'MedLink + WhatsApp', '$200/mo', '+3'], ['Kenya', 'HealthBridge + Facebook', '$150/mo', '+2'], ['Local', 'Hotel tie-ups + diaspora', '$100/mo', '+2']].map(m => `<div class="prow"><div style="flex:1">${m[0]} — ${m[1]}</div><span class="chip">${m[2]}</span><span class="chip g">${m[3]}</span></div>`).join('');
+            $('tuDocs').innerHTML = ['Passport + visa copies', 'M-Visa invitation letter', 'FRRO registration ≤14d', 'Intl insurance / direct-pay link', 'Bilingual consent (EN + native)', 'Tele-follow-up schedule'].map((d, i) => `<label class="ck"><input type="checkbox" ${i < 2 ? 'checked' : ''}><span>${d}</span></label>`).join('');
+            $('tuKpi').innerHTML = '<span class="chip v">Inquiries 6/mo</span><span class="chip g">Conversion 33%</span><span class="chip">Avg ticket $2.4k</span>'
+        }
+        function tourism() {
+            const c = $('tuCountry').value, p = $('tuProc').value; tI = 0; renderT();
+            const usd = {UAE: 2600, Bangladesh: 1900, Kenya: 2300, 'UK (diaspora)': 3100}[c] || 2200;
+            $('tuOut').innerHTML = `<div class="ccard good"><b>🌍 ${c} · ${p}</b><div class="why">≈ $${usd} all-inclusive (treatment + stay + interpreter + pickup). Advance the workflow below.</div></div>
+ <div class="wa">${LANG === 'hi' ? '🌍 कनाग मेरठ: आपका ' + p + ' पैकेज $' + usd + ' सर्व-समावेशी। वीज़ा आमंत्रण संलग्न।' : '🌍 Kanag Meerut: your ' + p + ' package $' + usd + ' all-inclusive. Visa invitation attached.'}<span class="t">✓✓</span></div>
+ <button class="btn sm ok" onclick="logEv('🛂','M-Visa letter drafted','ok');toast('M-Visa letter drafted 🛂')">Draft visa letter</button>`;
+            tracePath(['web', 'core', 'bill', 'pay']); logEv('🌍', 'Tourism packet: ' + c, 'ok'); toast('Tourism packet built 🌍')
+        }
+        /* HR */
+        let STAFF = [{n: 'Dr. R. Menon', r: 'RMO', c: 'CPR exp 9d', t: '—', rk: .2}, {n: 'P. Sharma', r: 'Nurse', c: '—', t: 'Contract 31-Oct', rk: .7}, {n: 'S. Khan', r: 'Nurse', c: 'CPR exp 9d', t: '—', rk: .5}, {n: 'A. Wankhede', r: 'Audiologist', c: '—', t: '—', rk: .3}, {n: 'V. Rao', r: 'FrontDesk', c: '—', t: 'Notice period', rk: .8}, {n: 'K. Bhoyar', r: 'Housekeeping', c: 'BMW trng 15d', t: '—', rk: .3}];
+        const REQ = {Nurse: 4, RMO: 2, Audiologist: 3, FrontDesk: 2, Housekeeping: 2}; let attr = 10;
+        $('atSlide').oninput = e => {attr = +e.target.value; $('atVal').textContent = attr; renderHR()};
+        function renderHR() {
+            const byR = {}; STAFF.forEach(s => byR[s.r] = (byR[s.r] || 0) + 1);
+            $('hrGaps').innerHTML = Object.entries(REQ).map(([r, q]) => {const have = byR[r] || 0; const eff = Math.max(0, have - Math.round(have * attr / 100) - (r === 'Nurse' ? 1 : 0)); const gap = Math.max(0, q - eff); return `<div class="prow"><div>${r}: need ${q} · eff ${eff}</div>${gap ? `<span class="chip r">GAP ${gap}</span>` : '<span class="chip g">OK</span>'}</div>`}).join('');
+            $('hrTable').innerHTML = '<tr><th>Staff</th><th>Flags</th><th></th></tr>' + STAFF.map((s, i) => `<tr><td><b>${s.n}</b> · ${s.r}</td><td>${s.c !== '—' ? `<span class="chip a">${s.c}</span>` : ''}${s.t !== '—' ? `<span class="chip r">${s.t}</span>` : ''}</td><td><div class="acts">${(s.rk > .5 || s.c !== '—') ? `<button class="btn sm ok" onclick="hrTalk(${i})">💬 Talk</button>` : ''}</div></td></tr>`).join('');
+            $('hrHire').innerHTML = '<button class="btn sm" onclick="logEv(\'📄\',\'JDs live · 21d to fill\',\'pen\');toast(\'JDs drafted & posted 📄\')"> Draft JDs + post</button> <span class="chip v">Sunday +15% auto</span>'
+        }
+        function hrTalk(i) {logEv('💬', 'Retention chat: ' + STAFF[i].n, 'ok'); STAFF[i].rk = Math.max(.1, STAFF[i].rk - .2); renderHR(); toast('Retention chat: ' + STAFF[i].n)}
+        /* GEO */
+        const GEO = [['250001', 'Begambagh', 320, 2], ['250002', 'Shastri Nagar', 280, 1], ['250004', 'Kanker Khera', 210, -3], ['250005', 'Rohta Road', 190, 4], ['250003', 'Partapur', 150, -8], ['250103', 'Pallavpuram', 90, -12], ['250006', 'Mawana Road', 70, -5], ['250101', 'Modinagar', 60, -9]];
+        const MN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        $('gMonth').innerHTML = MN.map((m, i) => `<option value="${i}">${m}</option>`).join(''); $('gMonth').value = 7; $('gMonth').onchange = renderGeo;
+        function renderGeo() {
+            const m = +$('gMonth').value;
+            $('gTable').innerHTML = '<tr><th>Pin</th><th>Area</th><th>Pts/mo</th><th>Trend</th></tr>' + GEO.map(g => `<tr><td>${g[0]}</td><td>${g[1]}</td><td>${g[2]}</td><td>${g[3] > 0 ? '+' : ''}${g[3]} ${g[2] < 120 ? '<span class="chip a">LOW</span>' : '<span class="chip g">OK</span>'}</td></tr>`).join('');
+            const recs = m === 7 ? [['Pallavpuram monsoon otitis camp', 'Society WhatsApp + hoardings', '₹8k', '+18 pts'], ['Modinagar school hearing MoU', 'Principal meets + WA groups', '₹5k', '+12 pts']] : m >= 10 ? [['Kanker Khera senior vertigo camp', 'Google geo-ads 3km', '₹6k', '+15 pts'], ['Partapur allergy drive', 'Radio + WA', '₹7k', '+10 pts']] : [['Pallavpuram paed BERA camp', 'School WA + society stalls', '₹8k', '+20 pts'], ['Rohta Road sleep clinic push', 'Google ads + posters', '₹6k', '+9 pts']];
+            $('gRec').innerHTML = '<label>TAP-PLAN — ' + MN[m] + '</label>' + recs.map(r => `<div class="prow"><div style="flex:1">${r[0]}<br><span class="note">${r[1]}</span></div><div class="acts"><span class="chip">${r[2]}</span><span class="chip g">${r[3]}</span><button class="btn sm ok" onclick="logEv('📣','Geo campaign pushed to Studio','ok');toast('Pushed to Studio 📣')">Push</button></div></div>`).join('')
+        }
+        /* ROUTING/FUNNEL */
+        let R = {opd: ['Ramesh K.', 'Sunita P.'], hs: [], ret: ['Aarav M.']};
+        function renderR() {$('rOPD').innerHTML = R.opd.map(x => `<span class="chip">${x}</span>`).join('') || '—'; $('rHS').innerHTML = R.hs.map(x => `<span class="chip a">${x}</span>`).join('') || '—'; $('rRet').innerHTML = R.ret.map(x => `<span class="chip g">${x}</span>`).join('') || '—'}
+        function orderBERA() {if (!R.opd.length) return toast('OPD empty'); const p = R.opd.shift(); R.hs.push(p); renderR(); tracePath(['opd', 'hear']); logEv('🦻', p + ' → Hearing'); toast(p + ' → Hearing priority task')}
+        function completeHS() {if (!R.hs.length) return toast('No active test'); const p = R.hs.shift(); R.ret.unshift(p); renderR(); tracePath(['hear', 'opd']); toast(p + ' priority return <10m')}
+        const FS = ['RMO counselling', 'e-Consent', 'Labs → vendor link', 'RPA parse', 'OT confirmed', 'Anaesthesia invite']; let fI = 0;
+        function renderF() {$('fSteps').innerHTML = FS.map((s, i) => `<li class="${i < fI ? 'done' : ''}"><span class="n">${i + 1}</span>${s}</li>`).join('')}
+        function fNext() {if (fI >= FS.length) return; fI++; renderF(); logEv('🏥', FS[fI - 1]); toast('Step ' + fI + ': ' + FS[fI - 1]); if (fI === FS.length) toast('Funnel cleared 🎉')}
+        /* SEASONAL */
+        const SE = {'Allergic Rhinitis': [38, 42, 55, 60, 48, 35, 30, 32, 40, 52, 46, 40], 'Otitis Externa': [10, 8, 8, 10, 12, 22, 30, 28, 20, 14, 10, 9], 'Epistaxis': [22, 18, 14, 10, 8, 6, 6, 7, 9, 12, 18, 24]};
+        $('seCond').innerHTML = Object.keys(SE).map(c => `<option>${c}</option>`).join('');
+        $('seMonth').innerHTML = MN.map((m, i) => `<option value="${i}">${m}</option>`).join(''); $('seMonth').value = 7;
+        $('seCond').onchange = seActions; $('seMonth').onchange = seActions;
+        const seCv = $('seChart'); let seW = 640, seH = 220, seDisp = new Array(12).fill(0), seHover = -1;
+        function seSize() {const dpr = Math.min(2, window.devicePixelRatio || 1); seW = seCv.clientWidth || 640; seH = Math.max(200, Math.round(seW * 0.34)); seCv.width = Math.round(seW * dpr); seCv.height = Math.round(seH * dpr); seCv.getContext('2d').setTransform(dpr, 0, 0, dpr, 0, 0)}
+        function seActions() {const m = +$('seMonth').value; const rd = ({7: ['🌧 Otitis externa peak — buffer ear drops & antifungals', 'Neb consumables +10%', 'Paed sedation slot protection', '💊 Antibiotic-pressure feed: rising'], 2: ['🌸 Pollen peak — nasal sprays +15%', 'Allergy campaign → Studio'], 10: ['🌫 AQI/winter — epistaxis & sinusitis buffers', 'Sunday capacity planning']})[m] || ['📦 Standard buffers', 'Roster aligned', 'Campaign synced to Studio']; $('seReady').innerHTML = '<label>ACTIONS — ' + MN[m] + '</label>' + rd.map(x => `<div class="prow"><div style="flex:1">${x}</div></div>`).join('')}
+        function seLoop(ts) {
+            if ($('s-seasonal').classList.contains('on') && seW > 0) {
+                const tgt = SE[$('seCond').value], m = +$('seMonth').value, c = seCv.getContext('2d');
+                c.clearRect(0, 0, seW, seH);
+                const padL = 34, padB = 26, padT = 20, bw = (seW - padL - 12) / 12, mx = Math.max(...tgt);
+                c.strokeStyle = 'rgba(56,89,146,.25)'; c.lineWidth = 1; c.fillStyle = '#64748b'; c.font = '10px sans-serif';
+                for (let g = 0; g <= 4; g++) {const y = seH - padB - (seH - padB - padT) * g / 4; c.beginPath(); c.moveTo(padL, y); c.lineTo(seW - 8, y); c.stroke(); c.fillText(Math.round(mx * g / 4), 4, y + 3)}
+                tgt.forEach((v, i) => {
+                    seDisp[i] += (v - seDisp[i]) * 0.08; const h = Math.max(2, (seDisp[i] / mx) * (seH - padB - padT)); const x = padL + i * bw + 4, w2 = bw - 8; const br = (i === m ? Math.sin(ts / 300) * 1.5 : 0);
+                    const grad = c.createLinearGradient(0, seH - padB - h, 0, seH - padB); grad.addColorStop(0, i === m ? '#67e8f9' : '#5b6b8c'); grad.addColorStop(1, i === m ? '#0891b2' : '#3b4d6e');
+                    c.fillStyle = grad; c.fillRect(x, seH - padB - h + br, w2, h - br);
+                    if (seHover === i) {c.strokeStyle = '#22d3ee'; c.lineWidth = 1.5; c.strokeRect(x, seH - padB - h, w2, h)}
+                    c.textAlign = 'center'; c.fillStyle = '#9fb3d1'; c.fillText(MN[i], x + w2 / 2, seH - 8); c.fillStyle = i === m ? '#67e8f9' : '#9fb3d1'; c.fillText(Math.round(seDisp[i]), x + w2 / 2, seH - padB - h - 6); c.textAlign = 'left'
+                });
+                const px = padL + m * bw + 4 + (bw - 8) / 2, py = seH - padB - (seDisp[m] / mx) * (seH - padB - padT); const pu = (Math.sin(ts / 280) + 1) / 2;
+                c.beginPath(); c.arc(px, py - 12, 4 + pu * 3, 0, 7); c.fillStyle = 'rgba(103,232,249,' + (0.7 - pu * 0.5) + ')'; c.fill();
+                if (seHover > -1) {const tx = Math.min(seW - 130, Math.max(6, padL + seHover * bw)); c.fillStyle = 'rgba(11,20,40,.95)'; c.strokeStyle = '#22d3ee'; c.lineWidth = 1; c.beginPath(); c.rect(tx, 4, 124, 20); c.fill(); c.stroke(); c.fillStyle = '#22d3ee'; c.font = '11px sans-serif'; c.fillText(MN[seHover] + ': ' + tgt[seHover] + ' cases/mo', tx + 8, 18)}
+            }
+            requestAnimationFrame(seLoop)
+        }
+        requestAnimationFrame(seLoop);
+        seCv.addEventListener('mousemove', e => {const r = seCv.getBoundingClientRect(); const x = e.clientX - r.left; const padL = 34, bw = (seW - padL - 12) / 12; seHover = Math.max(0, Math.min(11, Math.floor((x - padL) / bw)))});
+        seCv.addEventListener('mouseleave', () => seHover = -1);
+        seCv.addEventListener('touchstart', e => {const r = seCv.getBoundingClientRect(); const x = e.touches[0].clientX - r.left; const padL = 34, bw = (seW - padL - 12) / 12; seHover = Math.max(0, Math.min(11, Math.floor((x - padL) / bw)))}, {passive: true});
+        /* GOV */
+        let G = [['ok', '06:40 OT sterility QR ✔'], ['pen', '09:12 Discount PENDING']];
+        function renderG() {$('gLog').innerHTML = G.map(g => `<div class="${g[0]}">${g[1]}</div>`).join(''); $('gAnom').innerHTML = '<span class="chip a">FD-03 overrides 4/wk</span><span class="chip g">Inv↔bill 0.2%</span>'}
+        function tryOverride() {G.unshift(['blk', now() + ' BLOCKED vendor substitution']); renderG(); tracePath(['bill', 'audit']); toast('Override BLOCKED ⛔')}
+        function reqDiscount() {G.unshift(['pen', now() + ' Discount pending']); renderG(); toast('Discount queued')}
+        function mcApprove() {G = G.map(g => g[1].includes('PENDING') ? ['ok', g[1].replace('PENDING', 'APPROVED')] : g); renderG(); toast('Approved ⚖')}
+        /* POSTER */
+        const OCC = {
+            'Ear Infection Awareness': {tag: 'BE ALERT! EAR INFECTIONS', sub: 'SEND A VERY SUBTLE SOS!', hi: 'कान संक्रमण जागरूकता', sym: [['👂', 'Fullness or mild earache'], ['💧', 'Fluid or sticky discharge'], ['🤒', 'Low-grade fever (kids)'], ['🔇', 'Muffled hearing']], fest: 0},
+            'World Hearing Day (3 Mar)': {tag: 'HEAR THE WORLD AGAIN', sub: 'Free paed BERA camp · Kanag Meerut', hi: 'विश्व श्रवण दिवस', sym: [['🎧', 'Free hearing screening'], ['🧒', 'Paed BERA camp'], ['🔋', 'Aid battery check'], ['🗣', 'Speech consult']], fest: 0},
+            'Allergy Awareness Week': {tag: 'BREATHE EASY', sub: 'Nasal & sinus allergy drive', hi: 'एलर्जी जागरूकता सप्ताह', sym: [['🤧', 'Sneezing fits'], ['👃', 'Blocked nose'], ['👁', 'Itchy eyes'], ['🌫', 'Head pressure']], fest: 0},
+            'Makar Sankranti': {tag: 'MAKAR SANKRANTI', sub: 'Kite strings in hand, dreams in the sky.', hi: 'मकर संक्रांति', sym: [], fest: 1},
+            'Diwali': {tag: 'SHUBH DEEPAVALI', sub: 'Bright days, safe ears.', hi: 'शुभ दीपावली', sym: [], fest: 1}
+        };
+        $('oDay').innerHTML = Object.keys(OCC).map(d => `<option>${d}</option>`).join('');
+        $('oDay').onchange = genPoster; $('oTpl').onchange = genPoster;
+        let PC = {big: false, hindi: true};
+        function arrow(c, x1, y1, x2, y2, col) {
+            c.strokeStyle = col; c.lineWidth = 5; c.lineCap = 'round'; c.beginPath(); c.moveTo(x1, y1); c.quadraticCurveTo((x1 + x2) / 2 - 30, (y1 + y2) / 2, x2, y2); c.stroke();
+            const a = Math.atan2(y2 - (y1 + y2) / 2, x2 - ((x1 + x2) / 2 - 30)); c.beginPath(); c.moveTo(x2, y2); c.lineTo(x2 - 14 * Math.cos(a - .5), y2 - 14 * Math.sin(a - .5)); c.lineTo(x2 - 14 * Math.cos(a + .5), y2 - 14 * Math.sin(a + .5)); c.closePath(); c.fillStyle = col; c.fill()
+        }
+        function kite(c, x, y, s, col, rot) {c.save(); c.translate(x, y); c.rotate(rot); c.fillStyle = col; c.beginPath(); c.moveTo(0, -s); c.lineTo(s * .7, 0); c.lineTo(0, s); c.lineTo(-s * .7, 0); c.closePath(); c.fill(); c.strokeStyle = 'rgba(0,0,0,.25)'; c.lineWidth = 2; c.stroke(); c.beginPath(); c.moveTo(0, s); c.quadraticCurveTo(s * .5, s * 1.8, s * .2, s * 2.6); c.strokeStyle = col; c.lineWidth = 2; c.stroke(); for (let i = 1; i <= 3; i++) {c.fillStyle = i % 2 ? '#fff' : col; c.fillRect(s * .42 - i * 6, s + i * 22, 10, 6)} c.restore()}
+        function footer(c, TH, y) {
+            c.fillStyle = TH.band; c.fillRect(0, y, 800, 1000 - y);
+            c.fillStyle = TH.tab || '#fff'; c.fillRect(300, y - 16, 200, 32); c.fillStyle = TH.band; c.font = 'bold 16px sans-serif'; c.textAlign = 'center'; c.fillText('LEARN MORE', 400, y + 6); c.textAlign = 'left';
+            c.fillStyle = '#fff'; c.fillRect(30, y + 30, 120, 120); c.font = '70px sans-serif'; c.fillText('🧑️', 55, y + 115);
+            c.fillStyle = '#fff'; c.font = 'bold 20px sans-serif'; c.fillText('डॉ. अंकुर गुप्ता', 170, y + 70); c.font = '14px sans-serif'; c.fillText('वरिष्ठ ईएनटी विशेषज्ञ · Kanag ENT', 170, y + 95);
+            c.font = 'bold 16px sans-serif'; c.fillText('www.kanagent.com', 170, y + 125); c.font = '13px sans-serif'; c.fillText('☎ 0121-4032247, 2977182, 99978 11114, 90450 53089', 170, y + 148)
+        }
+        function drawLogo(c, x, y, w, h) {const LI = logoOk ? logoPng : (logoSvg.complete ? logoSvg : null); if (LI) c.drawImage(LI, x, y, w, h); else {c.fillStyle = '#5d2e46'; c.fillRect(x, y, w, h); c.fillStyle = '#fff'; c.font = 'bold 30px serif'; c.fillText('kanag®', x + 10, y + h / 2 + 10)} }
+        function genPoster() {
+            const d = $('oDay').value, o = OCC[d]; const ti = $('oTpl').selectedIndex; const cv = $('oPoster'), c = cv.getContext('2d');
+            if (ti === 0) {
+                c.fillStyle = '#ffffff'; c.fillRect(0, 0, 800, 1000);
+                drawLogo(c, 540, 18, 240, 95);
+                c.fillStyle = '#5d2e46'; c.fillRect(0, 130, 800, 210);
+                c.fillStyle = '#fff'; c.font = `bold ${PC.big ? 64 : 54}px Georgia,serif`; c.textAlign = 'center'; const tl = o.tag.split(' '); c.fillText(tl.slice(0, 2).join(' '), 400, 215); c.fillText(tl.slice(2).join(' ') || '', 400, 275);
+                c.font = '16px sans-serif'; c.fillStyle = '#e8d9e3'; c.fillText(o.sub, 400, 315); c.textAlign = 'left';
+                c.beginPath(); c.arc(210, 600, 150, 0, 7); c.fillStyle = '#f3e8ef'; c.fill(); c.lineWidth = 6; c.strokeStyle = '#5d2e46'; c.stroke();
+                c.font = '120px sans-serif'; c.fillText('🦻', 150, 645); c.fillStyle = 'rgba(220,38,38,.55)'; c.beginPath(); c.arc(255, 610, 34, 0, 7); c.fill();
+                o.sym.forEach((s, i) => {
+                    const y = 470 + i * 110; arrow(c, 430, y + 10, 330, 560 + (i - 1.5) * 40, '#5d2e46');
+                    c.font = '34px sans-serif'; c.fillStyle = '#000'; c.fillText(s[0], 450, y + 12); c.fillStyle = '#2b1622'; c.font = '22px sans-serif'; c.fillText(s[1], 500, y + 10)
+                });
+                if (PC.hindi) {c.fillStyle = '#5d2e46'; c.font = '22px sans-serif'; c.fillText('कान नाक गले का अस्पताल · ' + o.hi, 40, 830)}
+                footer(c, {band: '#5d2e46', tab: '#fff'}, 860)
+            }
+            else if (ti === 1) {
+                const g = c.createLinearGradient(0, 0, 0, 1000); g.addColorStop(0, '#fef9e7'); g.addColorStop(.6, '#eaf7ff'); g.addColorStop(1, '#d8f3e3'); c.fillStyle = g; c.fillRect(0, 0, 800, 1000);
+                c.fillStyle = '#f6ad2b'; c.beginPath(); c.arc(700, 110, 55, 0, 7); c.fill(); c.strokeStyle = '#f6ad2b'; c.lineWidth = 4; for (let i = 0; i < 8; i++) {c.beginPath(); c.moveTo(700 + Math.cos(i) * 70, 110 + Math.sin(i) * 70); c.lineTo(700 + Math.cos(i) * 88, 110 + Math.sin(i) * 88); c.stroke()}
+                for (let i = 0; i < 10; i++) {c.fillStyle = ['#e11d48', '#f59e0b', '#10b981', '#3b82f6'][i % 4]; c.beginPath(); c.moveTo(i * 80, 0); c.lineTo(i * 80 + 40, 46); c.lineTo(i * 80 + 80, 0); c.closePath(); c.fill()}
+                kite(c, 150, 220, 60, '#e11d48', -.2); kite(c, 620, 300, 48, '#3b82f6', .25); kite(c, 380, 180, 40, '#10b981', .1);
+                c.textAlign = 'center'; c.fillStyle = '#7c2d12'; c.font = 'bold 74px serif'; c.fillText(o.hi, 400, 470);
+                c.fillStyle = '#b45309'; c.font = 'bold 30px sans-serif'; c.fillText(o.tag, 400, 530);
+                c.fillStyle = '#57534e'; c.font = '20px sans-serif'; c.fillText(o.sub, 400, 575); c.textAlign = 'left';
+                c.fillStyle = '#166534'; c.beginPath(); c.ellipse(400, 1010, 520, 160, 0, 0, 7); c.fill();
+                drawLogo(c, 24, 16, 210, 84);
+                footer(c, {band: '#7c2d12', tab: '#fde68a'}, 860)
+            }
+            else {
+                const g = c.createLinearGradient(0, 0, 800, 1000); g.addColorStop(0, '#050a16'); g.addColorStop(1, '#0b1428'); c.fillStyle = g; c.fillRect(0, 0, 800, 1000);
+                c.strokeStyle = 'rgba(34,211,238,.3)'; c.lineWidth = 1; for (let i = 0; i < 6; i++) {c.beginPath(); c.arc(800, 0, 120 + i * 70, 0, 7); c.stroke()}
+                c.fillStyle = '#083344'; c.fillRect(0, 0, 800, 130); drawLogo(c, 30, 25, 220, 88);
+                c.font = '120px sans-serif'; c.textAlign = 'center'; c.fillText('🦻', 400, 400); c.textAlign = 'left';
+                c.fillStyle = '#22d3ee'; c.font = `bold ${PC.big ? 60 : 48}px Georgia,serif`; c.fillText(o.tag, 60, 560);
+                c.fillStyle = '#9fb3d1'; c.font = '24px sans-serif'; c.fillText(o.sub, 60, 620);
+                if (PC.hindi) {c.fillStyle = '#c98bb0'; c.font = '24px sans-serif'; c.fillText(o.hi + ' · कान नाक गले का अस्पताल', 60, 680)}
+                footer(c, {band: '#083344', tab: '#22d3ee'}, 860)
+            }
+            $('oDl').href = cv.toDataURL('image/png');
+            $('oCaption').style.display = 'block';
+            $('oCaption').innerHTML = PC.hindi || LANG === 'hi' ? `${o.hi} 🌿 ${o.sub} — कनाग ईएनटी मेरठ। "सुनो बेहतर, साँस लो बेहतर, जियो बेहतर!" ☎ 0121-4032247 · kanagent.com<span class="t">#KanagENT</span>` : `${o.tag} 🌿 ${o.sub} — Kanag ENT Meerut. "Listen Better, Breathe Better, Live Better!" ☎ 0121-4032247 · kanagent.com<span class="t">#KanagENT</span>`;
+            logEv('🎨', 'Poster: ' + d); toast('Poster rendered 🎨')
+        }
+        function setChat(t) {$('chatIn').value = t; copilot()}
+        function copilot() {
+            const q = $('chatIn').value.toLowerCase(); const ap = [];
+            if (/aware|plum|white|infection/.test(q)) {$('oTpl').value = 'Awareness Plum'; ap.push('Awareness Plum')}
+            if (/kite|festive|sankranti|diwali/.test(q)) {$('oTpl').value = 'Festive Kites'; ap.push('Festive Kites')}
+            if (/night|dark|cyan/.test(q)) {$('oTpl').value = 'Night Cyan'; ap.push('Night Cyan')}
+            if (/bigger/.test(q)) {PC.big = true; ap.push('title↑')} if (/smaller/.test(q)) {PC.big = false; ap.push('title↓')}
+            if (/hindi on/.test(q)) {PC.hindi = true; ap.push('hindi on')} if (/hindi off/.test(q)) {PC.hindi = false; ap.push('hindi off')}
+            $('chatBox').innerHTML += `<div class="u">you: ${q}</div><div class="b">copilot: ${ap.join(', ') || 'try “awareness plum”, “festive kites”, “night cyan”, “bigger title”, “hindi on”'}</div>`;
+            $('chatBox').scrollTop = 9999; $('chatIn').value = ''; genPoster()
+        }
+        function publish() {$('oPub').innerHTML = $('oApprove').checked ? '<span class="chip g">Web ✔</span><span class="chip g">WA ✔</span><span class="chip g">Geo-ads ✔</span>' : '<span class="chip a">Awaiting approval</span>'; if ($('oApprove').checked) {logEv('📣', 'Published', 'ok'); toast('Published 📣')} else toast('Approval removed')}
+        $('cList').innerHTML = [['DPDP 2023 + Rules 2025', 'Consent vault · purge', 'g'], ['NMC', 'Zero-commission', 'g'], ['NABL 112', 'Prior intimation + MoU', 'g'], ['PM-JAY', 'Balance-billing block', 'g'], ['AERB / Fire', 'Licence tracking (Premises engine)', 'g'], ['Telemedicine', 'Signed e-Rx', 'g'], ['FRRO', 'Tourism ≤14d', 'g'], ['Hindi Engine', 'Bilingual patient comms', 'g']].map(x => `<div class="prow"><div style="flex:1"><b>${x[0]}</b> — ${x[1]}</div><span class="chip g">LIVE</span></div>`).join('');
+        $('aAlgo').innerHTML = ['v11 QA: WA-bot state machine fixed · tele/hearing/energy/geo rows aligned via .acts · building photo resized (430px desktop / 300px mobile) · twin stream-spam removed · clipboard fail-safe · light-theme nav/menus', 'Brand: real logo/building photos + SVG replicas fallback', 'Mobile: ☰ dropdown ALL screens; bottom bar top-5', 'GUIDE · GLOSSARY · METRICS+TWIN · all buttons toast', 'VIP & Rooms · Premises · Pharmacy stewardship · Collab · Tourism · HR · Geo', 'Live DPR chart · Concierge why+history+consent · Hindi engine'].map(a => `<div class="prow"><div style="flex:1"> ${a}</div></div>`).join('');
+        /* JOURNEY */
+        const JV = [
+            {name: 'S0 Walk-in Rhinitis', persona: '🧑💼 Adult · AQI week', steps: [{s: 'QR check-in', f: () => {Q.tokens.push({n: 'T07', name: 'Vikram T.', type: 'Walk-in', arr: true, vip: 0}); renderQueue()}, p: ['walkin', 'queue']}, {s: 'Triage', f: runVitals, p: ['walkin', 'vitals', 'core']}, {s: 'ETA + rush alert', f: sendAlert, p: ['queue', 'lang', 'patient']}, {s: 'Stamp', f: makeStamp, p: ['opd', 'bill']}, {s: 'UPI receipt', f: () => {logEv('💳', 'Paid', 'ok'); toast('Payment reconciled 💳')}, p: ['bill', 'pay', 'patient']}]},
+            {name: 'S2 Paed BERA loop', persona: '🧒 6yr · fever+ear pain', steps: [{s: 'Portal booking', f: () => toast('Slot confirmed'), p: ['web', 'slot', 'queue']}, {s: 'Priority triage', f: runVitals, p: ['walkin', 'vitals', 'opd']}, {s: 'BERA → Hearing', f: () => {R.opd.push('Aarav Jr.'); renderR(); orderBERA()}, p: ['opd', 'hear']}, {s: 'Return <10m', f: completeHS, p: ['hear', 'opd']}, {s: 'Consent vault', f: () => {logEv('🔐', 'Sealed', 'ok'); toast('Consent sealed 🔐')}, p: ['core', 'consent', 'audit']}]},
+            {name: 'S3 Surgical TPA + Concierge', persona: '🧔 41 · septum · TPA', steps: [{s: 'Concierge explains', f: () => {go('s-policy'); $('ccScheme').value = 'TPA / Insurance'; $('ccRoom').value = 'Deluxe'; concierge()}, p: ['policy', 'patient']}, {s: 'Patient approves', f: () => ccYes(4000, 'TPA / Insurance', 'Deluxe', 'Irfan S.'), p: ['policy', 'consent']}, {s: 'Funnel + RPA labs', f: () => {fI = 0; renderF(); fNext(); fNext(); fNext()}, p: ['diag', 'lablink']}, {s: 'Claim 0% risk', f: () => {docState = [1, 1, 1, 1, 1, 1, 1, 1]; renderTpa(); logEv('🛰️', 'Filed', 'ok'); toast('Claim filed 🛰️')}, p: ['bill', 'tpagw', 'dash']}]},
+            {name: 'PJ PM-JAY deluxe', persona: '👵 67 · PM-JAY', steps: [{s: 'Block explained', f: () => {go('s-policy'); $('ccScheme').value = 'Ayushman (PM-JAY)'; $('ccRoom').value = 'Deluxe'; concierge()}, p: ['policy', 'patient']}, {s: 'Chooses General', f: ccAlt, p: ['patient', 'griev', 'dash']}]},
+            {name: 'MT UAE cochlear', persona: '🌍 UAE', steps: [{s: 'Packet + visa letter', f: () => {go('s-tourism'); $('tuCountry').value = 'UAE'; $('tuProc').value = 'Cochlear Implant'; tourism()}, p: ['web', 'core', 'bill']}, {s: 'FRRO + consent', f: () => {logEv('🛂', 'FRRO opened', 'pen'); toast('FRRO opened')}, p: ['consent', 'audit']}, {s: 'Advance workflow', f: tNext, p: ['pay', 'dash']}]},
+            {name: 'HA Aid purchase', persona: '🧓 68 · ₹50k', steps: [{s: 'Pure-tone', f: () => toast('Moderate SNHL'), p: ['opd', 'hear']}, {s: 'AI rec', f: hearRec, p: ['hear', 'patient']}, {s: 'Target +1', f: () => {AIDS[0].ac++; renderHear(); toast('Target updated 🎯')}, p: ['hear', 'dash']}]},
+            {name: 'VX MRI SLA breach', persona: '🧑 CityScan', steps: [{s: 'Breach flag', f: vendFlag, p: ['lablink', 'audit']}, {s: 'Recovery', f: () => vendRecover(1), p: ['griev', 'patient']}]},
+            {name: 'AS Calibration rescue', persona: '🔧 Audiometer', steps: [{s: 'Flag 12d', f: () => {renderAssets(); toast('Calibration flagged')}, p: ['core', 'hr']}, {s: 'Book + escalate', f: () => {asAct('cal'); asEsc()}, p: ['hr', 'dash']}]},
+            {name: 'VIP Sunday suite', persona: '🕴 executive · Sunday', steps: [{s: 'VIP mark', f: () => {Q.tokens[1].vip = 1; renderQueue(); renderRooms(); toast('VIP ON ⭐')}, p: ['queue', 'core']}, {s: 'Suite allocate', f: () => {ROOMSB[5][2] = 1; renderRooms(); toast('VIP-1 allocated')}, p: ['core', 'consent']}, {s: 'Upgrade consent', f: () => {go('s-policy'); $('ccScheme').value = 'Cash'; $('ccRoom').value = 'Suite'; concierge()}, p: ['policy', 'patient']}]},
+            {name: 'MX Savings + Twin review', persona: '💰 Directors review', steps: [{s: 'Open Metrics', f: () => {go('s-metrics'); metCalc(); twinCalc(); toast('Metrics live')}, p: ['dash', 'bill']}, {s: 'Tune assumptions', f: () => {$('mRec').value = 30; metCalc(); toast('Scenario: 30% recovery')}, p: ['bill', 'dash']}, {s: 'Twin what-if', f: () => {$('mArr').value = 26; twinCalc(); toast('Twin: demand shock tested')}, p: ['dash', 'hr']}, {s: 'Export CSV', f: metCSV, p: ['dash', 'audit']}]},
+            {name: 'WX WA-bot booking', persona: '📱 patient on WhatsApp', steps: [{s: 'Open WA bot', f: () => {go('s-wa'); toast('WA bot live 💬')}, p: ['web', 'slot']}, {s: 'Book via bot', f: () => waLine('bot', '✅ Demo booking via bot — token held, ETA sent.'), p: ['slot', 'queue']}, {s: 'Tele follow-up scheduled', f: () => {go('s-tele'); toast('Day-3 loop scheduled 🩺')}, p: ['core', 'notify']}]}];
+        let jv = null, ji = 0, jvT = null;
+        $('jvSel').innerHTML = JV.map((j, i) => `<option value="${i}">${j.name}</option>`).join('');
+        function jvReset() {clearTimeout(jvT); ji = 0; jv = JV[+$('jvSel').value]; $('jvPersona').innerHTML = `<span class="chip v">${jv.persona}</span>`; $('jvSteps').innerHTML = jv.steps.map((s, i) => `<li id="jvs${i}"><span class="n">${i + 1}</span>${s.s}</li>`).join(''); $('jvLog').innerHTML = ''}
+        function jvStep() {if (!jv) jvReset(); if (ji >= jv.steps.length) return clearTimeout(jvT); const st = jv.steps[ji]; st.f && st.f(); st.p && tracePath(st.p); $('jvLog').innerHTML = `<div class="ok">▶ ${st.s}</div>` + $('jvLog').innerHTML; $('jvs' + ji).classList.add('done'); ji++; if (ji >= jv.steps.length) {logEv('🏁', jv.name + ' complete', 'ok'); toast('Journey complete 🏁')} }
+        function jvStart() {jvReset(); toast('Auto-playing ▶'); (function loop() {jvStep(); if (ji < jv.steps.length) jvT = setTimeout(loop, 1800)})()}
+        jvReset();
+        /* init */
+        renderQueue(); renderRooms(); renderHear(); renderVend(); renderAssets(); renderPharm(); renderCollab(); renderTour(); renderT(); renderHR(); renderGeo(); renderR(); renderF(); renderTpa(); renderP(); renderG(); seSize(); seActions(); metCalc(); twinCalc(); homeKPIs(); setAud('ALL'); applyTheme('s-home');
+        logEv('🟢', 'AIRA v11 online — QA pass complete', 'ok');
+    </script>
+</body>
+
+</html>
