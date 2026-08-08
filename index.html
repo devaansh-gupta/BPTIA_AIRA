@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#050a16">
     <link rel="manifest"
         href='data:application/manifest+json,{"name":"AIRA Kanag","short_name":"AIRA","start_url":".","display":"standalone","background_color":"050a16","theme_color":"#5d2e46"}'>
-    <title>AIRA · Kanag Super Speciality E.N.T. Centre · Meerut</title>
+    <title>AIRA· Kanag Super Speciality E.N.T. Centre · Meerut</title>
     <style>
         :root {
             --bg: #050a16;
@@ -62,7 +62,7 @@
 
         body.light {
             --bg: #f6f3f7;
-            --panel: #ffffff;
+            --panel: #fff;
             --panel2: #f3edf4;
             --line: #e5d9e3;
             --text: #2b1622;
@@ -936,7 +936,8 @@
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--line);
-            margin-top: 8px
+            margin-top: 8px;
+            max-height: 430px
         }
 
         .bld {
@@ -949,21 +950,44 @@
             animation: kenb 16s ease-in-out infinite alternate
         }
 
-        #panel .bldwrap {
-            max-height: 120px
+        .bldRep {
+            width: 100%;
+            max-height: 430px;
+            overflow: hidden
         }
 
+        .bldRep svg {
+            width: 100%;
+            height: 430px;
+            display: block
+        }
+
+        .logoRep {
+            height: 42px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 3px 8px;
+            overflow: hidden
+        }
+
+        .logoRep svg {
+            height: 100%;
+            width: auto;
+            display: block
+        }
+
+        #panel .bldwrap,
         #panel .bld {
             max-height: 120px
         }
-        .bldwrap{max-height:430px;overflow:hidden}
-        .bldRep{width:100%;max-height:430px;overflow:hidden}
-        .bldRep svg{width:100%;height:430px;display:block}
-        .logoRep{height:42px;background:#fff;border-radius:10px;padding:3px 8px;overflow:hidden}
-        .logoRep svg{height:100%;width:auto;display:block}
-        #panel .bldwrap,#panel .bldRep{max-height:120px}
-        #panel .bldRep svg{height:120px}
-@media(max-width:600px){.bldRep svg{height:300px}}
+
+        #panel .bldRep {
+            max-height: 120px
+        }
+
+        #panel .bldRep svg {
+            height: 120px
+        }
 
         .archbar {
             display: flex;
@@ -1356,6 +1380,10 @@
             .bld {
                 max-height: 300px
             }
+
+            .bldRep svg {
+                height: 300px
+            }
         }
 
         @media(max-width:820px) {
@@ -1524,8 +1552,8 @@
                 <div id="teleList"></div>
                 <div style="margin-top:6px"><span class="chip g">Adherence 87%</span><span class="chip">No-show
                         6%</span><span class="chip v">e-Rx renewals 12/mo</span></div>
-                <p class="note">Telemedicine Practice Guidelines: cryptographically signed e-Rx, video consult consent,
-                    records retained. Day-3/Day-7 loops auto-scheduled at discharge.</p>
+                <p class="note">Telemedicine Practice Guidelines: signed e-Rx, video consult consent, records retained.
+                    Day-3/Day-7 loops auto-scheduled at discharge.</p>
             </div>
         </section>
         <section id="s-guide">
@@ -2065,6 +2093,7 @@
         </div>
     </div>
     <script>
+        /* ============ PART 2 · COMPLETE JS ============ */
         const $ = id => document.getElementById(id);
         let LANG = 'en'; const L = (en, hi) => LANG === 'hi' ? hi : en;
         function toggleLang() {LANG = LANG === 'en' ? 'hi' : 'en'; $('langBtn').textContent = LANG === 'en' ? 'हिं' : 'EN'; $('langBtn').classList.toggle('on', LANG === 'hi'); toast(L('Hindi engine ON', 'हिंदी इंजन चालू')); renderQueue(); logEv('🗣', 'Language: ' + LANG.toUpperCase(), 'ok')}
@@ -2074,15 +2103,14 @@
         let ipEvt = null; window.addEventListener('beforeinstallprompt', e => {e.preventDefault(); ipEvt = e});
         function installApp() {ipEvt ? ipEvt.prompt() : toast('Add sw.js + HTTPS for install prompt')}
         const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" preserveAspectRatio="xMidYMid slice"><rect width="640" height="280" fill="#f8f7f9"/><rect x="0" y="70" width="290" height="110" fill="#5d2e46"/><text x="18" y="152" font-family="Georgia,serif" font-size="84" fill="#fff">kanag</text><text x="262" y="86" font-size="24" fill="#fff">®</text><circle cx="355" cy="140" r="105" fill="#fff"/><path d="M355 35 a105 105 0 0 1 91 53 l-91 52 z" fill="#8a6f80"/><path d="M446 88 a105 105 0 0 1 -18 124 l-73 -72 z" fill="#a8899a"/><path d="M428 212 a105 105 0 0 1 -158 -18 l85 -54 z" fill="#5d2e46"/><path d="M270 194 a105 105 0 0 1 14 -106 l91 52 z" fill="#cbb8c4"/><path d="M336 92 q-17 8 -13 25 q3 13 15 15 q-7 6 -3 13" stroke="#fff" fill="none" stroke-width="4"/><rect x="465" y="105" width="170" height="66" fill="#5d2e46"/><text x="477" y="150" font-size="38" fill="#fff">कनाग</text><text x="465" y="196" font-size="15" fill="#5d2e46">कान नाक गले का अस्पताल</text><path id="ta" d="M245 42 a120 120 0 0 1 220 0" fill="none"/><text font-size="19" fill="#8a6f80" letter-spacing="4"><textPath href="#ta">SUPER SPECIALITY</textPath></text><path id="tb" d="M245 238 a120 120 0 0 0 220 0" fill="none"/><text font-size="19" fill="#8a6f80" letter-spacing="4"><textPath href="#tb">E.N.T. CENTRE</textPath></text><text x="465" y="232" font-size="13" fill="#333">A UNIT OF AKG MEDICARE</text><text x="465" y="252" font-size="13" fill="#333">SERVICES (P) LTD.</text></svg>`;
-        const BLD_SVG = ``<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice"><rect width="640" height="480" fill="#bfe0f5"/><rect x="120" y="40" width="400" height="400" fill="#e8ecef"/><rect x="150" y="90" width="120" height="330" fill="#9fb4b8"/><rect x="300" y="90" width="90" height="330" fill="#f0e6c8"/><rect x="410" y="90" width="90" height="330" fill="#cfd8da"/><g fill="#3f7a4f"><rect x="300" y="140" width="90" height="12"/><rect x="300" y="240" width="90" height="12"/><rect x="300" y="340" width="90" height="12"/></g><g fill="#7fb2d9"><rect x="420" y="120" width="70" height="60"/><rect x="420" y="220" width="70" height="60"/><rect x="420" y="320" width="70" height="60"/></g><rect x="140" y="330" width="360" height="40" fill="#fff"/><rect x="250" y="336" width="180" height="28" fill="#5d2e46"/><text x="262" y="357" font-size="18" fill="#fff">kanag कनाग</text><rect x="0" y="440" width="640" height="40" fill="#8a9aa0"/></svg>`;
+        const BLD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice"><rect width="640" height="480" fill="#bfe0f5"/><rect x="120" y="40" width="400" height="400" fill="#e8ecef"/><rect x="150" y="90" width="120" height="330" fill="#9fb4b8"/><rect x="300" y="90" width="90" height="330" fill="#f0e6c8"/><rect x="410" y="90" width="90" height="330" fill="#cfd8da"/><g fill="#3f7a4f"><rect x="300" y="140" width="90" height="12"/><rect x="300" y="240" width="90" height="12"/><rect x="300" y="340" width="90" height="12"/></g><g fill="#7fb2d9"><rect x="420" y="120" width="70" height="60"/><rect x="420" y="220" width="70" height="60"/><rect x="420" y="320" width="70" height="60"/></g><rect x="140" y="330" width="360" height="40" fill="#fff"/><rect x="250" y="336" width="180" height="28" fill="#5d2e46"/><text x="262" y="357" font-size="18" fill="#fff">kanag कनाग</text><rect x="0" y="440" width="640" height="40" fill="#8a9aa0"/></svg>`;
         function brandImgs() {document.querySelectorAll('img[data-brand]').forEach(im => {im.onerror = () => {const w = document.createElement('div'); w.className = im.className + 'Rep'; w.innerHTML = im.dataset.brand === 'logo' ? LOGO_SVG : BLD_SVG; im.replaceWith(w)}})}
         brandImgs();
-        const logoPng = new Image(); logoPng.src = 'assets/kanag-logo.png'; let logoOk = false; logoPng.onload = () => logoOk = true;
-        const logoSvg = new Image(); logoSvg.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(LOGO_SVG);
         const TITLES = {'s-home': 'COMMAND', 's-wa': 'WHATSAPP BOT', 's-tele': 'TELE-FOLLOW-UP', 's-guide': 'GUIDE', 's-gloss': 'GLOSSARY', 's-metrics': 'METRICS & TWIN', 's-journey': 'JOURNEY LAB', 's-arch': 'ARCHITECTURE', 's-queue': 'QUEUE', 's-rooms': 'VIP & ROOMS', 's-policy': 'COVERAGE CONCIERGE', 's-claims': 'TPA', 's-vitals': 'VITALS', 's-hearing': 'HEARING', 's-vendor': 'VENDORS', 's-assets': 'PREMISES+ENERGY', 's-pharm': 'PHARMACY', 's-collab': 'COLLAB', 's-tourism': 'TOURISM', 's-hr': 'HR', 's-geo': 'GEO', 's-routing': 'ROUTING', 's-funnel': 'FUNNEL', 's-pricing': 'PRICING+GST', 's-seasonal': 'SEASONAL', 's-gov': 'AUDIT+SENTIMENT', 's-outreach': 'STUDIO', 's-compliance': 'COMPLIANCE+NABH', 's-about': 'ABOUT'};
-        const GUIDE = {'s-home': 'Live KPIs, brand photo, event stream — the cockpit.', 's-wa': 'WhatsApp booking bot simulation (EN/हिं) feeding Slot Engine & Queue.', 's-tele': 'Day-3/7 video follow-ups, e-Rx renewals, reminders — Telemedicine Guidelines.', 's-guide': 'This dictionary of tabs + PWA notes.', 's-gloss': 'Searchable plain-language glossary.', 's-metrics': 'Savings optimizer + Digital Twin what-if (M/M/c queuing model).', 's-journey': 'Play 11 patient scenarios end-to-end; steps fire real engines & light the architecture.', 's-arch': 'Animated SVG operating model; tap nodes for inspector; ✕ closes.', 's-queue': 'Rush-aware tokens, lunch-adjusted ETAs, suggestions, Express OPD, ⭐VIP.', 's-rooms': 'Room board + VIP protocol + upgrade via Concierge.', 's-policy': 'Customer coverage explainer: WHY + history + approve/decline e-consent. (Light theme)', 's-claims': 'Admin TPA denial-risk checklist & fix-lists.', 's-vitals': 'Explainable triage rules engine.', 's-hearing': 'Aid price intelligence, targets, obsolete, supplier feed, clinics.', 's-vendor': 'Certified outsourced panel (MRI/CT + reference path) with SLA & recovery.', 's-assets': 'Warranties/AMC/AERB + OT auto-block + solar/energy monitor.', 's-pharm': 'FEFO ladder + antibiotic-resistance intelligence feeding Seasonal.', 's-collab': 'Verified refer-out / visiting consultants; zero-commission.', 's-tourism': '7-step workflow, partners, global+local marketing, legality, KPIs.', 's-hr': 'Attrition shock, gaps, tenure flags, retention chats, hiring.', 's-geo': 'Meerut pincode tap-plans with channels, budgets, uplift.', 's-routing': 'OPD ⇄ Hearing cross-entity loop.', 's-funnel': 'Surgical funnel stepper with e-consent & RPA labs.', 's-pricing': 'Certified rate cards, QR stamps + GST e-invoice export.', 's-seasonal': 'Live morphing demand chart + preparedness actions.', 's-gov': 'Audit tower + patient-feedback sentiment (NLP) → grievance loop.', 's-outreach': 'Poster studio (Kanag themes) + Design Copilot.', 's-compliance': 'Regulatory register + ABHA/ABDM readiness + NABH KPI dashboard.', 's-about': 'Brand, leadership, team, algorithm index.'};
-        const GLOSS = [['AIRA', 'Adaptive Integrated Routing Architecture — software-only digital operating model for Kanag ENT.'], ['BPM', 'Business Process Management — modelling & improving workflows.'], ['RPA', 'Robotic Process Automation — bots that fill TPA forms & parse lab PDFs.'], ['SaaS', 'Software-as-a-Service — pay-per-use cloud software; avoids ERP capex.'], ['Low-code', 'Build apps visually (Glide/AppSheet) instead of heavy coding.'], ['TPA', 'Third-Party Administrator — insurer\u2019s claim-processing intermediary.'], ['PM-JAY', 'Ayushman Bharat; cashless all-inclusive packages; balance billing prohibited.'], ['CGHS / ECHS', 'Central govt health schemes with fixed entitlements & rates.'], ['NABH', 'Hospital accreditation body; quality & safety standards.'], ['NABL 112', 'Referral-lab rule: prior intimation + MoU between labs.'], ['DPDP', 'Digital Personal Data Protection Act 2023 (+Rules 2025).'], ['FRRO', 'Foreigners\u2019 registration — medical tourists register ≤14 days.'], ['M-Visa', 'Medical visa for international patients.'], ['FHIR / ABHA', 'Digital health record standard / national health ID (ABDM).'], ['ICD-10 / SNOMED', 'Clinical coding systems making claims machine-checkable.'], ['FEFO', 'First-Expiry-First-Out pharmacy rotation.'], ['EWMA', 'Exponentially weighted moving average — queue velocity smoothing.'], ['SLA', 'Service-level agreement — vendor TAT commitments.'], ['AMC', 'Annual maintenance contract for equipment.'], ['AERB', 'Atomic Energy Regulatory Board — X-ray licence.'], ['BMW', 'Biomedical waste segregation & manifest rules.'], ['OT', 'Operating Theatre.'], ['RMO', 'Resident Medical Officer — counselling & pre-op coordination.'], ['BERA / ASSR / OAE', 'Objective hearing tests (paediatric sedation-synced).'], ['VNG', 'Vestibular (vertigo) test — in-house.'], ['Express OPD', 'Paid fast-track lane offered when wait > 90 min.'], ['Reneging', 'Patients leaving queue untreated (was 45%).'], ['Institutional void', 'Missing market/organizational capability.'], ['Maker-checker', 'Two-person approval for risky actions.'], ['Zero-commission', 'No fee-splitting on referrals (NMC rule).'], ['Room-rent cap', 'Many policies cover room rent up to 1% of sum insured/day.'], ['Denial-risk', 'Probability a claim gets rejected, scored pre-submission.'], ['Coverage Concierge', 'Plain-language coverage explainer with history + consent.'], ['Design Copilot', 'Chatbot restyling posters from plain-language prompts.'], ['Digital Twin', 'Queuing-model simulator testing staffing/demand what-ifs.'], ['e-Invoice', 'GST-compliant digital invoice with IRN hash export.']];
-        const SCREENS = Object.keys(TITLES); let audF = 'ALL';
+        const SCREENS = Object.keys(TITLES);
+        const GUIDE = {'s-home': 'Live KPIs, brand photo, event stream.', 's-wa': 'WhatsApp booking bot (EN/हिं) feeding Slot Engine & Queue.', 's-tele': 'Day-3/7 video follow-ups, e-Rx renewals, reminders.', 's-guide': 'This dictionary of tabs + PWA notes.', 's-gloss': 'Searchable plain-language glossary.', 's-metrics': 'Savings optimizer + Digital Twin what-if (M/M/c).', 's-journey': 'Play 11 patient scenarios; steps fire real engines & light the architecture.', 's-arch': 'Animated 34-node operating model; tap nodes for inspector.', 's-queue': 'Rush-aware tokens, lunch-adjusted ETAs, Express OPD, ⭐VIP.', 's-rooms': 'Room board + VIP protocol + upgrade via Concierge.', 's-policy': 'Coverage explainer: WHY + history + approve/decline e-consent.', 's-claims': 'TPA denial-risk checklist & fix-lists.', 's-vitals': 'Explainable triage rules engine.', 's-hearing': 'Aid price intelligence, targets, obsolete, supplier feed.', 's-vendor': 'Certified outsourced panel (MRI/CT + reference path).', 's-assets': 'Warranties/AMC/AERB + OT auto-block + solar monitor.', 's-pharm': 'FEFO ladder + antibiotic-resistance intelligence.', 's-collab': 'Verified refer-out / visiting consultants; zero-commission.', 's-tourism': '7-step workflow, partners, marketing, legality, KPIs.', 's-hr': 'Attrition shock, gaps, tenure flags, retention chats.', 's-geo': 'Meerut pincode tap-plans with budgets & uplift.', 's-routing': 'OPD ⇄ Hearing cross-entity loop.', 's-funnel': 'Surgical funnel stepper with e-consent & RPA labs.', 's-pricing': 'Certified rate cards, QR stamps + GST e-invoice.', 's-seasonal': 'Live morphing demand chart + preparedness actions.', 's-gov': 'Audit tower + feedback sentiment → grievance loop.', 's-outreach': 'Poster studio (Kanag themes) + Design Copilot.', 's-compliance': 'Regulatory register + ABDM readiness + NABH KPIs.', 's-about': 'Brand, leadership, team, algorithm index.'};
+        const GLOSS = [['AIRA', 'Adaptive Integrated Routing Architecture — software-only digital operating model.'], ['BPM', 'Business Process Management — modelling & improving workflows.'], ['RPA', 'Bots that fill TPA forms & parse lab PDFs.'], ['SaaS', 'Pay-per-use cloud software; avoids ERP capex.'], ['TPA', 'Third-Party Administrator — insurer\u2019s claim processor.'], ['PM-JAY', 'Ayushman Bharat; cashless packages; balance billing prohibited.'], ['CGHS / ECHS', 'Central govt health schemes with fixed entitlements.'], ['NABH', 'Hospital accreditation body; quality & safety standards.'], ['NABL 112', 'Referral-lab rule: prior intimation + MoU.'], ['DPDP', 'Data Protection Act 2023 (+Rules 2025).'], ['FRRO', 'Foreigners\u2019 registration — medical tourists ≤14 days.'], ['M-Visa', 'Medical visa for international patients.'], ['FHIR / ABHA', 'Digital health record standard / national health ID.'], ['ICD-10 / SNOMED', 'Clinical coding making claims machine-checkable.'], ['FEFO', 'First-Expiry-First-Out pharmacy rotation.'], ['EWMA', 'Smoothed queue-velocity average.'], ['SLA', 'Service-level agreement — vendor TAT commitments.'], ['AMC', 'Annual maintenance contract.'], ['AERB', 'X-ray licence authority.'], ['BMW', 'Biomedical waste rules.'], ['OT', 'Operating Theatre.'], ['RMO', 'Resident Medical Officer.'], ['BERA / ASSR / OAE', 'Objective hearing tests.'], ['VNG', 'Vestibular (vertigo) test.'], ['Express OPD', 'Paid fast-track lane when wait > 90 min.'], ['Reneging', 'Patients leaving queue untreated.'], ['Maker-checker', 'Two-person approval for risky actions.'], ['Room-rent cap', 'Many policies cover room rent up to 1% of SI/day.'], ['Denial-risk', 'Probability a claim gets rejected, scored pre-submit.'], ['Digital Twin', 'Queuing-model what-if simulator.'], ['e-Invoice', 'GST digital invoice with IRN hash.']];
+        let audF = 'ALL';
         function setAud(f) {audF = f; document.querySelectorAll('.aud button').forEach(b => b.classList.toggle('on', b.textContent.startsWith(f === 'ALL' ? 'ALL' : f === 'C' ? 'CUSTOMER' : 'ADMIN'))); document.querySelectorAll('.card').forEach(c => {const a = c.dataset.aud || 'B'; c.style.display = (f === 'ALL' || a === 'B' || a === f) ? '' : 'none'}); seSize()}
         function go(id) {
             SCREENS.forEach(s => $(s).classList.toggle('on', s === id)); document.querySelectorAll('#bnav button[data-s]').forEach(b => b.classList.toggle('on', b.dataset.s === id)); document.querySelectorAll('#dnav button').forEach(b => b.classList.toggle('on', b.dataset.s === id)); $('more').classList.remove('on'); $('mnav').classList.remove('on'); window.scrollTo({top: 0, behavior: 'smooth'}); setAud(audF); applyTheme(id);
@@ -2104,7 +2132,6 @@
         $('moreGrid').innerHTML = SCREENS.filter(s => !['s-home', 's-journey', 's-policy', 's-arch'].includes(s)).map(s => `<button class="m" onclick="go('${s}')"><span>•</span>${TITLES[s]}</button>`).join('');
         $('guideList').innerHTML = SCREENS.map(s => `<div class="prow"><div style="flex:1"><b>${TITLES[s]}</b><br><span class="note">${GUIDE[s]}</span></div><div class="acts"><button class="btn sm" onclick="go('${s}')">Open</button></div></div>`).join('');
         function renderGloss() {const q = ($('glossSearch').value || '').toLowerCase(); $('glossList').innerHTML = GLOSS.filter(g => (g[0] + ' ' + g[1]).toLowerCase().includes(q)).map(g => `<div class="prow"><div style="flex:1"><b style="color:var(--cyan)">${g[0]}</b><br><span class="note">${g[1]}</span></div></div>`).join('')}
-        renderGloss();
         $('homeTicker').textContent = '🌫 AQI spike — rhinitis surge • 🦻 Signia target 65% • 🔧 Audiometer calibration due 12d • 💊 Cefixime low — FEFO reorder • 🔗 CityScan TAT breach — recovery open • 🌍 UAE cochlear inquiry • ☀ Solar offset 68% • 🩺 Day-3 tele follow-ups due';
         const STREAM = [];
         function logEv(ic, tx, cls) {STREAM.unshift({ic, tx, cls: cls || ''}); if (STREAM.length > 26) STREAM.pop(); $('stream').innerHTML = STREAM.map(s => `<div class="${s.cls}">${s.ic} ${s.tx} · ${now()}</div>`).join('')}
@@ -2136,7 +2163,7 @@
                 $('tSug').innerHTML = (Wq > 30 ? '<span class="chip a">Add capacity or Express lane</span>' : '<span class="chip g">Stable</span>') + ' ρ=' + Math.round(rho * 100) + '% · feeds HR & Slot Engine';
             }
         }
-        /* WA BOT — clean state machine */
+        /* WA BOT */
         function waLine(who, txt) {$('waChat').innerHTML += `<div class="${who === 'bot' ? 'bot' : ''}">${who === 'bot' ? '🤖 AIRA' : '🧑 Patient'}: ${txt}</div>`; $('waChat').scrollTop = 9999}
         function waRender(list) {$('waOpts').innerHTML = list.map(o => `<button class="btn sm" data-act="${o[0]}">${o[1]}</button>`).join('')}
         const WA_MENU = [['book', '📅 Book OPD'], ['rush', '⏳ Current rush'], ['exp', '⚡ Express OPD'], ['em', '🚑 Emergency']];
@@ -2158,7 +2185,7 @@
         function teleVid(i) {logEv('🩺', 'Video follow-up done: ' + TELE[i][0], 'ok'); toast('Video consult completed 🩺'); TELE[i][4] = 'Done ✔'; renderTele()}
         function teleRx(i) {logEv('💊', 'Signed e-Rx renewed: ' + TELE[i][0], 'ok'); toast('e-Rx signed & sent 💊'); TELE[i][4] = 'Renewed ✔'; renderTele()}
         function teleRem(i) {logEv('🔔', 'Reminder sent: ' + TELE[i][0]); toast('Reminder sent 🔔')}
-        /* ABHA + NABH + SENTIMENT */
+        /* ABHA / NABH / SENTIMENT */
         function abhaToggle() {
             const on = $('abhaT').checked;
             $('abhaOut').innerHTML = on ? `<pre class="json">{ "resourceType":"Bundle", "type":"document", "patient":{"abha":"91-XXXX-XXXX-4721"}, "consent":{"status":"active","purpose":"CAREMGT","expiry":"2027-08-01"}, "entry":["Encounter","Observation(BERA)","MedicationRequest"] }</pre><div style="margin-top:6px"><span class="chip g">ABHA linked 62%</span><span class="chip g">HFR registered</span><span class="chip g">Consent manager live</span><span class="chip">FHIR R4 native</span></div>` : '';
@@ -2182,7 +2209,7 @@
             const blob = new Blob([JSON.stringify(inv, null, 1)], {type: 'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'einvoice_' + inv.invoiceNo + '.json'; a.click();
             logEv('🧾', 'e-Invoice exported: ' + inv.invoiceNo, 'ok'); toast('GST e-Invoice exported 🧾')
         }
-        /* ARCH */
+        /* ARCHITECTURE (34 nodes / 6 bands) */
         const C = {cyan: '#22d3ee', emerald: '#34d399', amber: '#fbbf24', violet: '#a78bfa', magenta: '#f472b6', orange: '#fb923c'};
         const NODES = [
             {id: 'web', x: 300, y: 95, icon: '🌐', name: 'Online Booking', sub: 'kanagent.com', desc: 'Website portal; personas.', inn: ['Search'], out: ['Booking']},
@@ -2213,24 +2240,15 @@
             {id: 'inv', x: 680, y: 880, icon: '📦', name: 'Inventory', sub: 'Live PO', desc: 'Supplier feed.', inn: ['Alerts'], out: ['POs']},
             {id: 'mkt', x: 930, y: 880, icon: '📰', name: 'Geo + Tourism Mkt', sub: 'Meerut·Global', desc: 'Low-flow taps; facilitators.', inn: ['Data'], out: ['Campaigns']},
             {id: 'griev', x: 1420, y: 880, icon: '🕊️', name: 'Grievance Desk', sub: 'Recovery', desc: 'Closes loop; feedback NLP.', inn: ['Feedback'], out: ['BI']},
-            {id: 'dash', x: 1180, y: 880, icon: '📊', name: 'Exec Dashboard', sub: 'Dr. Ankur·Seema', desc: 'Command centre.', inn: ['Feeds'], out: ['Decisions']}];
-        const EDGES = [['web', 'slot', C.cyan, -30, 2], ['ivr', 'slot', C.cyan, 20, 2], ['referral', 'slot', C.cyan, 60, 1], ['walkin', 'queue', C.cyan, -20, 2], ['slot', 'queue', C.cyan, -26, 3], ['queue', 'notify', C.cyan, -24, 2], ['slot', 'patient', C.cyan, -80, 1], ['notify', 'patient', C.cyan, 30, 2], ['queue', 'core', C.cyan, -46, 2], ['queue', 'policy', C.cyan, 40, 1], ['policy', 'patient', C.cyan, 60, 1], ['core', 'lang', C.magenta, -40, 1], ['lang', 'notify', C.magenta, 40, 1], ['lang', 'patient', C.cyan, 80, 1], ['walkin', 'vitals', C.emerald, -20, 1], ['vitals', 'core', C.magenta, 30, 1], ['vitals', 'opd', C.emerald, 40, 1], ['core', 'opd', C.emerald, -30, 2], ['opd', 'hear', C.emerald, -44, 2], ['hear', 'opd', C.emerald, -44, 2], ['opd', 'diag', C.emerald, -38, 2], ['diag', 'opd', C.emerald, -38, 2], ['opd', 'ot', C.emerald, 46, 2], ['diag', 'ot', C.emerald, -30, 2], ['ot', 'pharm', C.emerald, -34, 2], ['diag', 'lablink', C.emerald, 24, 2], ['lablink', 'diag', C.emerald, -24, 1], ['ivr', 'emerg', C.orange, 110, 3], ['walkin', 'emerg', C.orange, 70, 2], ['emerg', 'ot', C.orange, -38, 3], ['opd', 'bill', C.amber, -70, 2], ['hear', 'bill', C.amber, -150, 1], ['diag', 'bill', C.amber, -80, 2], ['ot', 'bill', C.amber, -55, 2], ['emerg', 'bill', C.amber, 40, 1], ['pharm', 'bill', C.amber, -30, 2], ['policy', 'bill', C.amber, -40, 1], ['bill', 'pay', C.amber, 40, 1], ['pay', 'patient', C.cyan, 120, 1], ['bill', 'tpagw', C.amber, -30, 2], ['tpagw', 'dash', C.amber, 60, 1], ['core', 'consent', C.magenta, -30, 1], ['consent', 'patient', C.cyan, 80, 1], ['consent', 'audit', C.violet, 90, 1], ['core', 'hr', C.violet, 70, 1], ['hr', 'slot', C.violet, -100, 1], ['pharm', 'inv', C.violet, 44, 1], ['bill', 'audit', C.violet, -60, 1], ['audit', 'dash', C.violet, 40, 1], ['patient', 'griev', C.violet, 140, 1], ['griev', 'dash', C.violet, -30, 1], ['core', 'slot', C.magenta, 36, 1], ['core', 'notify', C.magenta, -40, 1], ['core', 'policy', C.magenta, 60, 1], ['core', 'mkt', C.magenta, -70, 1], ['core', 'dash', C.magenta, 30, 2], ['queue', 'dash', C.cyan, -150, 1], ['bill', 'dash', C.amber, 60, 1]];
-        const BANDS = [['01 · PATIENT ENTRY', 95], ['02 · FRONT-OFFICE', 250], ['03 · AIRA CORE', 475], ['04 · CLINICAL', 715], ['05 · BACK-OFFICE', 880]];
-        BANDS.push(['06 · ASSURANCE & EXTENDED CARE', 1010]);
-        NODES.push(
+            {id: 'dash', x: 1180, y: 880, icon: '📊', name: 'Exec Dashboard', sub: 'Dr. Ankur·Seema', desc: 'Command centre.', inn: ['Feeds'], out: ['Decisions']},
+            {id: 'tele', x: 235, y: 1010, icon: '🩺', name: 'Tele-Follow-up Loop', sub: 'Day-3/7 · e-Rx renewal', desc: 'Post-discharge video follow-ups, signed e-Rx renewals and adherence tracking per Telemedicine Practice Guidelines.', inn: ['Discharge events'], out: ['Video consults', 'e-Rx renewals', 'Adherence → BI']},
             {id: 'wabot', x: 520, y: 1010, icon: '💬', name: 'WhatsApp Booking Bot', sub: 'EN/हिं NLG · escalations', desc: 'State-machine conversational booking: quotes live rush, offers Express OPD, escalates emergencies; feeds the Slot Engine.', inn: ['Patient WA messages'], out: ['Bookings → Slot Engine', 'Emergency escalation']},
-            {id: 'tele', x: 235, y: 1010, icon: '🩺', name: 'Tele-Follow-up Loop', sub: 'Day-3/7 · e-Rx renewal', desc: 'Post-discharge video follow-ups, cryptographically signed e-Rx renewals and adherence tracking per Telemedicine Practice Guidelines.', inn: ['Discharge events'], out: ['Video consults', 'e-Rx renewals', 'Adherence → BI']},
             {id: 'prem', x: 800, y: 1010, icon: '🔧', name: 'Premises & Energy', sub: 'AMC · AERB · Solar', desc: 'Warranty/calibration/AMC/licence tracking with OT auto-block; solar offset monitoring and work-orders.', inn: ['Asset calendar', 'Meter feeds'], out: ['Work-orders', 'OT auto-block', 'Escalations → Admin']},
             {id: 'twin', x: 1080, y: 1010, icon: '🧬', name: 'Digital Twin', sub: 'M/M/c what-if', desc: 'Queuing-model simulator that tests arrival/staffing shocks before roster changes are committed.', inn: ['Arrivals', 'Roster', 'Service rates'], out: ['Staffing advice → HR', 'Express-lane trigger → Queue']},
-            {id: 'nabh', x: 1360, y: 1010, icon: '🏅', name: 'Quality & Compliance', sub: 'NABH KPIs · ABDM', desc: 'NABH KPI dashboard, ABDM/FHIR R4 readiness and consent audit; pushes reports to the Quality Council.', inn: ['Audit trails', 'KPIs'], out: ['Quality Council reports', 'ABDM bundles']}
-        );
-        EDGES.push(
-            ['core', 'wabot', C.magenta, -40, 1], ['wabot', 'slot', C.cyan, -60, 1],
-            ['dash', 'tele', C.emerald, 60, 1], ['tele', 'notify', C.cyan, 80, 1],
-            ['core', 'prem', C.violet, 70, 1], ['prem', 'ot', C.orange, -60, 1],
-            ['hr', 'twin', C.violet, 40, 1], ['twin', 'queue', C.magenta, -80, 1],
-            ['audit', 'nabh', C.violet, 40, 1], ['nabh', 'dash', C.amber, -40, 1]
-        );
+            {id: 'nabh', x: 1360, y: 1010, icon: '🏅', name: 'Quality & Compliance', sub: 'NABH KPIs · ABDM', desc: 'NABH KPI dashboard, ABDM/FHIR R4 readiness and consent audit; pushes reports to the Quality Council.', inn: ['Audit trails', 'KPIs'], out: ['Quality Council reports', 'ABDM bundles']}];
+        const EDGES = [['web', 'slot', C.cyan, -30, 2], ['ivr', 'slot', C.cyan, 20, 2], ['referral', 'slot', C.cyan, 60, 1], ['walkin', 'queue', C.cyan, -20, 2], ['slot', 'queue', C.cyan, -26, 3], ['queue', 'notify', C.cyan, -24, 2], ['slot', 'patient', C.cyan, -80, 1], ['notify', 'patient', C.cyan, 30, 2], ['queue', 'core', C.cyan, -46, 2], ['queue', 'policy', C.cyan, 40, 1], ['policy', 'patient', C.cyan, 60, 1], ['core', 'lang', C.magenta, -40, 1], ['lang', 'notify', C.magenta, 40, 1], ['lang', 'patient', C.cyan, 80, 1], ['walkin', 'vitals', C.emerald, -20, 1], ['vitals', 'core', C.magenta, 30, 1], ['vitals', 'opd', C.emerald, 40, 1], ['core', 'opd', C.emerald, -30, 2], ['opd', 'hear', C.emerald, -44, 2], ['hear', 'opd', C.emerald, -44, 2], ['opd', 'diag', C.emerald, -38, 2], ['diag', 'opd', C.emerald, -38, 2], ['opd', 'ot', C.emerald, 46, 2], ['diag', 'ot', C.emerald, -30, 2], ['ot', 'pharm', C.emerald, -34, 2], ['diag', 'lablink', C.emerald, 24, 2], ['lablink', 'diag', C.emerald, -24, 1], ['ivr', 'emerg', C.orange, 110, 3], ['walkin', 'emerg', C.orange, 70, 2], ['emerg', 'ot', C.orange, -38, 3], ['opd', 'bill', C.amber, -70, 2], ['hear', 'bill', C.amber, -150, 1], ['diag', 'bill', C.amber, -80, 2], ['ot', 'bill', C.amber, -55, 2], ['emerg', 'bill', C.amber, 40, 1], ['pharm', 'bill', C.amber, -30, 2], ['policy', 'bill', C.amber, -40, 1], ['bill', 'pay', C.amber, 40, 1], ['pay', 'patient', C.cyan, 120, 1], ['bill', 'tpagw', C.amber, -30, 2], ['tpagw', 'dash', C.amber, 60, 1], ['core', 'consent', C.magenta, -30, 1], ['consent', 'patient', C.cyan, 80, 1], ['consent', 'audit', C.violet, 90, 1], ['core', 'hr', C.violet, 70, 1], ['hr', 'slot', C.violet, -100, 1], ['pharm', 'inv', C.violet, 44, 1], ['bill', 'audit', C.violet, -60, 1], ['audit', 'dash', C.violet, 40, 1], ['patient', 'griev', C.violet, 140, 1], ['griev', 'dash', C.violet, -30, 1], ['core', 'slot', C.magenta, 36, 1], ['core', 'notify', C.magenta, -40, 1], ['core', 'policy', C.magenta, 60, 1], ['core', 'mkt', C.magenta, -70, 1], ['core', 'dash', C.magenta, 30, 2], ['queue', 'dash', C.cyan, -150, 1], ['bill', 'dash', C.amber, 60, 1],
+        ['core', 'wabot', C.magenta, -40, 1], ['wabot', 'slot', C.cyan, -60, 1], ['dash', 'tele', C.emerald, 60, 1], ['tele', 'notify', C.cyan, 80, 1], ['core', 'prem', C.violet, 70, 1], ['prem', 'ot', C.orange, -60, 1], ['hr', 'twin', C.violet, 40, 1], ['twin', 'queue', C.magenta, -80, 1], ['audit', 'nabh', C.violet, 40, 1], ['nabh', 'dash', C.amber, -40, 1]];
+        const BANDS = [['01 · PATIENT ENTRY', 95], ['02 · FRONT-OFFICE', 250], ['03 · AIRA CORE', 475], ['04 · CLINICAL', 715], ['05 · BACK-OFFICE', 880], ['06 · ASSURANCE & EXTENDED CARE', 1010]];
         const NS = 'http://www.w3.org/2000/svg';
         const svg = $('diagram'), wrap = $('scrollwrap');
         const mqM = window.matchMedia('(max-width:820px)');
@@ -2355,7 +2373,7 @@
         function ccYes(self, s, r, name) {$('ccOut').innerHTML += `<div class="stamp"><div class="meta"><b>CONSENT e-SIGNED</b><br>${name} · ${s} · ${r} · ${inr(self)}<br>#${h32(name + s + r + self)} · Vault</div></div>`; logEv('🔐', 'Consent approved', 'ok'); tracePath(['policy', 'consent', 'audit']); toast('Consent e-signed 🔐')}
         function ccAlt() {$('ccRoom').value = 'General'; concierge(); logEv('↩', 'Switched to covered General', 'ok'); toast('Switched to covered General')}
         function ccMed() {$('ccOut').innerHTML += `<div class="ccard warn">🩺 ${L('Exception routed with audit log.', 'अपवाद मार्ग — ऑडिट सहित।')}</div>`; logEv('🩺', 'Exception opened', 'pen'); toast('Exception routed')}
-        /* TPA/PRICING */
+        /* TPA / PRICING */
         const PROCS = {'FESS': {icd: 'J34.2', r: {Cash: 70000, 'TPA / Insurance': 58000, CGHS: 52000, ECHS: 52000, 'Ayushman (PM-JAY)': 47000}}, 'Septoplasty': {icd: 'J34.3', r: {Cash: 55000, 'TPA / Insurance': 45000, CGHS: 40000, ECHS: 40000, 'Ayushman (PM-JAY)': 36000}}, 'Tympanoplasty': {icd: 'H70.1', r: {Cash: 65000, 'TPA / Insurance': 54000, CGHS: 48000, ECHS: 48000, 'Ayushman (PM-JAY)': 43000}}};
         const DOCS = ['Pre-auth', 'Consent', 'ICD-10', 'Notes', 'Bill', 'Reports', 'Discharge', 'KYC']; let docState = [1, 1, 1, 0, 1, 0, 1, 1];
         $('tpaProc').innerHTML = Object.keys(PROCS).map(p => `<option>${p}</option>`).join('');
@@ -2465,7 +2483,7 @@
             const byR = {}; STAFF.forEach(s => byR[s.r] = (byR[s.r] || 0) + 1);
             $('hrGaps').innerHTML = Object.entries(REQ).map(([r, q]) => {const have = byR[r] || 0; const eff = Math.max(0, have - Math.round(have * attr / 100) - (r === 'Nurse' ? 1 : 0)); const gap = Math.max(0, q - eff); return `<div class="prow"><div>${r}: need ${q} · eff ${eff}</div>${gap ? `<span class="chip r">GAP ${gap}</span>` : '<span class="chip g">OK</span>'}</div>`}).join('');
             $('hrTable').innerHTML = '<tr><th>Staff</th><th>Flags</th><th></th></tr>' + STAFF.map((s, i) => `<tr><td><b>${s.n}</b> · ${s.r}</td><td>${s.c !== '—' ? `<span class="chip a">${s.c}</span>` : ''}${s.t !== '—' ? `<span class="chip r">${s.t}</span>` : ''}</td><td><div class="acts">${(s.rk > .5 || s.c !== '—') ? `<button class="btn sm ok" onclick="hrTalk(${i})">💬 Talk</button>` : ''}</div></td></tr>`).join('');
-            $('hrHire').innerHTML = '<button class="btn sm" onclick="logEv(\'📄\',\'JDs live · 21d to fill\',\'pen\');toast(\'JDs drafted & posted 📄\')"> Draft JDs + post</button> <span class="chip v">Sunday +15% auto</span>'
+            $('hrHire').innerHTML = '<button class="btn sm" onclick="logEv(\'📄\',\'JDs live · 21d to fill\',\'pen\');toast(\'JDs drafted & posted 📄\')">📄 Draft JDs + post</button> <span class="chip v">Sunday +15% auto</span>'
         }
         function hrTalk(i) {logEv('💬', 'Retention chat: ' + STAFF[i].n, 'ok'); STAFF[i].rk = Math.max(.1, STAFF[i].rk - .2); renderHR(); toast('Retention chat: ' + STAFF[i].n)}
         /* GEO */
@@ -2478,7 +2496,7 @@
             const recs = m === 7 ? [['Pallavpuram monsoon otitis camp', 'Society WhatsApp + hoardings', '₹8k', '+18 pts'], ['Modinagar school hearing MoU', 'Principal meets + WA groups', '₹5k', '+12 pts']] : m >= 10 ? [['Kanker Khera senior vertigo camp', 'Google geo-ads 3km', '₹6k', '+15 pts'], ['Partapur allergy drive', 'Radio + WA', '₹7k', '+10 pts']] : [['Pallavpuram paed BERA camp', 'School WA + society stalls', '₹8k', '+20 pts'], ['Rohta Road sleep clinic push', 'Google ads + posters', '₹6k', '+9 pts']];
             $('gRec').innerHTML = '<label>TAP-PLAN — ' + MN[m] + '</label>' + recs.map(r => `<div class="prow"><div style="flex:1">${r[0]}<br><span class="note">${r[1]}</span></div><div class="acts"><span class="chip">${r[2]}</span><span class="chip g">${r[3]}</span><button class="btn sm ok" onclick="logEv('📣','Geo campaign pushed to Studio','ok');toast('Pushed to Studio 📣')">Push</button></div></div>`).join('')
         }
-        /* ROUTING/FUNNEL */
+        /* ROUTING / FUNNEL */
         let R = {opd: ['Ramesh K.', 'Sunita P.'], hs: [], ret: ['Aarav M.']};
         function renderR() {$('rOPD').innerHTML = R.opd.map(x => `<span class="chip">${x}</span>`).join('') || '—'; $('rHS').innerHTML = R.hs.map(x => `<span class="chip a">${x}</span>`).join('') || '—'; $('rRet').innerHTML = R.ret.map(x => `<span class="chip g">${x}</span>`).join('') || '—'}
         function orderBERA() {if (!R.opd.length) return toast('OPD empty'); const p = R.opd.shift(); R.hs.push(p); renderR(); tracePath(['opd', 'hear']); logEv('🦻', p + ' → Hearing'); toast(p + ' → Hearing priority task')}
@@ -2604,8 +2622,9 @@
             $('chatBox').scrollTop = 9999; $('chatIn').value = ''; genPoster()
         }
         function publish() {$('oPub').innerHTML = $('oApprove').checked ? '<span class="chip g">Web ✔</span><span class="chip g">WA ✔</span><span class="chip g">Geo-ads ✔</span>' : '<span class="chip a">Awaiting approval</span>'; if ($('oApprove').checked) {logEv('📣', 'Published', 'ok'); toast('Published 📣')} else toast('Approval removed')}
+        /* COMPLIANCE / ABOUT */
         $('cList').innerHTML = [['DPDP 2023 + Rules 2025', 'Consent vault · purge', 'g'], ['NMC', 'Zero-commission', 'g'], ['NABL 112', 'Prior intimation + MoU', 'g'], ['PM-JAY', 'Balance-billing block', 'g'], ['AERB / Fire', 'Licence tracking (Premises engine)', 'g'], ['Telemedicine', 'Signed e-Rx', 'g'], ['FRRO', 'Tourism ≤14d', 'g'], ['Hindi Engine', 'Bilingual patient comms', 'g']].map(x => `<div class="prow"><div style="flex:1"><b>${x[0]}</b> — ${x[1]}</div><span class="chip g">LIVE</span></div>`).join('');
-        $('aAlgo').innerHTML = ['v11 QA: WA-bot state machine fixed · tele/hearing/energy/geo rows aligned via .acts · building photo resized (430px desktop / 300px mobile) · twin stream-spam removed · clipboard fail-safe · light-theme nav/menus', 'Brand: real logo/building photos + SVG replicas fallback', 'Mobile: ☰ dropdown ALL screens; bottom bar top-5', 'GUIDE · GLOSSARY · METRICS+TWIN · all buttons toast', 'VIP & Rooms · Premises · Pharmacy stewardship · Collab · Tourism · HR · Geo', 'Live DPR chart · Concierge why+history+consent · Hindi engine'].map(a => `<div class="prow"><div style="flex:1"> ${a}</div></div>`).join('');
+        $('aAlgo').innerHTML = ['v12-final: 34-node / 6-band architecture · replica sizing fix · WA-bot state machine · .acts alignment · clipboard fail-safe · light-theme nav', 'Brand: real logo/building photos + SVG replicas fallback', 'Mobile: ☰ dropdown ALL screens; bottom bar top-5', 'GUIDE · GLOSSARY · METRICS+TWIN · all buttons toast', 'VIP & Rooms · Premises · Pharmacy stewardship · Collab · Tourism · HR · Geo', 'Live DPR chart · Concierge why+history+consent · Hindi engine'].map(a => `<div class="prow"><div style="flex:1"> ${a}</div></div>`).join('');
         /* JOURNEY */
         const JV = [
             {name: 'S0 Walk-in Rhinitis', persona: '🧑💼 Adult · AQI week', steps: [{s: 'QR check-in', f: () => {Q.tokens.push({n: 'T07', name: 'Vikram T.', type: 'Walk-in', arr: true, vip: 0}); renderQueue()}, p: ['walkin', 'queue']}, {s: 'Triage', f: runVitals, p: ['walkin', 'vitals', 'core']}, {s: 'ETA + rush alert', f: sendAlert, p: ['queue', 'lang', 'patient']}, {s: 'Stamp', f: makeStamp, p: ['opd', 'bill']}, {s: 'UPI receipt', f: () => {logEv('💳', 'Paid', 'ok'); toast('Payment reconciled 💳')}, p: ['bill', 'pay', 'patient']}]},
@@ -2624,10 +2643,9 @@
         function jvReset() {clearTimeout(jvT); ji = 0; jv = JV[+$('jvSel').value]; $('jvPersona').innerHTML = `<span class="chip v">${jv.persona}</span>`; $('jvSteps').innerHTML = jv.steps.map((s, i) => `<li id="jvs${i}"><span class="n">${i + 1}</span>${s.s}</li>`).join(''); $('jvLog').innerHTML = ''}
         function jvStep() {if (!jv) jvReset(); if (ji >= jv.steps.length) return clearTimeout(jvT); const st = jv.steps[ji]; st.f && st.f(); st.p && tracePath(st.p); $('jvLog').innerHTML = `<div class="ok">▶ ${st.s}</div>` + $('jvLog').innerHTML; $('jvs' + ji).classList.add('done'); ji++; if (ji >= jv.steps.length) {logEv('🏁', jv.name + ' complete', 'ok'); toast('Journey complete 🏁')} }
         function jvStart() {jvReset(); toast('Auto-playing ▶'); (function loop() {jvStep(); if (ji < jv.steps.length) jvT = setTimeout(loop, 1800)})()}
-        jvReset();
-        /* init */
-        renderQueue(); renderRooms(); renderHear(); renderVend(); renderAssets(); renderPharm(); renderCollab(); renderTour(); renderT(); renderHR(); renderGeo(); renderR(); renderF(); renderTpa(); renderP(); renderG(); seSize(); seActions(); metCalc(); twinCalc(); homeKPIs(); setAud('ALL'); applyTheme('s-home');
-        logEv('🟢', 'AIRA v11 online — QA pass complete', 'ok');
+        /* INIT */
+        jvReset(); renderQueue(); renderRooms(); renderHear(); renderVend(); renderAssets(); renderPharm(); renderCollab(); renderTour(); renderT(); renderHR(); renderGeo(); renderR(); renderF(); renderTpa(); renderP(); renderG(); renderGloss(); seSize(); seActions(); metCalc(); twinCalc(); homeKPIs(); setAud('ALL'); applyTheme('s-home');
+        logEv('🟢', 'AIRA v12-final online — complete build', 'ok');
     </script>
 </body>
 
